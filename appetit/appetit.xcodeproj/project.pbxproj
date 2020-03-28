@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				9EE1F006242F3A030047352B /* Resources */,
-				9EE1F005242F39E60047352B /* Backend Logic */,
+				9EE1F005242F39E60047352B /* Backend API */,
 				9EE1F004242F39A90047352B /* Datahandler */,
 				9EE1F003242F391B0047352B /* Frontend Logic */,
 				9EE1EFEF242F389F0047352B /* AppDelegate.swift */,
@@ -85,11 +85,11 @@
 			path = Datahandler;
 			sourceTree = "<group>";
 		};
-		9EE1F005242F39E60047352B /* Backend Logic */ = {
+		9EE1F005242F39E60047352B /* Backend API */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "Backend Logic";
+			path = "Backend API";
 			sourceTree = "<group>";
 		};
 		9EE1F006242F3A030047352B /* Resources */ = {

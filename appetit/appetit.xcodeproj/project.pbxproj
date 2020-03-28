@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12037242FC0E8005885C5 /* mainViewController.swift */; };
+		9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */; };
+		9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */; };
+		9EE1203E242FC298005885C5 /* resource.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1203D242FC298005885C5 /* resource.strings */; };
 		9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFEF242F389F0047352B /* AppDelegate.swift */; };
 		9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF1242F389F0047352B /* SceneDelegate.swift */; };
 		9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF3242F389F0047352B /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9EE12037242FC0E8005885C5 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataHandler.swift; sourceTree = "<group>"; };
+		9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoAPI.swift; sourceTree = "<group>"; };
+		9EE1203D242FC298005885C5 /* resource.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = resource.strings; sourceTree = "<group>"; };
 		9EE1EFEC242F389F0047352B /* appetit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appetit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1EFEF242F389F0047352B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EE1EFF1242F389F0047352B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,7 @@
 		9EE1F003242F391B0047352B /* Frontend Logic */ = {
 			isa = PBXGroup;
 			children = (
+				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -81,6 +90,7 @@
 		9EE1F004242F39A90047352B /* Datahandler */ = {
 			isa = PBXGroup;
 			children = (
+				9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */,
 			);
 			path = Datahandler;
 			sourceTree = "<group>";
@@ -88,6 +98,7 @@
 		9EE1F005242F39E60047352B /* Backend API */ = {
 			isa = PBXGroup;
 			children = (
+				9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */,
 			);
 			path = "Backend API";
 			sourceTree = "<group>";
@@ -95,6 +106,7 @@
 		9EE1F006242F3A030047352B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9EE1203D242FC298005885C5 /* resource.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -157,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE1203E242FC298005885C5 /* resource.strings in Resources */,
 				9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */,
 				9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */,
 				9EE1EFF7242F389F0047352B /* Main.storyboard in Resources */,
@@ -170,9 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */,
+				9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */,
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
 				9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
+				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

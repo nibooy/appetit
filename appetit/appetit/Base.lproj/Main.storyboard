@@ -50,6 +50,38 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="76a-pX-8up">
+            <objects>
+                <viewController id="oxa-44-Wpa" customClass="FridgeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YBt-fx-soo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eZn-nZ-MDV"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="pGC-Bt-aZA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="joW-xQ-85K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2993" y="-620"/>
+        </scene>
+        <!--Scanner-->
+        <scene sceneID="PPZ-UQ-x2a">
+            <objects>
+                <viewController id="D2l-qi-7fJ" customClass="ScannerViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vMd-zf-ckR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ErS-iM-mad"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scanner" id="u2q-NP-U4G"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scs-oS-JXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2993" y="821"/>
+        </scene>
         <!--Signin View Controller-->
         <scene sceneID="jcz-rW-TF6">
             <objects>
@@ -120,6 +152,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4A-z4-YKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="09g-SK-otZ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UTA-T3-ep2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gwe-86-PSw">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="oxa-44-Wpa" kind="relationship" relationship="viewControllers" id="50h-e3-V8X"/>
+                        <segue destination="kLb-FJ-r1e" kind="relationship" relationship="viewControllers" id="agz-Q7-LvJ"/>
+                        <segue destination="D2l-qi-7fJ" kind="relationship" relationship="viewControllers" id="aqH-HC-qmv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A7w-eF-peJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2082.608695652174" y="129.91071428571428"/>
+        </scene>
+        <!--Fridge-->
+        <scene sceneID="07f-Kf-fx7">
+            <objects>
+                <viewController id="kLb-FJ-r1e" customClass="ProfileViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F60-N6-wVY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="qVz-CI-bQq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Fridge" id="ZhZ-RG-1gG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UPh-BB-Gxm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2993" y="130"/>
         </scene>
     </scenes>
 </document>

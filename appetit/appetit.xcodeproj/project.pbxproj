@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F31E24302662006F14E1 /* LoginViewController.swift */; };
+		0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F320243026E6006F14E1 /* SigninViewController.swift */; };
+		0AE2F32324302827006F14E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F32224302827006F14E1 /* ProfileViewController.swift */; };
+		0AE2F32524302867006F14E1 /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F32424302867006F14E1 /* FridgeViewController.swift */; };
+		0AE2F32724302875006F14E1 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F32624302875006F14E1 /* ScannerViewController.swift */; };
 		9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12037242FC0E8005885C5 /* mainViewController.swift */; };
 		9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */; };
 		9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */; };
@@ -20,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AE2F31E24302662006F14E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0AE2F320243026E6006F14E1 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		0AE2F32224302827006F14E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0AE2F32424302867006F14E1 /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
+		0AE2F32624302875006F14E1 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		9EE12037242FC0E8005885C5 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataHandler.swift; sourceTree = "<group>"; };
 		9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoAPI.swift; sourceTree = "<group>"; };
@@ -83,6 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
+				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
+				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
+				0AE2F32224302827006F14E1 /* ProfileViewController.swift */,
+				0AE2F32424302867006F14E1 /* FridgeViewController.swift */,
+				0AE2F32624302875006F14E1 /* ScannerViewController.swift */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -183,12 +198,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */,
 				9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */,
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
+				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
 				9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */,
+				0AE2F32324302827006F14E1 /* ProfileViewController.swift in Sources */,
+				0AE2F32524302867006F14E1 /* FridgeViewController.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
 				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
+				0AE2F32724302875006F14E1 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

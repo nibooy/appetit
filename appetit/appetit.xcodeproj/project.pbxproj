@@ -14,8 +14,9 @@
 		0AE2F32724302875006F14E1 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F32624302875006F14E1 /* ScannerViewController.swift */; };
 		9EB3FF1724354E6800BA0F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FF1624354E6800BA0F39 /* AppDelegate.swift */; };
 		9EB3FF1A24354E7500BA0F39 /* appetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FF1824354E7400BA0F39 /* appetit.xcdatamodeld */; };
+		9EB3FF222435611100BA0F39 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FF212435611100BA0F39 /* MessageHandler.swift */; };
 		9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12037242FC0E8005885C5 /* mainViewController.swift */; };
-		9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */; };
+		9EE1203A242FC17F005885C5 /* UserDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12039242FC17F005885C5 /* UserDataHandler.swift */; };
 		9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */; };
 		9EE1203E242FC298005885C5 /* resource.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1203D242FC298005885C5 /* resource.strings */; };
 		9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF1242F389F0047352B /* SceneDelegate.swift */; };
@@ -33,8 +34,9 @@
 		0AE2F32624302875006F14E1 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		9EB3FF1624354E6800BA0F39 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EB3FF1924354E7400BA0F39 /* appetit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = appetit.xcdatamodel; sourceTree = "<group>"; };
+		9EB3FF212435611100BA0F39 /* MessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageHandler.swift; path = ../../../../MessageHandler.swift; sourceTree = "<group>"; };
 		9EE12037242FC0E8005885C5 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
-		9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataHandler.swift; sourceTree = "<group>"; };
+		9EE12039242FC17F005885C5 /* UserDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataHandler.swift; sourceTree = "<group>"; };
 		9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoAPI.swift; sourceTree = "<group>"; };
 		9EE1203D242FC298005885C5 /* resource.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = resource.strings; sourceTree = "<group>"; };
 		9EE1EFEC242F389F0047352B /* appetit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appetit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9EB3FF20243560FA00BA0F39 /* Message Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9EB3FF212435611100BA0F39 /* MessageHandler.swift */,
+			);
+			path = "Message Enums";
+			sourceTree = "<group>";
+		};
 		9EE1EFE3242F389F0047352B = {
 			isa = PBXGroup;
 			children = (
@@ -76,10 +86,12 @@
 		9EE1EFEE242F389F0047352B /* appetit */ = {
 			isa = PBXGroup;
 			children = (
+				9EB3FF20243560FA00BA0F39 /* Message Enums */,
 				9EE1F006242F3A030047352B /* Resources */,
 				9EE1F005242F39E60047352B /* Backend API */,
 				9EE1F004242F39A90047352B /* Datahandler */,
 				9EE1F003242F391B0047352B /* Frontend Logic */,
+				9EB3FF1624354E6800BA0F39 /* AppDelegate.swift */,
 				9EE1EFF1242F389F0047352B /* SceneDelegate.swift */,
 				9EE1EFF3242F389F0047352B /* ViewController.swift */,
 				9EE1EFF5242F389F0047352B /* Main.storyboard */,
@@ -94,7 +106,6 @@
 		9EE1F003242F391B0047352B /* Frontend Logic */ = {
 			isa = PBXGroup;
 			children = (
-				9EB3FF1624354E6800BA0F39 /* AppDelegate.swift */,
 				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
 				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
 				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
@@ -108,7 +119,7 @@
 		9EE1F004242F39A90047352B /* Datahandler */ = {
 			isa = PBXGroup;
 			children = (
-				9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */,
+				9EE12039242FC17F005885C5 /* UserDataHandler.swift */,
 			);
 			path = Datahandler;
 			sourceTree = "<group>";
@@ -203,7 +214,7 @@
 			files = (
 				9EB3FF1724354E6800BA0F39 /* AppDelegate.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
-				9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */,
+				9EE1203A242FC17F005885C5 /* UserDataHandler.swift in Sources */,
 				9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */,
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
 				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
@@ -211,6 +222,7 @@
 				0AE2F32524302867006F14E1 /* FridgeViewController.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
 				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
+				9EB3FF222435611100BA0F39 /* MessageHandler.swift in Sources */,
 				0AE2F32724302875006F14E1 /* ScannerViewController.swift in Sources */,
 				9EB3FF1A24354E7500BA0F39 /* appetit.xcdatamodeld in Sources */,
 			);

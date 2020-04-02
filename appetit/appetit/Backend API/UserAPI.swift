@@ -9,21 +9,44 @@
 import Foundation
 
 class UserAPI{
+    let userDataHandler: DataHandler;
     
-    func isValidUser(username:String, password:String)-> Bool{
-        return true
+    init() {
+        userDataHandler = DataHandler()
+    }
+    func isValidUser(email:String, password:String) throws -> Bool{
+        do{
+            let userResult = try userDataHandler.getUserInfo(email: email, password: password)
+            return userResult.count > 0
+        }catch{
+            throw MessageHandler.ErrorMessages.dataSearchFailed
+        }
     }
     
-    func saveUser(firstName: String, lastName: String, age: Int, email: String, maxCaloriesPerMeal: Int, maxCaloriesPerDay: Int) throws -> Bool{
-        let userDataHandler = DataHandler()
-        let user = userDataHandler.getUser()
+    func getUserFirstName(email:String, password: String) throws -> String{
+         do{
+             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
+             return userResult[0].value(forKey: "firstName") as! String
+         }catch{
+             throw MessageHandler.ErrorMessages.dataSearchFailed
+         }
+    }
+    func getUserLastName(email:String, password: String) throws -> String{
+         do{
+             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
+             return userResult[0].value(forKey: "lastName") as! String
+         }catch{
+             throw MessageHandler.ErrorMessages.dataSearchFailed
+         }
+    }
+    
+    func saveUser(firstName: String, lastName: String, age: Int, email: String, maxCaloriesPerMeal: Int) throws -> Bool{
+        let user = userDataHandler.getUserObject()
         user.setValue(firstName, forKey: "firstName")
         user.setValue(lastName, forKey: "lastName")
         user.setValue(age, forKey: "age")
         user.setValue(email, forKey: "email")
         user.setValue(maxCaloriesPerMeal, forKey: "maxCaloriesPerMeal")
-        user.setValue(maxCaloriesPerDay, forKey: "maxCaloriesPerDay")
-        
         do{
             try userDataHandler.save()
         } catch {

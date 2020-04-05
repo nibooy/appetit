@@ -18,12 +18,14 @@ class DataHandler{
         context = appDelegate.persistentContainer.viewContext
     }
     
+    /*NS Managed user object needed for database saves*/
     func getUserObject() -> NSManagedObject{
         let userEntity = NSEntityDescription.entity(forEntityName: "User", in: context)
         let user = NSManagedObject(entity: userEntity!, insertInto: context)
         return user
     }
     
+    /*Search specific user*/
     func getUserInfo(email: String, password: String) throws -> [NSManagedObject]{
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email = %s and password = %s", email, password)
@@ -35,6 +37,7 @@ class DataHandler{
         }
     }
     
+    /*NS Managed user object needed for database saves*/
     func getVirtualFridgeObject() -> NSManagedObject{
         let userEntity = NSEntityDescription.entity(forEntityName: "VirtualFridge", in: context)
         let virtualFridge = NSManagedObject(entity: userEntity!, insertInto: context)

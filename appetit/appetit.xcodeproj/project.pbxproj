@@ -13,12 +13,13 @@
 		0AE2F32524302867006F14E1 /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F32424302867006F14E1 /* FridgeViewController.swift */; };
 		0AE2F32724302875006F14E1 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F32624302875006F14E1 /* ScannerViewController.swift */; };
 		9E869C6724398216001FF5B6 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E869C6624398216001FF5B6 /* Error.swift */; };
-		9E869C692439843E001FF5B6 /* VirtualFridgeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E869C682439843E001FF5B6 /* VirtualFridgeAPI.swift */; };
+		9E869C692439843E001FF5B6 /* VirtualFridgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E869C682439843E001FF5B6 /* VirtualFridgeController.swift */; };
+		9E869C6F24398847001FF5B6 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E869C6E24398847001FF5B6 /* UserEntity.swift */; };
 		9EB3FF1724354E6800BA0F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FF1624354E6800BA0F39 /* AppDelegate.swift */; };
 		9EB3FF1A24354E7500BA0F39 /* appetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EB3FF1824354E7400BA0F39 /* appetit.xcdatamodeld */; };
 		9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12037242FC0E8005885C5 /* mainViewController.swift */; };
 		9EE1203A242FC17F005885C5 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12039242FC17F005885C5 /* DataHandler.swift */; };
-		9EE1203C242FC1BE005885C5 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1203B242FC1BE005885C5 /* UserAPI.swift */; };
+		9EE1203C242FC1BE005885C5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1203B242FC1BE005885C5 /* UserController.swift */; };
 		9EE1203E242FC298005885C5 /* resource.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1203D242FC298005885C5 /* resource.strings */; };
 		9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF1242F389F0047352B /* SceneDelegate.swift */; };
 		9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF3242F389F0047352B /* ViewController.swift */; };
@@ -34,12 +35,13 @@
 		0AE2F32424302867006F14E1 /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
 		0AE2F32624302875006F14E1 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		9E869C6624398216001FF5B6 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		9E869C682439843E001FF5B6 /* VirtualFridgeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeAPI.swift; sourceTree = "<group>"; };
+		9E869C682439843E001FF5B6 /* VirtualFridgeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeController.swift; sourceTree = "<group>"; };
+		9E869C6E24398847001FF5B6 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		9EB3FF1624354E6800BA0F39 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EB3FF1924354E7400BA0F39 /* appetit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = appetit.xcdatamodel; sourceTree = "<group>"; };
 		9EE12037242FC0E8005885C5 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		9EE12039242FC17F005885C5 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
-		9EE1203B242FC1BE005885C5 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		9EE1203B242FC1BE005885C5 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		9EE1203D242FC298005885C5 /* resource.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = resource.strings; sourceTree = "<group>"; };
 		9EE1EFEC242F389F0047352B /* appetit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appetit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1EFF1242F389F0047352B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 				9E869C6624398216001FF5B6 /* Error.swift */,
 			);
 			path = "Error Codes";
+			sourceTree = "<group>";
+		};
+		9E869C6D2439881A001FF5B6 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9E869C6E24398847001FF5B6 /* UserEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		9EE1EFE3242F389F0047352B = {
@@ -129,8 +139,9 @@
 		9EE1F005242F39E60047352B /* Backend API */ = {
 			isa = PBXGroup;
 			children = (
-				9EE1203B242FC1BE005885C5 /* UserAPI.swift */,
-				9E869C682439843E001FF5B6 /* VirtualFridgeAPI.swift */,
+				9E869C6D2439881A001FF5B6 /* Entities */,
+				9EE1203B242FC1BE005885C5 /* UserController.swift */,
+				9E869C682439843E001FF5B6 /* VirtualFridgeController.swift */,
 			);
 			path = "Backend API";
 			sourceTree = "<group>";
@@ -219,15 +230,16 @@
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				9EE1203A242FC17F005885C5 /* DataHandler.swift in Sources */,
 				9E869C6724398216001FF5B6 /* Error.swift in Sources */,
-				9EE1203C242FC1BE005885C5 /* UserAPI.swift in Sources */,
+				9EE1203C242FC1BE005885C5 /* UserController.swift in Sources */,
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
 				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
 				0AE2F32324302827006F14E1 /* ProfileViewController.swift in Sources */,
 				0AE2F32524302867006F14E1 /* FridgeViewController.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
 				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
-				9E869C692439843E001FF5B6 /* VirtualFridgeAPI.swift in Sources */,
+				9E869C692439843E001FF5B6 /* VirtualFridgeController.swift in Sources */,
 				0AE2F32724302875006F14E1 /* ScannerViewController.swift in Sources */,
+				9E869C6F24398847001FF5B6 /* UserEntity.swift in Sources */,
 				9EB3FF1A24354E7500BA0F39 /* appetit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

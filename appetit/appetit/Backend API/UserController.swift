@@ -23,30 +23,25 @@ class UserAPI{
         }
     }
     
-    func getUserFirstName(email:String, password: String) throws -> String{
+    func getUser(email:String, password: String) throws -> UserEntity{
          do{
-             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
-             return userResult[0].value(forKey: "firstName") as! String
+            let userResult = try userDataHandler.getUserInfo(email: email, password: password)
+            let userEntity = UserEntity(user: userResult[0])
+            return userEntity
          }catch{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
          }
     }
-    func getUserLastName(email:String, password: String) throws -> String{
-         do{
-             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
-             return userResult[0].value(forKey: "lastName") as! String
-         }catch{
-             throw ErrorMessage.ErrorCodes.dataSearchFailed
-         }
-    }
     
-    func saveUser(firstName: String, lastName: String, age: Int, email: String, maxCaloriesPerMeal: Int) throws -> Bool{
+    func saveUser(email: String, password: String, firstName: String, lastName: String, age: Int,  maxCaloriesPerMeal: Int) throws -> Bool{
         let user = userDataHandler.getUserObject()
+        user.setValue(email, forKey: "email")
+        user.setValue(password, forKey: "password")
         user.setValue(firstName, forKey: "firstName")
         user.setValue(lastName, forKey: "lastName")
         user.setValue(age, forKey: "age")
-        user.setValue(email, forKey: "email")
         user.setValue(maxCaloriesPerMeal, forKey: "maxCaloriesPerMeal")
+        
         do{
             try userDataHandler.save()
         } catch {
@@ -54,4 +49,8 @@ class UserAPI{
         }
         return true
     }
+    
+    
+    
+    
 }

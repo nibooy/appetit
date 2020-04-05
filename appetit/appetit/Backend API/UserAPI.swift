@@ -19,7 +19,7 @@ class UserAPI{
             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
             return userResult.count > 0
         }catch{
-            throw MessageHandler.ErrorMessages.dataSearchFailed
+            throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
     }
     
@@ -28,7 +28,7 @@ class UserAPI{
              let userResult = try userDataHandler.getUserInfo(email: email, password: password)
              return userResult[0].value(forKey: "firstName") as! String
          }catch{
-             throw MessageHandler.ErrorMessages.dataSearchFailed
+            throw ErrorMessage.ErrorCodes.dataSearchFailed
          }
     }
     func getUserLastName(email:String, password: String) throws -> String{
@@ -36,7 +36,7 @@ class UserAPI{
              let userResult = try userDataHandler.getUserInfo(email: email, password: password)
              return userResult[0].value(forKey: "lastName") as! String
          }catch{
-             throw MessageHandler.ErrorMessages.dataSearchFailed
+             throw ErrorMessage.ErrorCodes.dataSearchFailed
          }
     }
     
@@ -50,7 +50,7 @@ class UserAPI{
         do{
             try userDataHandler.save()
         } catch {
-            throw MessageHandler.ErrorMessages.signUpFailed
+            throw ErrorMessage.ErrorCodes.signUpFailed
         }
         return true
     }

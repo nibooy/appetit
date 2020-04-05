@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserAPI{
+class UserController{
     let userDataHandler: DataHandler;
     
     init() {
@@ -17,7 +17,7 @@ class UserAPI{
     func isValidUser(email:String, password:String) throws -> Bool{
         do{
             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
-            return userResult.count > 0
+            return userResult.count == 1
         }catch{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
@@ -33,13 +33,12 @@ class UserAPI{
          }
     }
     
-    func saveUser(email: String, password: String, firstName: String, lastName: String, age: Int,  maxCaloriesPerMeal: Int) throws -> Bool{
+    func saveUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws -> Bool{
         let user = userDataHandler.getUserObject()
         user.setValue(email, forKey: "email")
         user.setValue(password, forKey: "password")
         user.setValue(firstName, forKey: "firstName")
         user.setValue(lastName, forKey: "lastName")
-        user.setValue(age, forKey: "age")
         user.setValue(maxCaloriesPerMeal, forKey: "maxCaloriesPerMeal")
         
         do{

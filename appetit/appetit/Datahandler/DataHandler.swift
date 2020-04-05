@@ -28,7 +28,7 @@ class DataHandler{
     /*Search specific user*/
     func getUserInfo(email: String, password: String) throws -> [NSManagedObject]{
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        request.predicate = NSPredicate(format: "email = %s and password = %s", email, password)
+        request.predicate = NSPredicate(format: "(email  =  %@) AND (password = %@)", email, password)
         do{
             let result = try fufillRequest(request: request)
             return result

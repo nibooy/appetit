@@ -11,6 +11,7 @@ import Foundation
 class ErrorMessage{
     enum ErrorCodes: Error{
         case dataSearchFailed
-        case signUpFailed
+        case dataSaveFailed
+        case userExists
     }
 }

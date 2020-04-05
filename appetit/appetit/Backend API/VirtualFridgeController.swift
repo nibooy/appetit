@@ -8,7 +8,8 @@
 
 import Foundation
 
-class VirtualFridgeAPI{
+class VirtualFridgeController{
+    
     func getUserIngredients(){
         
     }
@@ -17,7 +18,12 @@ class VirtualFridgeAPI{
         
     }
     
-    func subtractIngredient(){
+    func subtractIngredient(ingredient: String){
         
     }
+    
+    func subtractIngredients(ingredients: [String]){
+        
+    }
+    
 }

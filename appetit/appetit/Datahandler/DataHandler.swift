@@ -37,11 +37,40 @@ class DataHandler{
         }
     }
     
+    func deleteUser(email: String, password: String) throws{
+        let entity = "User"
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        fetchRequest.predicate = NSPredicate(format: "(email  =  %@) AND (password = %@)", email, password)
+        do
+        {
+            let results = try context.fetch(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                context.delete(managedObjectData)
+            }
+        } catch let error as NSError {
+            throw error
+        }
+    }
+    
     /*NS Managed user object needed for database saves*/
     func getVirtualFridgeObject() -> NSManagedObject{
         let userEntity = NSEntityDescription.entity(forEntityName: "VirtualFridge", in: context)
         let virtualFridge = NSManagedObject(entity: userEntity!, insertInto: context)
         return virtualFridge
+    }
+    
+    func getVirtualFridgeIngredients(email: String) throws -> [NSManagedObject]{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "VirtualFridge")
+        request.predicate = NSPredicate(format: "email  =  %@", email)
+        do{
+            let result = try fufillRequest(request: request)
+            return result
+        }catch{
+            throw error
+        }
     }
     
     /*Saves user info in sign up feature. Returns true if saved successfully, else throws error*/
@@ -61,5 +90,4 @@ class DataHandler{
             throw error
         }
     }
-    
 }

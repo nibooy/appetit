@@ -33,23 +33,40 @@ class UserController{
          }
     }
     
-    func saveUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws -> Bool{
+    func saveUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws{
+        do {
+            if try isValidUser(email: email, password: password){
+                throw ErrorMessage.ErrorCodes.userExists
+            }
+        }
         let user = userDataHandler.getUserObject()
         user.setValue(email, forKey: "email")
         user.setValue(password, forKey: "password")
         user.setValue(firstName, forKey: "firstName")
         user.setValue(lastName, forKey: "lastName")
         user.setValue(maxCaloriesPerMeal, forKey: "maxCaloriesPerMeal")
-        
         do{
             try userDataHandler.save()
         } catch {
-            throw ErrorMessage.ErrorCodes.signUpFailed
+            throw ErrorMessage.ErrorCodes.dataSaveFailed
         }
-        return true
     }
     
+    func deleteUser(email: String, password: String) throws{
+        do{
+            try userDataHandler.deleteUser(email: email, password: password)
+        }catch{
+            throw ErrorMessage.ErrorCodes.dataSearchFailed
+        }
+    }
     
-    
+    func updateUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws{
+        do{
+            try deleteUser(email: email, password: password)
+            try saveUser(email: email, password: password, firstName: firstName, lastName: lastName, maxCaloriesPerMeal: maxCaloriesPerMeal)
+        }catch{
+            throw ErrorMessage.ErrorCodes.dataSearchFailed
+        }
+    }
     
 }

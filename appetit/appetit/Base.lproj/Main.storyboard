@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -49,45 +50,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="76a-pX-8up">
-            <objects>
-                <viewController id="oxa-44-Wpa" customClass="FridgeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YBt-fx-soo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-VZ-ejq">
-                                <rect key="frame" x="330" y="60" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="eZn-nZ-MDV"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="pGC-Bt-aZA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="joW-xQ-85K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2992.753623188406" y="-620.08928571428567"/>
-        </scene>
-        <!--Scanner-->
-        <scene sceneID="PPZ-UQ-x2a">
-            <objects>
-                <viewController id="D2l-qi-7fJ" customClass="ScannerViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vMd-zf-ckR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="ErS-iM-mad"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Scanner" id="u2q-NP-U4G"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="scs-oS-JXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2993" y="821"/>
         </scene>
         <!--Signin View Controller-->
         <scene sceneID="jcz-rW-TF6">
@@ -171,30 +133,237 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="oxa-44-Wpa" kind="relationship" relationship="viewControllers" id="50h-e3-V8X"/>
-                        <segue destination="kLb-FJ-r1e" kind="relationship" relationship="viewControllers" id="agz-Q7-LvJ"/>
-                        <segue destination="D2l-qi-7fJ" kind="relationship" relationship="viewControllers" id="aqH-HC-qmv"/>
+                        <segue destination="lwf-ic-KhR" kind="relationship" relationship="viewControllers" id="qvs-xO-4a8"/>
+                        <segue destination="AAw-iF-Op5" kind="relationship" relationship="viewControllers" id="3oS-wV-tXf"/>
+                        <segue destination="ssE-Zr-XDN" kind="relationship" relationship="viewControllers" id="toz-ey-A4D"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7w-eF-peJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2082.608695652174" y="129.91071428571428"/>
         </scene>
-        <!--Fridge-->
-        <scene sceneID="07f-Kf-fx7">
+        <!--Recipes-->
+        <scene sceneID="VhM-8l-0KG">
             <objects>
-                <viewController id="kLb-FJ-r1e" customClass="ProfileViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="F60-N6-wVY">
+                <viewController id="ssE-Zr-XDN" customClass="IngredientsViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="glB-Yi-gru">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="qVz-CI-bQq"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTT-OR-EGP">
+                                <rect key="frame" x="146" y="763" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Generate Recipes"/>
+                                <connections>
+                                    <segue destination="Z59-id-beh" kind="show" id="rSV-vw-uGM"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Lp-ed-yIS">
+                                <rect key="frame" x="0.0" y="58" width="414" height="687"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="top" secondItem="h9f-hj-75c" secondAttribute="top" constant="14" id="DWw-Fc-AZ6"/>
+                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="Dg8-3z-Neh"/>
+                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="centerX" secondItem="h9f-hj-75c" secondAttribute="centerX" id="QdD-Fj-cdC"/>
+                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="o4E-lS-0nz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h9f-hj-75c"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Fridge" id="ZhZ-RG-1gG"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" id="t1Z-8e-rcm"/>
+                    <connections>
+                        <outlet property="generateRecipe" destination="XTT-OR-EGP" id="TK4-Lj-Bdv"/>
+                        <outlet property="ingredientsView" destination="8Lp-ed-yIS" id="xZl-Pr-IzX"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UPh-BB-Gxm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4hq-gd-ygp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2993" y="130"/>
+            <point key="canvasLocation" x="3091.304347826087" y="214.95535714285714"/>
+        </scene>
+        <!--Recipes View Controller-->
+        <scene sceneID="3hX-7S-MEa">
+            <objects>
+                <viewController id="Z59-id-beh" customClass="RecipesViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CCt-Yx-dPq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w8g-nh-W1V">
+                                <rect key="frame" x="81" y="159" width="252" height="326"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6D-EL-34Y">
+                                <rect key="frame" x="83" y="612" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reject"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPu-CP-gbj">
+                                <rect key="frame" x="293" y="612" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJv-OY-iMe">
+                                <rect key="frame" x="87" y="466" width="240" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="w8g-nh-W1V" firstAttribute="centerX" secondItem="FQN-5W-vnU" secondAttribute="centerX" id="TiR-cZ-tAH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FQN-5W-vnU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UBM-Tt-QHy"/>
+                    <connections>
+                        <outlet property="atGlanceInfo" destination="VJv-OY-iMe" id="kbc-1y-YRl"/>
+                        <outlet property="recipeImage" destination="w8g-nh-W1V" id="SRQ-aa-Mku"/>
+                        <outlet property="rejectButton" destination="U6D-EL-34Y" id="BvK-Hf-jDk"/>
+                        <outlet property="saveButton" destination="fPu-CP-gbj" id="dOJ-01-tMC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOq-7i-3Me" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4076.811594202899" y="214.95535714285714"/>
+        </scene>
+        <!--Focus Recipe View Controller-->
+        <scene sceneID="gFR-NU-pvR">
+            <objects>
+                <viewController id="BZk-rc-6da" customClass="FocusRecipeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qTS-DX-A7m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dkb-Fi-55X"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovV-1z-RzA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5053" y="216"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="GNg-xW-rnp">
+            <objects>
+                <collectionViewController id="AAw-iF-Op5" customClass="SavedCollectionViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="a1D-93-HqI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lu0-Ne-p6B">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sNd-rz-06s">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7vs-NN-w9U">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="AAw-iF-Op5" id="V6w-nW-LPX"/>
+                            <outlet property="delegate" destination="AAw-iF-Op5" id="utS-0m-u39"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Saved" id="c9u-FK-rFO"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m8P-Eb-fxE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3071" y="987"/>
+        </scene>
+        <!--Fridge-->
+        <scene sceneID="2q8-3c-mKJ">
+            <objects>
+                <collectionViewController id="lwf-ic-KhR" customClass="FridgeCollectionViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="iHm-nV-yBs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B5H-eh-GhX">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="chs-Zf-zzi">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rwk-NH-SOh">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="lwf-ic-KhR" id="3cR-pG-Czn"/>
+                            <outlet property="delegate" destination="lwf-ic-KhR" id="iZB-XY-kS6"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Fridge" id="ZMl-8N-PUB"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihv-YS-SKI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3077" y="-473"/>
+        </scene>
+        <!--Adding View Controller-->
+        <scene sceneID="T4p-7z-ykE">
+            <objects>
+                <viewController id="Jnl-dp-w0X" customClass="AddingViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GbL-if-pJO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How would you like to add new ingredients?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwM-d6-czi">
+                                <rect key="frame" x="40" y="99" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYT-cV-EJ9">
+                                <rect key="frame" x="132" y="239" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Insert Scanner Button"/>
+                                <connections>
+                                    <segue destination="mtK-tU-5JR" kind="show" id="ecZ-Qk-W2E"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FEo-Fc-v6q">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mbU-n9-Rh5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4GJ-Gk-ZrE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4077" y="-473"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WEP-CD-aPs">
+            <objects>
+                <viewController id="mtK-tU-5JR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hl8-BI-T6y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="k2y-z3-J2d"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BxK-CD-ddm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLZ-E5-Mws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5020" y="-478"/>
         </scene>
     </scenes>
 </document>

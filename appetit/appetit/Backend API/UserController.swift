@@ -34,10 +34,12 @@ class UserController{
     }
     
     func saveUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws{
-        do {
+        do{
             if try isValidUser(email: email, password: password){
                 throw ErrorMessage.ErrorCodes.userExists
             }
+        }catch{
+            throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
         let user = userDataHandler.getUserObject()
         user.setValue(email, forKey: "email")
@@ -61,12 +63,8 @@ class UserController{
     }
     
     func updateUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws{
-        do{
-            try deleteUser(email: email, password: password)
-            try saveUser(email: email, password: password, firstName: firstName, lastName: lastName, maxCaloriesPerMeal: maxCaloriesPerMeal)
-        }catch{
-            throw ErrorMessage.ErrorCodes.dataSearchFailed
-        }
+        try deleteUser(email: email, password: password)
+        try saveUser(email: email, password: password, firstName: firstName, lastName: lastName, maxCaloriesPerMeal: maxCaloriesPerMeal)
     }
     
 }

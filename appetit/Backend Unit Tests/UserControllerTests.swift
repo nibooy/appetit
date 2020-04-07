@@ -1,6 +1,6 @@
 //
-//  UserControllerTests.swift
-//  UserControllerTests
+//  Backend_Unit_Tests.swift
+//  Backend Unit Tests
 //
 //  Created by Mark Kang on 4/6/20.
 //  Copyright © 2020 Mark Kang. All rights reserved.
@@ -52,10 +52,13 @@ class UserControllerTests: XCTestCase {
             signUpStatus = true
         }catch ErrorMessage.ErrorCodes.dataSaveFailed{
             signUpStatus = false
+            print("data save failed")
         }catch ErrorMessage.ErrorCodes.userExists{
             signUpStatus = false
+            print("user exists")
         }catch{
             signUpStatus = false
+            print("unknown error")
         }
         XCTAssertEqual(true, signUpStatus)
         do{
@@ -70,8 +73,8 @@ class UserControllerTests: XCTestCase {
             signUpStatus = false
         }
          XCTAssertEqual(false, signUpStatus)
-        
     }
+    
     func testLogIn() {
         let testUser = UserController()
         let logInStatus: Bool
@@ -135,13 +138,6 @@ class UserControllerTests: XCTestCase {
             errorStatus = true
         }
         XCTAssertEqual(false, errorStatus)
-    }
-    
-    func testPerformance() {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

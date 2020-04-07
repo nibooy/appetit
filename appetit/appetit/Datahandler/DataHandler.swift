@@ -73,6 +73,35 @@ class DataHandler{
         }
     }
     
+    func getIngredient(email: String, ingredient: String) throws -> [NSManagedObject]{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "VirtualFridge")
+        request.predicate = NSPredicate(format: "(email  =  %@) AND (ingredient = %@)", email, ingredient)
+        do{
+            let result = try fufillRequest(request: request)
+            return result
+        }catch{
+            throw error
+        }
+    }
+    
+    func deleteIngredient(email: String, ingredient: String) throws{
+        let entity = "VritualFridge"
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        fetchRequest.predicate = NSPredicate(format: "(email  =  %@) AND (ingredient = %@)", email, ingredient)
+        do
+        {
+            let results = try context.fetch(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                context.delete(managedObjectData)
+            }
+        } catch let error as NSError {
+            throw error
+        }
+    }
+
     /*Saves user info in sign up feature. Returns true if saved successfully, else throws error*/
     func save() throws{
         do{

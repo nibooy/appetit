@@ -14,6 +14,8 @@
 		0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */; };
 		0AC94D3B243BDA98007CE4F8 /* FocusRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */; };
 		0AC94D3D243BDCC6007CE4F8 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */; };
+		0AC94D3F243C1370007CE4F8 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D3E243C136F007CE4F8 /* Food.swift */; };
+		0AC94D41243C2682007CE4F8 /* FridgeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */; };
 		0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F31E24302662006F14E1 /* LoginViewController.swift */; };
 		0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F320243026E6006F14E1 /* SigninViewController.swift */; };
 		9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12037242FC0E8005885C5 /* mainViewController.swift */; };
@@ -36,6 +38,8 @@
 		0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
 		0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusRecipeViewController.swift; sourceTree = "<group>"; };
 		0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		0AC94D3E243C136F007CE4F8 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeLayout.swift; sourceTree = "<group>"; };
 		0AE2F31E24302662006F14E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AE2F320243026E6006F14E1 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		9EE12037242FC0E8005885C5 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
@@ -104,12 +108,14 @@
 				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
 				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
 				0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */,
+				0AC94D3E243C136F007CE4F8 /* Food.swift */,
 				0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */,
 				0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */,
 				0AC94D36243BD98F007CE4F8 /* IngredientsViewController.swift */,
 				0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */,
 				0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */,
 				0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */,
+				0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC94D3F243C1370007CE4F8 /* Food.swift in Sources */,
 				0AC94D33243BD669007CE4F8 /* SavedCollectionViewController.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */,
@@ -218,6 +225,7 @@
 				0AC94D3D243BDCC6007CE4F8 /* BarcodeScannerViewController.swift in Sources */,
 				0AC94D3B243BDA98007CE4F8 /* FocusRecipeViewController.swift in Sources */,
 				9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */,
+				0AC94D41243C2682007CE4F8 /* FridgeLayout.swift in Sources */,
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
 				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
 				9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */,

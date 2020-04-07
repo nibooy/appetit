@@ -10,11 +10,15 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class FridgeCollectionViewController: UICollectionViewController {
-
+class FridgeCollectionViewController: UICollectionViewController{
+    
+    var fridge = [Food]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setup(n: 6)
+        print(fridge)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,23 +37,28 @@ class FridgeCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    // MARK: View Layout Setup
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    
+    private let itemsPerRow: CGFloat = 2
+
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 10
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        cell.backgroundColor = .black
         // Configure the cell
     
         return cell
@@ -85,5 +94,12 @@ class FridgeCollectionViewController: UICollectionViewController {
     
     }
     */
+    func setup(n: Int){
+        for _ in 1...n{
+            let ingredient = Food(name: "Avocado", number: 6, measurement: "Serving", image: #imageLiteral(resourceName: "Avocado"))
+            self.fridge.append(ingredient)
+        }
+    }
 
 }
+

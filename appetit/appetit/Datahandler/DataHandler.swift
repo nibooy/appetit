@@ -85,7 +85,7 @@ class DataHandler{
     }
     
     func deleteIngredient(email: String, ingredient: String) throws{
-        let entity = "VritualFridge"
+        let entity = "VirtualFridge"
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         fetchRequest.returnsObjectsAsFaults = false
         fetchRequest.predicate = NSPredicate(format: "(email  =  %@) AND (ingredient = %@)", email, ingredient)

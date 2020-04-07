@@ -14,6 +14,7 @@ class UserController{
     init() {
         userDataHandler = DataHandler()
     }
+    /*Use for log in and check if the user is registered*/
     func isValidUser(email:String, password:String) throws -> Bool{
         do{
             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
@@ -22,7 +23,7 @@ class UserController{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
     }
-    
+    /*Returns a UserEntity struct that contains user's information*/
     func getUser(email:String, password: String) throws -> UserEntity{
          do{
             let userResult = try userDataHandler.getUserInfo(email: email, password: password)
@@ -32,14 +33,10 @@ class UserController{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
          }
     }
-    
+    /*Use for sign up feature. Throws an error if the user already exists*/
     func saveUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws{
-        do{
-            if try isValidUser(email: email, password: password){
-                throw ErrorMessage.ErrorCodes.userExists
-            }
-        }catch{
-            throw ErrorMessage.ErrorCodes.dataSearchFailed
+        guard try !isValidUser(email: email, password: password) else{
+            throw ErrorMessage.ErrorCodes.userExists
         }
         let user = userDataHandler.getUserObject()
         user.setValue(email, forKey: "email")
@@ -54,6 +51,7 @@ class UserController{
         }
     }
     
+    /*Delete the user from our User table*/
     func deleteUser(email: String, password: String) throws{
         do{
             try userDataHandler.deleteUser(email: email, password: password)
@@ -62,6 +60,7 @@ class UserController{
         }
     }
     
+    /*Update user information*/
     func updateUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws{
         try deleteUser(email: email, password: password)
         try saveUser(email: email, password: password, firstName: firstName, lastName: lastName, maxCaloriesPerMeal: maxCaloriesPerMeal)

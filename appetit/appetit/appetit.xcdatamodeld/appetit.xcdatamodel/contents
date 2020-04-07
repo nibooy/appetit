@@ -8,9 +8,9 @@
         <attribute name="password" attributeType="String" defaultValueString=""/>
     </entity>
     <entity name="VirtualFridge" representedClassName="VirtualFridge" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="ingredient" optional="YES" attributeType="String"/>
         <attribute name="servings" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="userEmail" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="118"/>

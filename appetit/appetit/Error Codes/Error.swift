@@ -13,5 +13,6 @@ class ErrorMessage{
         case dataSearchFailed
         case dataSaveFailed
         case userExists
+        case ingredientDoesNotExist
     }
 }

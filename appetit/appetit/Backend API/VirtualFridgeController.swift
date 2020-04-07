@@ -11,11 +11,13 @@ import Foundation
 class VirtualFridgeController{
     let userDataHandler: DataHandler
     var userEmail: String
+    
     init() {
         userDataHandler = DataHandler()
         userEmail = ""
     }
     
+    /*Returns a list of IngredientEntity structs that belong to the user in the parameters.*/
     func getUserIngredients(email: String) throws -> [IngredientEntity]{
         var listOfIngredients: [IngredientEntity] = []
         do{
@@ -35,6 +37,7 @@ class VirtualFridgeController{
         return listOfIngredients
     }
     
+    /*Add ingredients. If it already exists, it will add to the amount of servings already existed. If it is new, it will make a new entry */
     func addIngredient(email: String, ingredient: String, servings: Int) throws{
         let virtualFridge = userDataHandler.getVirtualFridgeObject()
         var newServings = servings
@@ -72,12 +75,13 @@ class VirtualFridgeController{
         return ingredientMatchList
     }
     
+    /*Subtracting an ingredient will delete if the amount requested is equal to the amount available. If there is leftover servings, it will add it back to the virtual fridge. Will throw an error if the ingredient does not exist*/
     func subtractIngredient(email: String, ingredient: String, servings: Int) throws{
         var ingredientMatches:[IngredientEntity] = []
         do{
             ingredientMatches = try getIngredientMatches(email: email, ingredient: ingredient)
             guard ingredientMatches.count > 0 else{
-                throw ErrorMessage.ErrorCodes.dataSearchFailed
+                throw ErrorMessage.ErrorCodes.ingredientDoesNotExist
             }
             try userDataHandler.deleteIngredient(email: email, ingredient: ingredient)
             if servings < ingredientMatches[0].servings {
@@ -88,9 +92,4 @@ class VirtualFridgeController{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
     }
-    
-    func subtractIngredients(ingredients: [String]){
-        
-    }
-    
 }

@@ -132,21 +132,21 @@
 			path = "Error Codes";
 			sourceTree = "<group>";
 		};
-		9E6741F3243C0B4B007C17B5 /* UserControllerTests */ = {
+		9E6741F3243C0B4B007C17B5 /* Backend Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
 				9E6741F4243C0B4B007C17B5 /* UserControllerTests.swift */,
 				9E6741FC243C0C36007C17B5 /* VirtualFridgeControllerTest.swift */,
 				9E6741F6243C0B4B007C17B5 /* Info.plist */,
 			);
-			path = UserControllerTests;
+			path = "Backend Unit Tests";
 			sourceTree = "<group>";
 		};
 		9EE1EFE3242F389F0047352B = {
 			isa = PBXGroup;
 			children = (
 				9EE1EFEE242F389F0047352B /* appetit */,
-				9E6741F3243C0B4B007C17B5 /* UserControllerTests */,
+				9E6741F3243C0B4B007C17B5 /* Backend Unit Tests */,
 				9EE1EFED242F389F0047352B /* Products */,
 			);
 			sourceTree = "<group>";

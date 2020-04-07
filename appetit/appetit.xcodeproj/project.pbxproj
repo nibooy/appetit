@@ -18,9 +18,16 @@
 		0AC94D41243C2682007CE4F8 /* FridgeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */; };
 		0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F31E24302662006F14E1 /* LoginViewController.swift */; };
 		0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F320243026E6006F14E1 /* SigninViewController.swift */; };
+		9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741CA243C0A1C007C17B5 /* appetit.xcdatamodeld */; };
+		9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741D0243C0A2E007C17B5 /* VirtualFridgeController.swift */; };
+		9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741D3243C0A2E007C17B5 /* UserEntity.swift */; };
+		9E6741D9243C0A2E007C17B5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741D4243C0A2E007C17B5 /* UserController.swift */; };
+		9E6741DC243C0A43007C17B5 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741DB243C0A43007C17B5 /* DataHandler.swift */; };
+		9E6741DF243C0A62007C17B5 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741DE243C0A62007C17B5 /* Error.swift */; };
+		9E6741FF243C1350007C17B5 /* IngredientEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741FE243C1350007C17B5 /* IngredientEntity.swift */; };
+		9E674223243C263D007C17B5 /* UserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E674222243C263D007C17B5 /* UserControllerTests.swift */; };
+		9E67422B243C266F007C17B5 /* VirtualFridgeControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E67422A243C266F007C17B5 /* VirtualFridgeControllerTest.swift */; };
 		9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12037242FC0E8005885C5 /* mainViewController.swift */; };
-		9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */; };
-		9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */; };
 		9EE1203E242FC298005885C5 /* resource.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1203D242FC298005885C5 /* resource.strings */; };
 		9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFEF242F389F0047352B /* AppDelegate.swift */; };
 		9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF1242F389F0047352B /* SceneDelegate.swift */; };
@@ -29,6 +36,16 @@
 		9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF8242F38A20047352B /* Assets.xcassets */; };
 		9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFFA242F38A20047352B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9E674225243C263D007C17B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EE1EFE4242F389F0047352B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EE1EFEB242F389F0047352B;
+			remoteInfo = appetit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeCollectionViewController.swift; sourceTree = "<group>"; };
@@ -42,9 +59,18 @@
 		0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeLayout.swift; sourceTree = "<group>"; };
 		0AE2F31E24302662006F14E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AE2F320243026E6006F14E1 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		9E6741CB243C0A1C007C17B5 /* appetit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = appetit.xcdatamodel; sourceTree = "<group>"; };
+		9E6741D0243C0A2E007C17B5 /* VirtualFridgeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualFridgeController.swift; sourceTree = "<group>"; };
+		9E6741D3243C0A2E007C17B5 /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		9E6741D4243C0A2E007C17B5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		9E6741DB243C0A43007C17B5 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		9E6741DE243C0A62007C17B5 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		9E6741FE243C1350007C17B5 /* IngredientEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEntity.swift; sourceTree = "<group>"; };
+		9E674220243C263D007C17B5 /* Backend Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Backend Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E674222243C263D007C17B5 /* UserControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserControllerTests.swift; sourceTree = "<group>"; };
+		9E674224243C263D007C17B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E67422A243C266F007C17B5 /* VirtualFridgeControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeControllerTest.swift; sourceTree = "<group>"; };
 		9EE12037242FC0E8005885C5 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
-		9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataHandler.swift; sourceTree = "<group>"; };
-		9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoAPI.swift; sourceTree = "<group>"; };
 		9EE1203D242FC298005885C5 /* resource.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = resource.strings; sourceTree = "<group>"; };
 		9EE1EFEC242F389F0047352B /* appetit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appetit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1EFEF242F389F0047352B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9E67421D243C263D007C17B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9EE1EFE9242F389F0047352B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,10 +100,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E6741CD243C0A2E007C17B5 /* Backend API */ = {
+			isa = PBXGroup;
+			children = (
+				9E6741D1243C0A2E007C17B5 /* Entities */,
+				9E6741D0243C0A2E007C17B5 /* VirtualFridgeController.swift */,
+				9E6741D4243C0A2E007C17B5 /* UserController.swift */,
+			);
+			name = "Backend API";
+			path = "appetit/Backend API";
+			sourceTree = SOURCE_ROOT;
+		};
+		9E6741D1243C0A2E007C17B5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9E6741D3243C0A2E007C17B5 /* UserEntity.swift */,
+				9E6741FE243C1350007C17B5 /* IngredientEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		9E6741DA243C0A43007C17B5 /* Datahandler */ = {
+			isa = PBXGroup;
+			children = (
+				9E6741DB243C0A43007C17B5 /* DataHandler.swift */,
+			);
+			path = Datahandler;
+			sourceTree = "<group>";
+		};
+		9E6741DD243C0A62007C17B5 /* Error Codes */ = {
+			isa = PBXGroup;
+			children = (
+				9E6741DE243C0A62007C17B5 /* Error.swift */,
+			);
+			path = "Error Codes";
+			sourceTree = "<group>";
+		};
+		9E674221243C263D007C17B5 /* Backend Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9E674222243C263D007C17B5 /* UserControllerTests.swift */,
+				9E67422A243C266F007C17B5 /* VirtualFridgeControllerTest.swift */,
+				9E674224243C263D007C17B5 /* Info.plist */,
+			);
+			path = "Backend Unit Tests";
+			sourceTree = "<group>";
+		};
 		9EE1EFE3242F389F0047352B = {
 			isa = PBXGroup;
 			children = (
 				9EE1EFEE242F389F0047352B /* appetit */,
+				9E674221243C263D007C17B5 /* Backend Unit Tests */,
 				9EE1EFED242F389F0047352B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				9EE1EFEC242F389F0047352B /* appetit.app */,
+				9E674220243C263D007C17B5 /* Backend Unit Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,8 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				9EE1F006242F3A030047352B /* Resources */,
-				9EE1F005242F39E60047352B /* Backend API */,
-				9EE1F004242F39A90047352B /* Datahandler */,
+				9E6741DD243C0A62007C17B5 /* Error Codes */,
+				9E6741CD243C0A2E007C17B5 /* Backend API */,
+				9E6741DA243C0A43007C17B5 /* Datahandler */,
 				9EE1F003242F391B0047352B /* Frontend Logic */,
 				9EE1EFEF242F389F0047352B /* AppDelegate.swift */,
 				9EE1EFF1242F389F0047352B /* SceneDelegate.swift */,
@@ -97,6 +179,7 @@
 				9EE1EFF8242F38A20047352B /* Assets.xcassets */,
 				9EE1EFFA242F38A20047352B /* LaunchScreen.storyboard */,
 				9EE1EFFD242F38A20047352B /* Info.plist */,
+				9E6741CA243C0A1C007C17B5 /* appetit.xcdatamodeld */,
 			);
 			path = appetit;
 			sourceTree = "<group>";
@@ -120,22 +203,6 @@
 			path = "Frontend Logic";
 			sourceTree = "<group>";
 		};
-		9EE1F004242F39A90047352B /* Datahandler */ = {
-			isa = PBXGroup;
-			children = (
-				9EE12039242FC17F005885C5 /* UserInfoDataHandler.swift */,
-			);
-			path = Datahandler;
-			sourceTree = "<group>";
-		};
-		9EE1F005242F39E60047352B /* Backend API */ = {
-			isa = PBXGroup;
-			children = (
-				9EE1203B242FC1BE005885C5 /* UserInfoAPI.swift */,
-			);
-			path = "Backend API";
-			sourceTree = "<group>";
-		};
 		9EE1F006242F3A030047352B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +214,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9E67421F243C263D007C17B5 /* Backend Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E674227243C263D007C17B5 /* Build configuration list for PBXNativeTarget "Backend Unit Tests" */;
+			buildPhases = (
+				9E67421C243C263D007C17B5 /* Sources */,
+				9E67421D243C263D007C17B5 /* Frameworks */,
+				9E67421E243C263D007C17B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E674226243C263D007C17B5 /* PBXTargetDependency */,
+			);
+			name = "Backend Unit Tests";
+			productName = "Backend Unit Tests";
+			productReference = 9E674220243C263D007C17B5 /* Backend Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9EE1EFEB242F389F0047352B /* appetit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EE1F000242F38A20047352B /* Build configuration list for PBXNativeTarget "appetit" */;
@@ -174,6 +259,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Mark Kang";
 				TargetAttributes = {
+					9E67421F243C263D007C17B5 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 9EE1EFEB242F389F0047352B;
+					};
 					9EE1EFEB242F389F0047352B = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -193,11 +282,19 @@
 			projectRoot = "";
 			targets = (
 				9EE1EFEB242F389F0047352B /* appetit */,
+				9E67421F243C263D007C17B5 /* Backend Unit Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9E67421E243C263D007C17B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9EE1EFEA242F389F0047352B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,31 +309,55 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9E67421C243C263D007C17B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E67422B243C266F007C17B5 /* VirtualFridgeControllerTest.swift in Sources */,
+				9E674223243C263D007C17B5 /* UserControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9EE1EFE8242F389F0047352B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0AC94D3F243C1370007CE4F8 /* Food.swift in Sources */,
+				9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */,
+				9E6741DC243C0A43007C17B5 /* DataHandler.swift in Sources */,
 				0AC94D33243BD669007CE4F8 /* SavedCollectionViewController.swift in Sources */,
+				9E6741D9243C0A2E007C17B5 /* UserController.swift in Sources */,
+				9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */,
 				0AC94D35243BD698007CE4F8 /* RecipesViewController.swift in Sources */,
-				9EE1203A242FC17F005885C5 /* UserInfoDataHandler.swift in Sources */,
 				0AC94D3D243BDCC6007CE4F8 /* BarcodeScannerViewController.swift in Sources */,
 				0AC94D3B243BDA98007CE4F8 /* FocusRecipeViewController.swift in Sources */,
 				9EE1203C242FC1BE005885C5 /* UserInfoAPI.swift in Sources */,
 				0AC94D41243C2682007CE4F8 /* FridgeLayout.swift in Sources */,
+
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
+				9E6741FF243C1350007C17B5 /* IngredientEntity.swift in Sources */,
 				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
 				9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */,
 				0AC94D37243BD98F007CE4F8 /* IngredientsViewController.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
 				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
 				0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */,
+				9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */,
+				9E6741DF243C0A62007C17B5 /* Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E674226243C263D007C17B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EE1EFEB242F389F0047352B /* appetit */;
+			targetProxy = 9E674225243C263D007C17B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9EE1EFF5242F389F0047352B /* Main.storyboard */ = {
@@ -258,6 +379,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9E674228243C263D007C17B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3AKSSC6XQ8;
+				INFOPLIST_FILE = "Backend Unit Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cs290.Backend-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/appetit.app/appetit";
+			};
+			name = Debug;
+		};
+		9E674229243C263D007C17B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3AKSSC6XQ8;
+				INFOPLIST_FILE = "Backend Unit Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cs290.Backend-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/appetit.app/appetit";
+			};
+			name = Release;
+		};
 		9EE1EFFE242F38A20047352B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -411,6 +572,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9E674227243C263D007C17B5 /* Build configuration list for PBXNativeTarget "Backend Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E674228243C263D007C17B5 /* Debug */,
+				9E674229243C263D007C17B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9EE1EFE7242F389F0047352B /* Build configuration list for PBXProject "appetit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -430,6 +600,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9E6741CA243C0A1C007C17B5 /* appetit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9E6741CB243C0A1C007C17B5 /* appetit.xcdatamodel */,
+			);
+			currentVersion = 9E6741CB243C0A1C007C17B5 /* appetit.xcdatamodel */;
+			path = appetit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9EE1EFE4242F389F0047352B /* Project object */;
 }

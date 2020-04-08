@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "FridgeCustomCell"
 
 class FridgeCollectionViewController: UICollectionViewController{
     
@@ -17,13 +17,17 @@ class FridgeCollectionViewController: UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup(n: 6)
+        setup(n:8)
         print(fridge)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.alwaysBounceVertical = true
+
+        
+        self.collectionView!.register(UINib.init(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -53,22 +57,24 @@ class FridgeCollectionViewController: UICollectionViewController{
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return fridge.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.contentView.layer.backgroundColor =  UIColor(red: 252/255, green: 244/255, blue: 236/255, alpha: 1).cgColor
-        cell.contentView.layer.cornerRadius = 10.0
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = true
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        cell.layer.shadowRadius = 2.0
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FridgeCustomCell
+        cell.configureData(with: fridge[indexPath.row])
+        
+//        cell.contentView.layer.backgroundColor =  UIColor(red: 252/255, green: 244/255, blue: 236/255, alpha: 1).cgColor
+//        cell.contentView.layer.cornerRadius = 10.0
+//        cell.contentView.layer.borderWidth = 1.0
+//        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+//        cell.contentView.layer.masksToBounds = true
+//        cell.layer.shadowColor = UIColor.lightGray.cgColor
+//        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+//        cell.layer.shadowRadius = 2.0
+//        cell.layer.shadowOpacity = 1.0
+//        cell.layer.masksToBounds = false
+//        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
 
         // Configure the cell
     
@@ -107,7 +113,7 @@ class FridgeCollectionViewController: UICollectionViewController{
     */
     func setup(n: Int){
         for _ in 1...n{
-            let ingredient = Food(name: "Avocado", number: 6, measurement: "Serving", image: #imageLiteral(resourceName: "Avocado"))
+            let ingredient = Food(name: "Avocado", measurement: "Serving", image: #imageLiteral(resourceName: "Avocado"))
             self.fridge.append(ingredient)
         }
     }

@@ -288,12 +288,13 @@
                         <collectionViewLayout key="collectionViewLayout" id="AJI-va-F1o" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="chs-Zf-zzi">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="159" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rwk-NH-SOh">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="159" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="159" height="160"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -305,7 +306,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ihv-YS-SKI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3077" y="-473"/>
+            <point key="canvasLocation" x="3076.811594202899" y="-473.4375"/>
         </scene>
         <!--Adding View Controller-->
         <scene sceneID="T4p-7z-ykE">

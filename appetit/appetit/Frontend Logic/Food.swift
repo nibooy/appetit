@@ -12,7 +12,6 @@ struct Food {
     //MARK: Properties
 
     var name: String
-    var number: Int
     var measurement: String
     var image: UIImage
 

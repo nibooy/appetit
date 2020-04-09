@@ -19,8 +19,9 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="afv-QW-0kK">
                         <rect key="frame" x="33" y="60" width="114" height="114"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="114" id="9Zk-Us-bT9"/>
-                            <constraint firstAttribute="height" constant="114" id="mF3-9A-iEm"/>
+                            <constraint firstAttribute="width" constant="114" id="WGp-Nl-BKY"/>
+                            <constraint firstAttribute="width" secondItem="afv-QW-0kK" secondAttribute="height" multiplier="1:1" id="Wns-z0-V80"/>
+                            <constraint firstAttribute="height" constant="114" id="fRq-zb-zQi"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDb-bb-fmr">

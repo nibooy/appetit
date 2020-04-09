@@ -113,7 +113,7 @@ class FridgeCollectionViewController: UICollectionViewController{
     */
     func setup(n: Int){
         for _ in 1...n{
-            let ingredient = Food(name: "Avocado", measurement: "Serving", image: #imageLiteral(resourceName: "Avocado"))
+            let ingredient = Food(name: "Avocado", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
             self.fridge.append(ingredient)
         }
     }

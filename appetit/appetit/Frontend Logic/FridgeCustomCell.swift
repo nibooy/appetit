@@ -16,7 +16,7 @@ class FridgeCustomCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+    
         configureCell()
         // Initialization code
     }

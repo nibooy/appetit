@@ -133,7 +133,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="lwf-ic-KhR" kind="relationship" relationship="viewControllers" id="qvs-xO-4a8"/>
+                        <segue destination="GHD-pW-dej" kind="relationship" relationship="viewControllers" id="3Ih-Il-PWt"/>
                         <segue destination="AAw-iF-Op5" kind="relationship" relationship="viewControllers" id="3oS-wV-tXf"/>
                         <segue destination="ssE-Zr-XDN" kind="relationship" relationship="viewControllers" id="toz-ey-A4D"/>
                     </connections>
@@ -278,6 +278,60 @@
             <point key="canvasLocation" x="3071" y="987"/>
         </scene>
         <!--Fridge-->
+        <scene sceneID="5Oe-Gv-tcv">
+            <objects>
+                <viewController id="GHD-pW-dej" customClass="VirtualFridgeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3mL-6h-AA5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s3q-Y6-rdR">
+                                <rect key="frame" x="0.0" y="90" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="sUB-2h-KL9" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Z2Y-Vk-K74">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GtI-s1-CRr">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8q-dm-Xgt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="DYE-bT-hyI"/>
+                                    <constraint firstAttribute="width" constant="414" id="vDu-ur-use"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="leading" secondItem="mDw-sB-uMl" secondAttribute="leading" id="DCy-qw-xXA"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="top" secondItem="r8q-dm-Xgt" secondAttribute="bottom" id="KHG-T7-y7p"/>
+                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="Zeb-47-QHq"/>
+                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="top" secondItem="3mL-6h-AA5" secondAttribute="top" id="gol-9r-b2a"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="nUU-LY-Qx6"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="bottom" secondItem="mDw-sB-uMl" secondAttribute="bottom" id="ozn-uC-aOX"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="leading" secondItem="mDw-sB-uMl" secondAttribute="leading" id="r2B-Ob-Bsl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mDw-sB-uMl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Fridge" id="vAX-Sr-jVN"/>
+                    <connections>
+                        <outlet property="collectionView" destination="s3q-Y6-rdR" id="wNE-nq-aTN"/>
+                        <outlet property="header" destination="r8q-dm-Xgt" id="Ely-Tj-Cij"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OuZ-QL-CeE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3044.9275362318845" y="-1229.4642857142856"/>
+        </scene>
+        <!--Fridge-->
         <scene sceneID="2q8-3c-mKJ">
             <objects>
                 <collectionViewController id="lwf-ic-KhR" customClass="FridgeCollectionViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
@@ -285,7 +339,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewLayout key="collectionViewLayout" id="AJI-va-F1o" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
+                        <collectionViewLayout key="collectionViewLayout" id="jT2-V8-JTG" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="chs-Zf-zzi">
                                 <rect key="frame" x="0.0" y="0.0" width="159" height="160"/>

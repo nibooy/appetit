@@ -13,6 +13,6 @@ struct Food {
 
     var name: String
     var measurement: String
-    var image: UIImage
+    var image: UIImage?
 
 }

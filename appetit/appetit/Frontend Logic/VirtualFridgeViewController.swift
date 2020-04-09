@@ -12,8 +12,10 @@ private let reuseIdentifier = "FridgeCustomCell"
 
 class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var header: UIView!
+    @IBOutlet weak var menuButton: UIButton!
     
     var fridge = [Food]()
     
@@ -23,10 +25,10 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
-
-        
         collectionView!.register(UINib.init(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-
+        collectionView!.register(UINib.init(nibName: "AddCell", bundle: nil), forCellWithReuseIdentifier: "AddCell")
+        menuButton.setImage(UIImage(imageLiteralResourceName: "menu"), for: .normal)
+        
 
         // Do any additional setup after loading the view.
     }
@@ -54,17 +56,50 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FridgeCustomCell
-        cell.configureData(with: fridge[indexPath.row])
-        return cell
+        if fridge[indexPath.row].name != "AddButton"{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FridgeCustomCell
+            cell.configureData(with: fridge[indexPath.row])
+            return cell
+        }
+        else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddCell", for: indexPath) as! AddCell
+            cell.delegate = self
+            return cell
+        }
     }
     
     
     func setup(n: Int){
-        for _ in 1...n{
+        
+        for _ in 1...n-1{
             let ingredient = Food(name: "Avocado", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
             self.fridge.append(ingredient)
         }
+        let add = Food(name: "AddButton", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
+        self.fridge.append(add)
+        
+        
     }
 }
 
+extension VirtualFridgeViewController: AddCellDelegate {
+    func didAddPressButton() {
+        print("add button was pressed")
+
+//        // now lets finally push some new controller
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "scanningVC") as UIViewController
+//        navigationController?.pushViewController(vc, animated: true)
+
+        // Safe Push VC
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "scanningVC") as? BarcodeScannerViewController {
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+
+    func didPressButtonY() {
+        print("Y button was pressed")
+    }
+}

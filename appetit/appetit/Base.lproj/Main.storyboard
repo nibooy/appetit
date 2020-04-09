@@ -302,10 +302,30 @@
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8q-dm-Xgt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ij-Qy-tKY">
+                                        <rect key="frame" x="19" y="61" width="111" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpL-8T-sRY">
+                                        <rect key="frame" x="365" y="46" width="35" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="dwv-KS-dc5"/>
+                                            <constraint firstAttribute="width" constant="35" id="eEb-sB-d0D"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="3Ij-Qy-tKY" firstAttribute="leading" secondItem="r8q-dm-Xgt" secondAttribute="leading" constant="19" id="0Nb-Lx-cCN"/>
                                     <constraint firstAttribute="height" constant="90" id="DYE-bT-hyI"/>
+                                    <constraint firstAttribute="bottom" secondItem="SpL-8T-sRY" secondAttribute="bottom" constant="8" id="YRb-f4-MJ7"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ij-Qy-tKY" secondAttribute="bottom" constant="8" id="gAi-cJ-ILM"/>
                                     <constraint firstAttribute="width" constant="414" id="vDu-ur-use"/>
+                                    <constraint firstAttribute="trailing" secondItem="SpL-8T-sRY" secondAttribute="trailing" constant="14" id="xDa-ea-viz"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -325,11 +345,13 @@
                     <connections>
                         <outlet property="collectionView" destination="s3q-Y6-rdR" id="wNE-nq-aTN"/>
                         <outlet property="header" destination="r8q-dm-Xgt" id="Ely-Tj-Cij"/>
+                        <outlet property="menuButton" destination="SpL-8T-sRY" id="jQs-9W-8lY"/>
+                        <outlet property="titleLabel" destination="3Ij-Qy-tKY" id="LDZ-Jq-hy5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OuZ-QL-CeE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044.9275362318845" y="-1229.4642857142856"/>
+            <point key="canvasLocation" x="3158" y="-465"/>
         </scene>
         <!--Fridge-->
         <scene sceneID="2q8-3c-mKJ">
@@ -360,12 +382,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ihv-YS-SKI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076.811594202899" y="-473.4375"/>
+            <point key="canvasLocation" x="4501" y="-1260"/>
         </scene>
         <!--Adding View Controller-->
         <scene sceneID="T4p-7z-ykE">
             <objects>
-                <viewController id="Jnl-dp-w0X" customClass="AddingViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanningVC" id="Jnl-dp-w0X" customClass="AddingViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GbL-if-pJO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

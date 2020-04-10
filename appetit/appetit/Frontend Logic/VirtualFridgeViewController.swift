@@ -21,7 +21,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup(n:8)
+        setup(n:10)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
@@ -71,7 +71,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     func setup(n: Int){
         
-        for _ in 1...n-1{
+        for _ in 0...n-1{
             let ingredient = Food(name: "Avocado", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
             self.fridge.append(ingredient)
         }
@@ -90,16 +90,18 @@ extension VirtualFridgeViewController: AddCellDelegate {
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let vc = storyboard.instantiateViewController(withIdentifier: "scanningVC") as UIViewController
 //        navigationController?.pushViewController(vc, animated: true)
-
-        // Safe Push VC
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "scanningVC") as? BarcodeScannerViewController {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "scanningVC")
+//        self.present(controller, animated: true, completion: nil)
+//
+        // Safe Push VC - don't know why safe why doesn't work
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "scanningVC") as? AddingViewController {
+            print("check")
             if let navigator = navigationController {
+                print("check1")
                 navigator.pushViewController(viewController, animated: true)
             }
         }
     }
 
-    func didPressButtonY() {
-        print("Y button was pressed")
-    }
 }

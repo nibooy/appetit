@@ -421,10 +421,10 @@
             </objects>
             <point key="canvasLocation" x="4077" y="-473"/>
         </scene>
-        <!--View Controller-->
+        <!--Barcode Scanner View Controller-->
         <scene sceneID="WEP-CD-aPs">
             <objects>
-                <viewController id="mtK-tU-5JR" sceneMemberID="viewController">
+                <viewController id="mtK-tU-5JR" customClass="BarcodeScannerViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hl8-BI-T6y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

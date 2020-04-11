@@ -404,7 +404,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Insert Scanner Button"/>
                                 <connections>
-                                    <segue destination="mtK-tU-5JR" kind="show" id="ecZ-Qk-W2E"/>
+                                    <segue destination="mtK-tU-5JR" kind="show" id="RsF-Yo-fnF"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FEo-Fc-v6q">

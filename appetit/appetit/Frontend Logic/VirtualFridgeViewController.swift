@@ -85,23 +85,11 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
 extension VirtualFridgeViewController: AddCellDelegate {
     func didAddPressButton() {
         print("add button was pressed")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "scanningVC")
+        controller.modalPresentationStyle = .currentContext
+        self.present(controller, animated: true, completion: nil)
 
-//        // now lets finally push some new controller
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "scanningVC") as UIViewController
-//        navigationController?.pushViewController(vc, animated: true)
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "scanningVC")
-//        self.present(controller, animated: true, completion: nil)
-//
-        // Safe Push VC - don't know why safe why doesn't work
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "scanningVC") as? AddingViewController {
-            print("check")
-            if let navigator = navigationController {
-                print("check1")
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
     }
 
 }

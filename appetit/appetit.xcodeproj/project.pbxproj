@@ -33,6 +33,14 @@
 		9EE1EFF7242F389F0047352B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF5242F389F0047352B /* Main.storyboard */; };
 		9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF8242F38A20047352B /* Assets.xcassets */; };
 		9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFFA242F38A20047352B /* LaunchScreen.storyboard */; };
+		BEE86C4E2441632C0086A831 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C4D2441632B0086A831 /* SwipingViewController.swift */; };
+		BEE86C50244163390086A831 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C4F244163390086A831 /* LoginCell.swift */; };
+		BEE86C52244163460086A831 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C51244163460086A831 /* PageCell.swift */; };
+		BEE86C542441634E0086A831 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C532441634E0086A831 /* Extensions.swift */; };
+		BEE86C56244163550086A831 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C55244163550086A831 /* PageModel.swift */; };
+		BEE86C58244163ED0086A831 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C57244163ED0086A831 /* MainNavigationController.swift */; };
+		BEE86C5A244164060086A831 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C59244164060086A831 /* HomeController.swift */; };
+		BEE86C5C244164240086A831 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE86C5B244164240086A831 /* UserDefaults+helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +84,14 @@
 		9EE1EFF8242F38A20047352B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EE1EFFB242F38A20047352B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EE1EFFD242F38A20047352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE86C4D2441632B0086A831 /* SwipingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipingViewController.swift; path = "../../../../../franklin/appetit/appetit/Frontend Logic/SwipingViewController.swift"; sourceTree = "<group>"; };
+		BEE86C4F244163390086A831 /* LoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginCell.swift; path = "../../../../../franklin/appetit/appetit/Frontend Logic/LoginCell.swift"; sourceTree = "<group>"; };
+		BEE86C51244163460086A831 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCell.swift; path = "../../../../../franklin/appetit/appetit/Frontend Logic/PageCell.swift"; sourceTree = "<group>"; };
+		BEE86C532441634E0086A831 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "../../../../../franklin/appetit/appetit/Frontend Logic/Extensions.swift"; sourceTree = "<group>"; };
+		BEE86C55244163550086A831 /* PageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageModel.swift; path = "../../../../../franklin/appetit/appetit/Frontend Logic/PageModel.swift"; sourceTree = "<group>"; };
+		BEE86C57244163ED0086A831 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		BEE86C59244164060086A831 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		BEE86C5B244164240086A831 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +201,9 @@
 			children = (
 				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
 				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
+				BEE86C4F244163390086A831 /* LoginCell.swift */,
 				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
+				BEE86C4D2441632B0086A831 /* SwipingViewController.swift */,
 				0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */,
 				0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */,
 				0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */,
@@ -193,6 +211,12 @@
 				0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */,
 				0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */,
 				0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */,
+				BEE86C57244163ED0086A831 /* MainNavigationController.swift */,
+				BEE86C59244164060086A831 /* HomeController.swift */,
+				BEE86C532441634E0086A831 /* Extensions.swift */,
+				BEE86C55244163550086A831 /* PageModel.swift */,
+				BEE86C51244163460086A831 /* PageCell.swift */,
+				BEE86C5B244164240086A831 /* UserDefaults+helpers.swift */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -319,22 +343,30 @@
 				9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */,
 				9E6741DC243C0A43007C17B5 /* DataHandler.swift in Sources */,
 				0AC94D33243BD669007CE4F8 /* SavedCollectionViewController.swift in Sources */,
+				BEE86C4E2441632C0086A831 /* SwipingViewController.swift in Sources */,
 				9E6741D9243C0A2E007C17B5 /* UserController.swift in Sources */,
 				9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */,
 				0AC94D35243BD698007CE4F8 /* RecipesViewController.swift in Sources */,
+				BEE86C52244163460086A831 /* PageCell.swift in Sources */,
 				0AC94D3D243BDCC6007CE4F8 /* BarcodeScannerViewController.swift in Sources */,
 				0AC94D3B243BDA98007CE4F8 /* FocusRecipeViewController.swift in Sources */,
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
 				9E6741FF243C1350007C17B5 /* IngredientEntity.swift in Sources */,
+				BEE86C5C244164240086A831 /* UserDefaults+helpers.swift in Sources */,
 				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
 				9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */,
+				BEE86C56244163550086A831 /* PageModel.swift in Sources */,
 				0AC94D37243BD98F007CE4F8 /* IngredientsViewController.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
+				BEE86C50244163390086A831 /* LoginCell.swift in Sources */,
+				BEE86C542441634E0086A831 /* Extensions.swift in Sources */,
 				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
 				0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */,
+				BEE86C5A244164060086A831 /* HomeController.swift in Sources */,
 				9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */,
+				BEE86C58244163ED0086A831 /* MainNavigationController.swift in Sources */,
 				9E6741DF243C0A62007C17B5 /* Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

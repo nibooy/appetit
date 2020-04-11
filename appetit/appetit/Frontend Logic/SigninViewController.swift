@@ -6,25 +6,34 @@
 //  Copyright © 2020 Mark Kang. All rights reserved.
 //
 
+
 import UIKit
 
 class SigninViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    lazy var createButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Create Account", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
+        return button
+    }()
+    
+    weak var delegate: SwipingControllerDelegate?
+    
+    @objc func createAccount() {
+        delegate?.finishLoggingIn()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        // Do any additional setup after loading the view.
     }
-    */
 
 }
+
+
+

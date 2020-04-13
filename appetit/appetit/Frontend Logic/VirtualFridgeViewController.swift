@@ -17,10 +17,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var menuButton: UIButton!
     
+    // This is the list to hold our food objects. Backend - might need to add a field for an image to coredata.
     var fridge = [Food]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Connect to backend change the setup function
         setup(n:10)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -70,7 +72,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         }
     }
     
-    
+    //change function to however u like but make sure to keep last two lines- responsible for how we get add button
     func setup(n: Int){
         
         for _ in 0...n-1{

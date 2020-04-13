@@ -6,6 +6,8 @@
 //  Copyright © 2020 Mark Kang. All rights reserved.
 //
 
+// NOT RIGHT FRIDGE VIEW CONTROLLER IGNORE GO TO VirtualFridgeVC
+
 import UIKit
 
 private let reuseIdentifier = "FridgeCustomCell"

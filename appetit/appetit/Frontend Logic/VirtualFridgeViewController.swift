@@ -28,6 +28,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         collectionView!.register(UINib.init(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         collectionView!.register(UINib.init(nibName: "AddCell", bundle: nil), forCellWithReuseIdentifier: "AddCell")
         menuButton.setImage(UIImage(imageLiteralResourceName: "menu"), for: .normal)
+        self.titleLabel.text = "Virtual Fridge"
         
 
         // Do any additional setup after loading the view.

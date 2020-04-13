@@ -16,8 +16,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGg-UB-jhg">
+                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGg-UB-jhg">
                         <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                        <color key="tintColor" red="0.149834035" green="0.149834035" blue="0.149834035" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <state key="normal" title="Button">
                             <color key="titleColor" red="0.149834035" green="0.149834035" blue="0.149834035" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </state>

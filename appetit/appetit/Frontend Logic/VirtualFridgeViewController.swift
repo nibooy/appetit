@@ -33,6 +33,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         // Do any additional setup after loading the view.
     }
     
+    
 
     /*
     // MARK: - Navigation
@@ -87,9 +88,9 @@ extension VirtualFridgeViewController: AddCellDelegate {
         print("add button was pressed")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "scanningVC")
-        controller.modalPresentationStyle = .currentContext
+        self.definesPresentationContext = true
+        controller.modalPresentationStyle = .overCurrentContext
         self.present(controller, animated: true, completion: nil)
-
     }
 
 }

@@ -12,6 +12,7 @@ class IngredientsViewController: UIViewController {
 
     @IBOutlet weak var ingredientsView: UIView!
     @IBOutlet weak var generateRecipe: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

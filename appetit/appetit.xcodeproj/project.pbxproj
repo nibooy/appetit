@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AB4C012243EB6BB001994CE /* VirtualFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */; };
+		0AB4C015243EDEE6001994CE /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C013243EDEE6001994CE /* AddCell.swift */; };
+		0AB4C016243EDEE6001994CE /* AddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB4C014243EDEE6001994CE /* AddCell.xib */; };
 		0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */; };
 		0AC94D33243BD669007CE4F8 /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */; };
 		0AC94D35243BD698007CE4F8 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */; };
@@ -14,6 +17,10 @@
 		0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */; };
 		0AC94D3B243BDA98007CE4F8 /* FocusRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */; };
 		0AC94D3D243BDCC6007CE4F8 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */; };
+		0AC94D3F243C1370007CE4F8 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D3E243C136F007CE4F8 /* Food.swift */; };
+		0AC94D41243C2682007CE4F8 /* FridgeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */; };
+		0AC94D52243E193E007CE4F8 /* FridgeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC94D50243E193D007CE4F8 /* FridgeCustomCell.swift */; };
+		0AC94D53243E193E007CE4F8 /* FridgeCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AC94D51243E193E007CE4F8 /* FridgeCustomCell.xib */; };
 		0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F31E24302662006F14E1 /* LoginViewController.swift */; };
 		0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F320243026E6006F14E1 /* SigninViewController.swift */; };
 		9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741CA243C0A1C007C17B5 /* appetit.xcdatamodeld */; };
@@ -46,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeViewController.swift; sourceTree = "<group>"; };
+		0AB4C013243EDEE6001994CE /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
+		0AB4C014243EDEE6001994CE /* AddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCell.xib; sourceTree = "<group>"; };
 		0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeCollectionViewController.swift; sourceTree = "<group>"; };
 		0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +63,10 @@
 		0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
 		0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusRecipeViewController.swift; sourceTree = "<group>"; };
 		0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		0AC94D3E243C136F007CE4F8 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeLayout.swift; sourceTree = "<group>"; };
+		0AC94D50243E193D007CE4F8 /* FridgeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeCustomCell.swift; sourceTree = "<group>"; };
+		0AC94D51243E193E007CE4F8 /* FridgeCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FridgeCustomCell.xib; sourceTree = "<group>"; };
 		0AE2F31E24302662006F14E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AE2F320243026E6006F14E1 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		9E6741CB243C0A1C007C17B5 /* appetit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = appetit.xcdatamodel; sourceTree = "<group>"; };
@@ -186,13 +200,20 @@
 				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
 				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
 				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
-				0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */,
+				0AC94D3E243C136F007CE4F8 /* Food.swift */,
 				0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */,
 				0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */,
 				0AC94D36243BD98F007CE4F8 /* IngredientsViewController.swift */,
 				0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */,
 				0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */,
 				0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */,
+				0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */,
+				0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */,
+				0AC94D50243E193D007CE4F8 /* FridgeCustomCell.swift */,
+				0AC94D51243E193E007CE4F8 /* FridgeCustomCell.xib */,
+				0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */,
+				0AB4C013243EDEE6001994CE /* AddCell.swift */,
+				0AB4C014243EDEE6001994CE /* AddCell.xib */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -294,9 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EE1203E242FC298005885C5 /* resource.strings in Resources */,
+				0AB4C016243EDEE6001994CE /* AddCell.xib in Resources */,
 				9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */,
 				9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */,
 				9EE1EFF7242F389F0047352B /* Main.storyboard in Resources */,
+				0AC94D53243E193E007CE4F8 /* FridgeCustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +339,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC94D3F243C1370007CE4F8 /* Food.swift in Sources */,
+				0AC94D52243E193E007CE4F8 /* FridgeCustomCell.swift in Sources */,
 				9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */,
 				9E6741DC243C0A43007C17B5 /* DataHandler.swift in Sources */,
 				0AC94D33243BD669007CE4F8 /* SavedCollectionViewController.swift in Sources */,
@@ -323,9 +348,11 @@
 				9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */,
+				0AB4C012243EB6BB001994CE /* VirtualFridgeViewController.swift in Sources */,
 				0AC94D35243BD698007CE4F8 /* RecipesViewController.swift in Sources */,
 				0AC94D3D243BDCC6007CE4F8 /* BarcodeScannerViewController.swift in Sources */,
 				0AC94D3B243BDA98007CE4F8 /* FocusRecipeViewController.swift in Sources */,
+				0AC94D41243C2682007CE4F8 /* FridgeLayout.swift in Sources */,
 				9EE1EFF4242F389F0047352B /* ViewController.swift in Sources */,
 				9E6741FF243C1350007C17B5 /* IngredientEntity.swift in Sources */,
 				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
@@ -336,6 +363,7 @@
 				0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */,
 				9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */,
 				9E6741DF243C0A62007C17B5 /* Error.swift in Sources */,
+				0AB4C015243EDEE6001994CE /* AddCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

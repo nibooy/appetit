@@ -133,7 +133,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="lwf-ic-KhR" kind="relationship" relationship="viewControllers" id="qvs-xO-4a8"/>
+                        <segue destination="GHD-pW-dej" kind="relationship" relationship="viewControllers" id="3Ih-Il-PWt"/>
                         <segue destination="AAw-iF-Op5" kind="relationship" relationship="viewControllers" id="3oS-wV-tXf"/>
                         <segue destination="ssE-Zr-XDN" kind="relationship" relationship="viewControllers" id="toz-ey-A4D"/>
                     </connections>
@@ -278,6 +278,82 @@
             <point key="canvasLocation" x="3071" y="987"/>
         </scene>
         <!--Fridge-->
+        <scene sceneID="5Oe-Gv-tcv">
+            <objects>
+                <viewController id="GHD-pW-dej" customClass="VirtualFridgeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3mL-6h-AA5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s3q-Y6-rdR">
+                                <rect key="frame" x="0.0" y="90" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="sUB-2h-KL9" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Z2Y-Vk-K74">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GtI-s1-CRr">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8q-dm-Xgt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ij-Qy-tKY">
+                                        <rect key="frame" x="19" y="61" width="111" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpL-8T-sRY">
+                                        <rect key="frame" x="365" y="46" width="35" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="dwv-KS-dc5"/>
+                                            <constraint firstAttribute="width" constant="35" id="eEb-sB-d0D"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="3Ij-Qy-tKY" firstAttribute="leading" secondItem="r8q-dm-Xgt" secondAttribute="leading" constant="19" id="0Nb-Lx-cCN"/>
+                                    <constraint firstAttribute="height" constant="90" id="DYE-bT-hyI"/>
+                                    <constraint firstAttribute="bottom" secondItem="SpL-8T-sRY" secondAttribute="bottom" constant="8" id="YRb-f4-MJ7"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ij-Qy-tKY" secondAttribute="bottom" constant="8" id="gAi-cJ-ILM"/>
+                                    <constraint firstAttribute="width" constant="414" id="vDu-ur-use"/>
+                                    <constraint firstAttribute="trailing" secondItem="SpL-8T-sRY" secondAttribute="trailing" constant="14" id="xDa-ea-viz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="leading" secondItem="mDw-sB-uMl" secondAttribute="leading" id="DCy-qw-xXA"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="top" secondItem="r8q-dm-Xgt" secondAttribute="bottom" id="KHG-T7-y7p"/>
+                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="Zeb-47-QHq"/>
+                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="top" secondItem="3mL-6h-AA5" secondAttribute="top" id="gol-9r-b2a"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="nUU-LY-Qx6"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="bottom" secondItem="mDw-sB-uMl" secondAttribute="bottom" id="ozn-uC-aOX"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="leading" secondItem="mDw-sB-uMl" secondAttribute="leading" id="r2B-Ob-Bsl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mDw-sB-uMl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Fridge" id="vAX-Sr-jVN"/>
+                    <connections>
+                        <outlet property="collectionView" destination="s3q-Y6-rdR" id="wNE-nq-aTN"/>
+                        <outlet property="header" destination="r8q-dm-Xgt" id="Ely-Tj-Cij"/>
+                        <outlet property="menuButton" destination="SpL-8T-sRY" id="jQs-9W-8lY"/>
+                        <outlet property="titleLabel" destination="3Ij-Qy-tKY" id="LDZ-Jq-hy5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OuZ-QL-CeE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3158" y="-465"/>
+        </scene>
+        <!--Fridge-->
         <scene sceneID="2q8-3c-mKJ">
             <objects>
                 <collectionViewController id="lwf-ic-KhR" customClass="FridgeCollectionViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
@@ -285,20 +361,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B5H-eh-GhX">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <collectionViewLayout key="collectionViewLayout" id="jT2-V8-JTG" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="chs-Zf-zzi">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="159" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rwk-NH-SOh">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="159" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="159" height="160"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -310,12 +382,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ihv-YS-SKI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3077" y="-473"/>
+            <point key="canvasLocation" x="4501" y="-1260"/>
         </scene>
         <!--Adding View Controller-->
         <scene sceneID="T4p-7z-ykE">
             <objects>
-                <viewController id="Jnl-dp-w0X" customClass="AddingViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanningVC" id="Jnl-dp-w0X" customClass="AddingViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GbL-if-pJO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -332,7 +404,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Insert Scanner Button"/>
                                 <connections>
-                                    <segue destination="mtK-tU-5JR" kind="show" id="ecZ-Qk-W2E"/>
+                                    <segue destination="mtK-tU-5JR" kind="show" id="RsF-Yo-fnF"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FEo-Fc-v6q">
@@ -349,10 +421,10 @@
             </objects>
             <point key="canvasLocation" x="4077" y="-473"/>
         </scene>
-        <!--View Controller-->
+        <!--Barcode Scanner View Controller-->
         <scene sceneID="WEP-CD-aPs">
             <objects>
-                <viewController id="mtK-tU-5JR" sceneMemberID="viewController">
+                <viewController id="mtK-tU-5JR" customClass="BarcodeScannerViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hl8-BI-T6y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -16,6 +16,12 @@ class AddingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        //dismisses screen when tabs to another screen
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation

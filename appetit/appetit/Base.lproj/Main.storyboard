@@ -427,6 +427,51 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-HJ-Kw5">
                                         <rect key="frame" x="0.0" y="252.5" width="374" height="243"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oee-wy-FJU">
+                                                <rect key="frame" x="0.0" y="29" width="374" height="214"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Ingredient Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1TM-Jd-y4t">
+                                                        <rect key="frame" x="0.0" y="15" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Quantity" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gT8-ZP-5Nq">
+                                                        <rect key="frame" x="0.0" y="71" width="272" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Measurement" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qos-s4-lvw">
+                                                        <rect key="frame" x="0.0" y="125" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-Jd-dD9">
+                                                        <rect key="frame" x="5" y="176" width="364" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
+                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="YYj-Cd-2fX">
+                                                        <rect key="frame" x="280" y="71" width="94" height="32"/>
+                                                    </stepper>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="WG6-Jd-dD9" secondAttribute="trailing" constant="5" id="0JA-FC-9ed"/>
+                                                    <constraint firstItem="WG6-Jd-dD9" firstAttribute="centerX" secondItem="Oee-wy-FJU" secondAttribute="centerX" id="3ZC-Bj-uoK"/>
+                                                    <constraint firstItem="WG6-Jd-dD9" firstAttribute="top" secondItem="Qos-s4-lvw" secondAttribute="bottom" constant="17" id="8FW-WK-GeQ"/>
+                                                    <constraint firstItem="1TM-Jd-y4t" firstAttribute="top" secondItem="Oee-wy-FJU" secondAttribute="top" constant="15" id="9F8-1b-aNu"/>
+                                                    <constraint firstItem="gT8-ZP-5Nq" firstAttribute="top" secondItem="1TM-Jd-y4t" secondAttribute="bottom" constant="22" id="A4k-p5-OdM"/>
+                                                    <constraint firstItem="gT8-ZP-5Nq" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" id="AjD-qq-w4Z"/>
+                                                    <constraint firstItem="WG6-Jd-dD9" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" constant="5" id="GZo-NR-Gpe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Qos-s4-lvw" secondAttribute="trailing" id="H5b-e1-fl3"/>
+                                                    <constraint firstItem="Qos-s4-lvw" firstAttribute="top" secondItem="gT8-ZP-5Nq" secondAttribute="bottom" constant="20" id="HE1-b9-vH3"/>
+                                                    <constraint firstItem="YYj-Cd-2fX" firstAttribute="leading" secondItem="gT8-ZP-5Nq" secondAttribute="trailing" constant="8" id="Qyd-zl-Py1"/>
+                                                    <constraint firstItem="1TM-Jd-y4t" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" id="Wlz-Mu-dip"/>
+                                                    <constraint firstItem="YYj-Cd-2fX" firstAttribute="top" secondItem="1TM-Jd-y4t" secondAttribute="bottom" constant="22" id="aa6-y1-CcB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YYj-Cd-2fX" secondAttribute="trailing" id="ekQ-Jf-rkk"/>
+                                                    <constraint firstItem="1TM-Jd-y4t" firstAttribute="centerX" secondItem="Oee-wy-FJU" secondAttribute="centerX" id="fGy-ef-a9J"/>
+                                                    <constraint firstItem="Qos-s4-lvw" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" id="kXL-QO-ZuN"/>
+                                                </constraints>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Ingredient Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O29-rV-Pbx">
                                                 <rect key="frame" x="0.0" y="0.0" width="155.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -436,8 +481,12 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="O29-rV-Pbx" firstAttribute="leading" secondItem="fDo-HJ-Kw5" secondAttribute="leading" id="igV-jb-Bdw"/>
-                                            <constraint firstItem="O29-rV-Pbx" firstAttribute="top" secondItem="fDo-HJ-Kw5" secondAttribute="top" id="kkK-qe-vra"/>
+                                            <constraint firstItem="Oee-wy-FJU" firstAttribute="top" secondItem="O29-rV-Pbx" secondAttribute="bottom" constant="8.5" id="0Og-DP-9yo"/>
+                                            <constraint firstAttribute="trailing" secondItem="Oee-wy-FJU" secondAttribute="trailing" id="B17-cJ-YlZ"/>
+                                            <constraint firstItem="Oee-wy-FJU" firstAttribute="leading" secondItem="fDo-HJ-Kw5" secondAttribute="leading" id="Lkh-KS-ZK4"/>
+                                            <constraint firstAttribute="bottom" secondItem="Oee-wy-FJU" secondAttribute="bottom" id="TKT-bp-Hbu"/>
+                                            <constraint firstItem="O29-rV-Pbx" firstAttribute="top" secondItem="fDo-HJ-Kw5" secondAttribute="top" id="VSI-1V-j9m"/>
+                                            <constraint firstItem="O29-rV-Pbx" firstAttribute="leading" secondItem="fDo-HJ-Kw5" secondAttribute="leading" id="ivO-qC-mam"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDc-4U-bc0">
@@ -478,7 +527,13 @@
                         <viewLayoutGuide key="safeArea" id="mbU-n9-Rh5"/>
                     </view>
                     <connections>
+                        <outlet property="formView" destination="Oee-wy-FJU" id="gml-m7-gmA"/>
+                        <outlet property="measurementLabel" destination="Qos-s4-lvw" id="vyR-hT-peh"/>
+                        <outlet property="nameLabel" destination="1TM-Jd-y4t" id="1MY-lR-xUM"/>
+                        <outlet property="quantityLabel" destination="gT8-ZP-5Nq" id="7hT-Bn-aKZ"/>
                         <outlet property="scannerButton" destination="yyK-Rf-SUL" id="Mv1-Eh-q9K"/>
+                        <outlet property="stepperButton" destination="YYj-Cd-2fX" id="FeD-FE-vrq"/>
+                        <outlet property="submitButton" destination="WG6-Jd-dD9" id="eeT-ph-LIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GJ-Gk-ZrE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

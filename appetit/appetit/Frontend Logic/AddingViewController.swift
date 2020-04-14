@@ -10,10 +10,20 @@ import UIKit
 
 class AddingViewController: UIViewController {
 
+    @IBOutlet weak var formView: UIView!
     @IBOutlet weak var scannerButton: UIButton!
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var quantityLabel: UITextField!
+    @IBOutlet weak var stepperButton: UIStepper!
+    @IBOutlet weak var measurementLabel: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButton()
+        setupUI()
 
         // Do any additional setup after loading the view.
         scannerButton.setImage(UIImage(imageLiteralResourceName: "barcode"), for: .normal)
@@ -29,7 +39,8 @@ class AddingViewController: UIViewController {
         
     }
     
-    func setupButton(){
+    func setupUI(){
+        //Code for the button
         scannerButton.layer.backgroundColor =  UIColor(red: 252/255, green: 244/255, blue: 236/255, alpha: 1).cgColor
         scannerButton.layer.cornerRadius = 10.0
         scannerButton.layer.borderWidth = 1.0
@@ -41,6 +52,7 @@ class AddingViewController: UIViewController {
         scannerButton.layer.shadowOpacity = 0.7
         scannerButton.layer.masksToBounds = false
         
+        //Code for second panel
     }
     
     /*

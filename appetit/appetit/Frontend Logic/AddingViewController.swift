@@ -24,7 +24,7 @@ class AddingViewController: UIViewController {
     
     @IBOutlet weak var measurementLabel: UITextField!
     
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButton: LoadingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,10 @@ class AddingViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         //dismisses screen when tabs to another screen
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func submitButtonTapped(_ sender: Any) {
+        submitButton.showLoading()
     }
     
     @IBAction func scanButtonTapped(_ sender: Any) {

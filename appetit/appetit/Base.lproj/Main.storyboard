@@ -440,7 +440,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-Jd-dD9">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-Jd-dD9" customClass="LoadingButton" customModule="appetit" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="162" width="344" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="L8k-NY-Zvq"/>
@@ -449,6 +449,9 @@
                                                         <state key="normal" title="Tap To Add Item To Fridge">
                                                             <color key="titleColor" red="0.149834035" green="0.149834035" blue="0.149834035" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="submitButtonTapped:" destination="Jnl-dp-w0X" eventType="touchUpInside" id="JEe-IR-hxL"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Measurement" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qos-s4-lvw">
                                                         <rect key="frame" x="10" y="113" width="354" height="34"/>
@@ -520,7 +523,7 @@
                         <outlet property="nameLabel" destination="1TM-Jd-y4t" id="1MY-lR-xUM"/>
                         <outlet property="quantityLabel" destination="gT8-ZP-5Nq" id="7hT-Bn-aKZ"/>
                         <outlet property="scannerButton" destination="yyK-Rf-SUL" id="Mv1-Eh-q9K"/>
-                        <outlet property="submitButton" destination="WG6-Jd-dD9" id="eeT-ph-LIb"/>
+                        <outlet property="submitButton" destination="WG6-Jd-dD9" id="cWS-Hq-BjA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GJ-Gk-ZrE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

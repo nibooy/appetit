@@ -392,22 +392,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="vcf-VW-V2K">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vcf-VW-V2K">
                                 <rect key="frame" x="20" y="104" width="374" height="748"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0TQ-vR-69h">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="247.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="242.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap below to start scanning ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAb-Cy-Bup">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap below to start scanning ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAb-Cy-Bup">
                                                 <rect key="frame" x="0.0" y="0.0" width="300.5" height="20.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyK-Rf-SUL">
-                                                <rect key="frame" x="5" y="26" width="364" height="200"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyK-Rf-SUL">
+                                                <rect key="frame" x="5" y="25.5" width="364" height="212"/>
+                                                <color key="tintColor" red="0.149834035" green="0.149834035" blue="0.149834035" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="scanButtonTapped:" destination="Jnl-dp-w0X" eventType="touchUpInside" id="kRc-D7-FSD"/>
@@ -415,9 +414,18 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="eAb-Cy-Bup" firstAttribute="top" secondItem="0TQ-vR-69h" secondAttribute="top" id="CJc-TX-cj2"/>
+                                            <constraint firstItem="yyK-Rf-SUL" firstAttribute="top" secondItem="eAb-Cy-Bup" secondAttribute="bottom" constant="5" id="OUd-hV-dsF"/>
+                                            <constraint firstItem="yyK-Rf-SUL" firstAttribute="leading" secondItem="0TQ-vR-69h" secondAttribute="leading" constant="5" id="ksT-Vi-JoE"/>
+                                            <constraint firstAttribute="bottom" secondItem="yyK-Rf-SUL" secondAttribute="bottom" constant="5" id="mpQ-HJ-Y16"/>
+                                            <constraint firstAttribute="trailing" secondItem="yyK-Rf-SUL" secondAttribute="trailing" constant="5" id="oNV-Nb-wB5"/>
+                                            <constraint firstItem="yyK-Rf-SUL" firstAttribute="centerX" secondItem="0TQ-vR-69h" secondAttribute="centerX" id="oQe-mA-5ZJ"/>
+                                            <constraint firstItem="eAb-Cy-Bup" firstAttribute="leading" secondItem="0TQ-vR-69h" secondAttribute="leading" id="wby-eP-7rT"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-HJ-Kw5">
-                                        <rect key="frame" x="0.0" y="250.5" width="374" height="247"/>
+                                        <rect key="frame" x="0.0" y="252.5" width="374" height="243"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Ingredient Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O29-rV-Pbx">
                                                 <rect key="frame" x="0.0" y="0.0" width="155.5" height="20.5"/>
@@ -433,7 +441,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDc-4U-bc0">
-                                        <rect key="frame" x="0.0" y="500.5" width="374" height="247.5"/>
+                                        <rect key="frame" x="0.0" y="505.5" width="374" height="242.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recently Added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eo-Pr-LUJ">
                                                 <rect key="frame" x="0.0" y="8" width="121" height="21"/>

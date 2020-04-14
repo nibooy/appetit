@@ -10,6 +10,19 @@ import UIKit
 
 class RecipesViewController: UIViewController {
 
+    struct Result: Decodable{
+        let hits: [Recipe]
+    }
+    
+    struct Recipe: Decodable{
+        let uri: String
+        let label: String
+        let image: String
+        let url: String
+        let healthLabels: [String]
+        let ingredientLines: [String]
+    }
+    
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var recipeImage: UIImageView!
@@ -18,10 +31,10 @@ class RecipesViewController: UIViewController {
     let urlString = "https://api.edamam.com/search?"
     let apiKey = "e789925699272fcebc9ebbc5957d99b1"
     let appId = "798efc6d"
+    var recipeList: [Recipe] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let mySession = URLSession(configuration: URLSessionConfiguration.default)
                 let urlWithQueryParameters = urlString
                 let url = URL(string: urlWithQueryParameters.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
@@ -37,10 +50,9 @@ class RecipesViewController: UIViewController {
                     }
                     let decoder = JSONDecoder()
                     do {
-//                        let result = try decoder.decode(//struct here, from: jsonData)
-//                        
+                        let result = try decoder.decode(Result.self, from: jsonData)
                         DispatchQueue.main.async {
-                            //reload data here
+                            self.recipeList = result.hits
                         }
                     } catch {
                         // error message here while loading data

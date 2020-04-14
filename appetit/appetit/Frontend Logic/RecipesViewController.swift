@@ -13,8 +13,10 @@ class RecipesViewController: UIViewController {
     struct Result: Decodable{
         let hits: [Recipe]
     }
-    
     struct Recipe: Decodable{
+        let recipe: RecipeInfo
+    }
+    struct RecipeInfo: Decodable{
         let uri: String
         let label: String
         let image: String
@@ -31,35 +33,49 @@ class RecipesViewController: UIViewController {
     let urlString = "https://api.edamam.com/search?"
     let apiKey = "e789925699272fcebc9ebbc5957d99b1"
     let appId = "798efc6d"
+    var userEmail: String = ""
     var recipeList: [Recipe] = []
-    
+    var listOfIngredients: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        let virtualFridgeController = VirtualFridgeController()
+        do{
+            let listOfUserIngredients:[IngredientEntity] = try virtualFridgeController.getUserIngredients(email: userEmail)
+            for ingredient in listOfUserIngredients{
+                listOfIngredients = listOfIngredients + " " + ingredient.ingredient
+            }
+        }catch ErrorMessage.ErrorCodes.dataSearchFailed{
+            //error is that we could not read from database
+        }catch{
+            // unknown error
+        }
         let mySession = URLSession(configuration: URLSessionConfiguration.default)
-                let urlWithQueryParameters = urlString
-                let url = URL(string: urlWithQueryParameters.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-                let task = mySession.dataTask(with: url) { data, response, error in
-                
-                    guard error == nil else {
-                        //error message here for internet problems
-                        return
-                    }
-                    guard let jsonData = data else {
-                        print("No data")
-                        return
-                    }
-                    let decoder = JSONDecoder()
-                    do {
-                        let result = try decoder.decode(Result.self, from: jsonData)
-                        DispatchQueue.main.async {
-                            self.recipeList = result.hits
-                        }
-                    } catch {
-                        // error message here while loading data
-                    }
+        let urlWithQueryParameters = urlString + "app_key=" + apiKey + "&app_id" + appId + "&q=" + listOfIngredients
+        let url = URL(string: urlWithQueryParameters.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+
+        let task = mySession.dataTask(with: url) { data, response, error in
+            guard error == nil else {
+                //error message here for internet problems
+                return
+            }
+            guard let jsonData = data else {
+                print("No data")
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let result = try decoder.decode(Result.self, from: jsonData)
+                self.recipeList = result.hits
+                DispatchQueue.main.async {
+                    print(self.recipeList)
                 }
-                task.resume()
+            } catch {
+                // error message here while loading data
+            }
+        }
+        task.resume()
     }
+    
     
     override func viewDidDisappear(_ animated: Bool) {
         //dismisses screen when tabs to another screen

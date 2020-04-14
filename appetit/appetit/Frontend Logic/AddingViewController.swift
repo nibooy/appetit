@@ -10,10 +10,13 @@ import UIKit
 
 class AddingViewController: UIViewController {
 
+    @IBOutlet weak var scannerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButton()
 
         // Do any additional setup after loading the view.
+        scannerButton.setImage(UIImage(imageLiteralResourceName: "barcode"), for: .normal)
     }
     
     
@@ -22,7 +25,24 @@ class AddingViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func scanButtonTapped(_ sender: Any) {
+        
+    }
+    
+    func setupButton(){
+        scannerButton.layer.backgroundColor =  UIColor(red: 252/255, green: 244/255, blue: 236/255, alpha: 1).cgColor
+        scannerButton.layer.cornerRadius = 10.0
+        scannerButton.layer.borderWidth = 1.0
+        scannerButton.layer.borderColor = UIColor.clear.cgColor
+        scannerButton.layer.masksToBounds = true
+        scannerButton.layer.shadowColor = UIColor.lightGray.cgColor
+        scannerButton.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        scannerButton.layer.shadowRadius = 2.0
+        scannerButton.layer.shadowOpacity = 0.7
+        scannerButton.layer.masksToBounds = false
+        
+    }
+    
     /*
     // MARK: - Navigation
 

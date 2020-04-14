@@ -6,20 +6,25 @@
 //  Copyright © 2020 Mark Kang. All rights reserved.
 //
 
+//Todos: add checks for each
+
+//Future change measurement to be scroll wheel and make submit button pop up alert about successfully adding
+
 import UIKit
 
 class AddingViewController: UIViewController {
 
     @IBOutlet weak var formView: UIView!
+    
     @IBOutlet weak var scannerButton: UIButton!
+    
     @IBOutlet weak var nameLabel: UITextField!
+    
     @IBOutlet weak var quantityLabel: UITextField!
-    @IBOutlet weak var stepperButton: UIStepper!
+    
     @IBOutlet weak var measurementLabel: UITextField!
+    
     @IBOutlet weak var submitButton: UIButton!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +41,11 @@ class AddingViewController: UIViewController {
     }
     
     @IBAction func scanButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "barcodeScannerVC")//need to add to storyboard this identifier
+        self.definesPresentationContext = true
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
         
     }
     
@@ -53,6 +63,21 @@ class AddingViewController: UIViewController {
         scannerButton.layer.masksToBounds = false
         
         //Code for second panel
+        formView.layer.backgroundColor =  UIColor(red: 252/255, green: 244/255, blue: 236/255, alpha: 1).cgColor
+        formView.layer.cornerRadius = 10.0
+        formView.layer.borderWidth = 1.0
+        formView.layer.borderColor = UIColor.clear.cgColor
+        formView.layer.masksToBounds = true
+        formView.layer.shadowColor = UIColor.lightGray.cgColor
+        formView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        formView.layer.shadowRadius = 2.0
+        formView.layer.shadowOpacity = 0.7
+        formView.layer.masksToBounds = false
+        
+        //Code for Button submit
+        submitButton.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
+        submitButton.layer.cornerRadius = 20.0
+        
     }
     
     /*

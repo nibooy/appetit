@@ -410,6 +410,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="scanButtonTapped:" destination="Jnl-dp-w0X" eventType="touchUpInside" id="kRc-D7-FSD"/>
+                                                    <segue destination="gLQ-0o-Mku" kind="show" id="7Tk-yE-vo2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -522,20 +523,59 @@
             <point key="canvasLocation" x="4076.811594202899" y="-473.4375"/>
         </scene>
         <!--Barcode Scanner View Controller-->
-        <scene sceneID="WEP-CD-aPs">
+        <scene sceneID="iIh-ek-bbf">
             <objects>
-                <viewController id="mtK-tU-5JR" customClass="BarcodeScannerViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hl8-BI-T6y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="gLQ-0o-Mku" customClass="BarcodeScannerViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pk5-Xo-Mn4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-81-MTP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVH-CN-lnZ">
+                                        <rect key="frame" x="20" y="22" width="67" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="xmark.square.fill" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Barcode Detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyY-nz-Z20">
+                                <rect key="frame" x="0.0" y="725" width="414" height="55"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="2Av-Cw-jva"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="k2y-z3-J2d"/>
+                        <constraints>
+                            <constraint firstItem="HyY-nz-Z20" firstAttribute="trailing" secondItem="Ilc-81-MTP" secondAttribute="trailing" id="1Al-9c-9Tb"/>
+                            <constraint firstItem="HyY-nz-Z20" firstAttribute="centerX" secondItem="pk5-Xo-Mn4" secondAttribute="centerX" id="8xZ-OT-CQk"/>
+                            <constraint firstItem="aZt-hz-sNi" firstAttribute="bottom" secondItem="HyY-nz-Z20" secondAttribute="bottom" constant="28" id="9sS-lD-g9h"/>
+                            <constraint firstAttribute="bottom" secondItem="Ilc-81-MTP" secondAttribute="bottom" constant="740" id="QVY-IA-2ng"/>
+                            <constraint firstItem="HyY-nz-Z20" firstAttribute="leading" secondItem="Ilc-81-MTP" secondAttribute="leading" id="jhQ-Vs-48f"/>
+                            <constraint firstItem="Ilc-81-MTP" firstAttribute="top" secondItem="aZt-hz-sNi" secondAttribute="top" id="lms-St-yZe"/>
+                            <constraint firstItem="HyY-nz-Z20" firstAttribute="leading" secondItem="aZt-hz-sNi" secondAttribute="leading" id="x7z-tc-gcs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aZt-hz-sNi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BxK-CD-ddm"/>
+                    <navigationItem key="navigationItem" id="ynh-7s-lF9"/>
+                    <connections>
+                        <outlet property="TopBar" destination="Ilc-81-MTP" id="ed3-BN-bjC"/>
+                        <outlet property="messageLabel" destination="HyY-nz-Z20" id="kMX-Nj-mgG"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SLZ-E5-Mws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rQ-7J-GXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5020" y="-478"/>
+            <point key="canvasLocation" x="5052" y="-473"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xmark.square.fill" catalog="system" width="128" height="114"/>
+    </resources>
 </document>

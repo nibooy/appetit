@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5BD450244579D700AAD4CC /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD44F244579D700AAD4CC /* LoadingButton.swift */; };
 		0AB4C012243EB6BB001994CE /* VirtualFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */; };
 		0AB4C015243EDEE6001994CE /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C013243EDEE6001994CE /* AddCell.swift */; };
 		0AB4C016243EDEE6001994CE /* AddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB4C014243EDEE6001994CE /* AddCell.xib */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A5BD44F244579D700AAD4CC /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeViewController.swift; sourceTree = "<group>"; };
 		0AB4C013243EDEE6001994CE /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
 		0AB4C014243EDEE6001994CE /* AddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCell.xib; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */,
 				0AB4C013243EDEE6001994CE /* AddCell.swift */,
 				0AB4C014243EDEE6001994CE /* AddCell.xib */,
+				0A5BD44F244579D700AAD4CC /* LoadingButton.swift */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5BD450244579D700AAD4CC /* LoadingButton.swift in Sources */,
 				0AC94D3F243C1370007CE4F8 /* Food.swift in Sources */,
 				0AC94D52243E193E007CE4F8 /* FridgeCustomCell.swift in Sources */,
 				9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */,

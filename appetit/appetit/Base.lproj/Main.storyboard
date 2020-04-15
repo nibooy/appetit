@@ -405,7 +405,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyK-Rf-SUL">
-                                                <rect key="frame" x="0.0" y="25.5" width="374" height="333.5"/>
+                                                <rect key="frame" x="0.0" y="35.5" width="374" height="323.5"/>
                                                 <color key="tintColor" red="0.149834035" green="0.149834035" blue="0.149834035" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -417,8 +417,8 @@
                                         <constraints>
                                             <constraint firstItem="yyK-Rf-SUL" firstAttribute="leading" secondItem="0TQ-vR-69h" secondAttribute="leading" id="7dU-NM-JyQ"/>
                                             <constraint firstItem="eAb-Cy-Bup" firstAttribute="top" secondItem="0TQ-vR-69h" secondAttribute="top" id="CJc-TX-cj2"/>
+                                            <constraint firstItem="yyK-Rf-SUL" firstAttribute="top" secondItem="eAb-Cy-Bup" secondAttribute="bottom" constant="15" id="INI-I4-Wef"/>
                                             <constraint firstAttribute="bottom" secondItem="yyK-Rf-SUL" secondAttribute="bottom" id="Jzw-Eb-1Uc"/>
-                                            <constraint firstItem="yyK-Rf-SUL" firstAttribute="top" secondItem="eAb-Cy-Bup" secondAttribute="bottom" constant="5" id="OUd-hV-dsF"/>
                                             <constraint firstAttribute="trailing" secondItem="yyK-Rf-SUL" secondAttribute="trailing" id="mxX-4B-2HH"/>
                                             <constraint firstItem="yyK-Rf-SUL" firstAttribute="centerX" secondItem="0TQ-vR-69h" secondAttribute="centerX" id="oQe-mA-5ZJ"/>
                                             <constraint firstItem="eAb-Cy-Bup" firstAttribute="leading" secondItem="0TQ-vR-69h" secondAttribute="leading" id="wby-eP-7rT"/>
@@ -441,7 +441,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-Jd-dD9" customClass="LoadingButton" customModule="appetit" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="162" width="344" height="25"/>
+                                                        <rect key="frame" x="15" y="123" width="344" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="L8k-NY-Zvq"/>
                                                         </constraints>
@@ -453,28 +453,20 @@
                                                             <action selector="submitButtonTapped:" destination="Jnl-dp-w0X" eventType="touchUpInside" id="JEe-IR-hxL"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Measurement" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qos-s4-lvw">
-                                                        <rect key="frame" x="10" y="113" width="354" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="Qos-s4-lvw" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" constant="10" id="3Pg-3P-CDR"/>
                                                     <constraint firstItem="WG6-Jd-dD9" firstAttribute="centerX" secondItem="Oee-wy-FJU" secondAttribute="centerX" id="3ZC-Bj-uoK"/>
                                                     <constraint firstAttribute="trailing" secondItem="gT8-ZP-5Nq" secondAttribute="trailing" constant="10" id="5eh-xO-4tm"/>
+                                                    <constraint firstItem="WG6-Jd-dD9" firstAttribute="top" secondItem="gT8-ZP-5Nq" secondAttribute="bottom" constant="25" id="7X6-c0-h4R"/>
                                                     <constraint firstItem="1TM-Jd-y4t" firstAttribute="top" secondItem="Oee-wy-FJU" secondAttribute="top" constant="15" id="9F8-1b-aNu"/>
                                                     <constraint firstItem="1TM-Jd-y4t" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" constant="10" id="IaJ-Sc-AvC"/>
                                                     <constraint firstItem="gT8-ZP-5Nq" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" constant="10" id="KTT-OK-Pvj"/>
-                                                    <constraint firstItem="Qos-s4-lvw" firstAttribute="top" secondItem="gT8-ZP-5Nq" secondAttribute="bottom" constant="15" id="Oaf-7l-31d"/>
                                                     <constraint firstItem="WG6-Jd-dD9" firstAttribute="leading" secondItem="Oee-wy-FJU" secondAttribute="leading" constant="15" id="Zvb-Bc-hyc"/>
-                                                    <constraint firstItem="WG6-Jd-dD9" firstAttribute="top" secondItem="Qos-s4-lvw" secondAttribute="bottom" constant="15" id="dSX-qz-bl2"/>
                                                     <constraint firstAttribute="width" secondItem="Oee-wy-FJU" secondAttribute="height" multiplier="374:229" id="doW-Xd-UfQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="WG6-Jd-dD9" secondAttribute="trailing" constant="15" id="eHt-hb-Mb6"/>
                                                     <constraint firstItem="1TM-Jd-y4t" firstAttribute="centerX" secondItem="Oee-wy-FJU" secondAttribute="centerX" id="fGy-ef-a9J"/>
                                                     <constraint firstItem="gT8-ZP-5Nq" firstAttribute="top" secondItem="1TM-Jd-y4t" secondAttribute="bottom" constant="15" id="qk2-8I-Uha"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Qos-s4-lvw" secondAttribute="trailing" constant="10" id="xZk-11-hPT"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Ingredient Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O29-rV-Pbx">
@@ -519,7 +511,6 @@
                     </view>
                     <connections>
                         <outlet property="formView" destination="Oee-wy-FJU" id="gml-m7-gmA"/>
-                        <outlet property="measurementLabel" destination="Qos-s4-lvw" id="vyR-hT-peh"/>
                         <outlet property="nameLabel" destination="1TM-Jd-y4t" id="1MY-lR-xUM"/>
                         <outlet property="quantityLabel" destination="gT8-ZP-5Nq" id="7hT-Bn-aKZ"/>
                         <outlet property="scannerButton" destination="yyK-Rf-SUL" id="Mv1-Eh-q9K"/>

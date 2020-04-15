@@ -17,7 +17,7 @@ class DataService {
         }
 
         let url = "https://trackapi.nutritionix.com/v2/search/item"
-        let urlWithParams = url + "?upc=851045005013"
+        let urlWithParams = url + "?upc=" + codeNumber
         let myUrl = URL(string: urlWithParams)
         guard let requestUrl = myUrl else { fatalError() }
 

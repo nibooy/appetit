@@ -34,12 +34,12 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            view.backgroundColor = UIColor.black
             captureSession = AVCaptureSession()
 
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
              
             guard let captureDevice = deviceDiscoverySession.devices.first else {
+                
                 print("Failed to get the camera device")
                 return
             }
@@ -87,11 +87,20 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 view.bringSubviewToFront(BarcodeFrameView)
             }
         }
+    
+//    func scanningNotPossible(){
+//        let alert = UIAlertController(title: "Can't Scan", message: "Try a device with camera", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//        presentedViewController(alert, animated: true, completion: nil)
+//        session = nil
+//    }
+    
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
+    
         
         func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
             // Check if the metadataObjects array is not nil and it contains at least one object.
@@ -123,7 +132,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
         }
         //Function when QR Code detected
         func found(value: String) {
-            
+            DataService.searchAPI(codeNumber: value)
             if presentedViewController != nil {
                 return
             }

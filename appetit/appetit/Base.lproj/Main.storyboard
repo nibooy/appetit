@@ -325,7 +325,6 @@
                                     <constraint firstAttribute="height" constant="90" id="DYE-bT-hyI"/>
                                     <constraint firstAttribute="bottom" secondItem="SpL-8T-sRY" secondAttribute="bottom" constant="8" id="YRb-f4-MJ7"/>
                                     <constraint firstAttribute="bottom" secondItem="3Ij-Qy-tKY" secondAttribute="bottom" constant="8" id="gAi-cJ-ILM"/>
-                                    <constraint firstAttribute="width" constant="414" id="vDu-ur-use"/>
                                     <constraint firstAttribute="trailing" secondItem="SpL-8T-sRY" secondAttribute="trailing" constant="14" id="xDa-ea-viz"/>
                                 </constraints>
                             </view>
@@ -334,6 +333,7 @@
                         <constraints>
                             <constraint firstItem="r8q-dm-Xgt" firstAttribute="leading" secondItem="mDw-sB-uMl" secondAttribute="leading" id="DCy-qw-xXA"/>
                             <constraint firstItem="s3q-Y6-rdR" firstAttribute="top" secondItem="r8q-dm-Xgt" secondAttribute="bottom" id="KHG-T7-y7p"/>
+                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="leading" secondItem="s3q-Y6-rdR" secondAttribute="leading" id="WVN-TX-iVU"/>
                             <constraint firstItem="r8q-dm-Xgt" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="Zeb-47-QHq"/>
                             <constraint firstItem="r8q-dm-Xgt" firstAttribute="top" secondItem="3mL-6h-AA5" secondAttribute="top" id="gol-9r-b2a"/>
                             <constraint firstItem="s3q-Y6-rdR" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="nUU-LY-Qx6"/>

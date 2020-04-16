@@ -13,6 +13,7 @@
 import UIKit
 import AVFoundation
 
+
 class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
         @IBOutlet var TopBar: UIView!
@@ -35,11 +36,31 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                                            AVMetadataObject.ObjectType.dataMatrix,
                                            AVMetadataObject.ObjectType.interleaved2of5,
                                            AVMetadataObject.ObjectType.qr]
-        
+            
         override func viewDidLoad() {
+            if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) ==  AVAuthorizationStatus.authorized {
+                // Already Authorized
+            } else {
+                AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted: Bool) -> Void in
+                   if granted == true {
+                       // User granted
+                   } else {
+                       // User rejected
+                   }
+               })
+            }
             super.viewDidLoad()
-
+            
+//            AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+//                if response {
+//                    //access granted
+//                } else {
+//
+//                }
+//            }
+            
             captureSession = AVCaptureSession()
+            
 
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
              

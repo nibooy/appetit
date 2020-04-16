@@ -6,6 +6,10 @@
 //  Copyright © 2020 Mark Kang. All rights reserved.
 //
 
+//Sample barcodes for testing
+// https://docs.google.com/document/d/1hZ69q8BhEgEVHbFzQnPlGNPjyJycKWBDhY1jsT13np8/edit
+//TODO: Add edge case errors for barcode with no search result from API 
+
 import UIKit
 import AVFoundation
 

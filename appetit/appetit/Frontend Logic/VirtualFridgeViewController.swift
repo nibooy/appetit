@@ -32,9 +32,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         menuButton.setImage(UIImage(imageLiteralResourceName: "menu"), for: .normal)
         self.titleLabel.text = "Virtual Fridge"
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+        
 
         // Do any additional setup after loading the view.
-    }
     
     
 
@@ -72,6 +75,13 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         }
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("User tapped on item \(indexPath.row)")
+        let pop = Popup()
+        self.view.addSubview(pop)
+    }
+    
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
     func setup(n: Int){
         
@@ -84,6 +94,20 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         
         
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+               if self.view.frame.origin.y == 0 {
+                   self.view.frame.origin.y -= keyboardSize.height/2
+               }
+           }
+       }
+
+       @objc func keyboardWillHide(notification: NSNotification) {
+           if self.view.frame.origin.y != 0 {
+               self.view.frame.origin.y = 0
+           }
+       }
 }
 
 extension VirtualFridgeViewController: AddCellDelegate {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A5BD450244579D700AAD4CC /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD44F244579D700AAD4CC /* LoadingButton.swift */; };
+		0A9FD0E7244824BF005B2E69 /* popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FD0E6244824BF005B2E69 /* popup.swift */; };
 		0AB4C012243EB6BB001994CE /* VirtualFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */; };
 		0AB4C015243EDEE6001994CE /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C013243EDEE6001994CE /* AddCell.swift */; };
 		0AB4C016243EDEE6001994CE /* AddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB4C014243EDEE6001994CE /* AddCell.xib */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		0A5BD44F244579D700AAD4CC /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		0A9FD0E6244824BF005B2E69 /* popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popup.swift; sourceTree = "<group>"; };
 		0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeViewController.swift; sourceTree = "<group>"; };
 		0AB4C013243EDEE6001994CE /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
 		0AB4C014243EDEE6001994CE /* AddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCell.xib; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				0AB4C013243EDEE6001994CE /* AddCell.swift */,
 				0AB4C014243EDEE6001994CE /* AddCell.xib */,
 				0A5BD44F244579D700AAD4CC /* LoadingButton.swift */,
+				0A9FD0E6244824BF005B2E69 /* popup.swift */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */,
 				9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */,
 				9E6741DF243C0A62007C17B5 /* Error.swift in Sources */,
+				0A9FD0E7244824BF005B2E69 /* popup.swift in Sources */,
 				0AB4C015243EDEE6001994CE /* AddCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

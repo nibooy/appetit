@@ -31,6 +31,7 @@ class AddCell: UICollectionViewCell {
     @IBAction func didAddPressButton(_ sender: Any) {
         delegate?.didAddPressButton()
     }
+    
     private func configureCell() {
             self.contentView.layer.backgroundColor =  UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1).cgColor
             self.contentView.layer.cornerRadius = 10.0

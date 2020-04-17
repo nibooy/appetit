@@ -32,6 +32,8 @@ class AddingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         scannerButton.setImage(UIImage(imageLiteralResourceName: "barcode"), for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     
@@ -82,6 +84,22 @@ class AddingViewController: UIViewController {
         submitButton.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
         submitButton.layer.cornerRadius = 20.0
         
+    }
+    
+    
+    // Code below for when keyboard pops up
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height/1.5
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     /*

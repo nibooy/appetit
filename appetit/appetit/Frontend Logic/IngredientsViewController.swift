@@ -86,7 +86,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? FridgeCustomCell {
             cell.contentView.layer.backgroundColor =  UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1).cgColor
-            if let index = selected.index(of: cell.itemName.text!) {
+            if let index = selected.firstIndex(of: cell.itemName.text!) {
                 selected.remove(at: index)
             }
             print(selected)

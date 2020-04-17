@@ -173,6 +173,7 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="generateRecipe:" destination="ssE-Zr-XDN" eventType="touchUpInside" id="x3r-1t-PKD"/>
+                                            <segue destination="Z59-id-beh" kind="show" id="xlu-PD-mNJ"/>
                                         </connections>
                                     </button>
                                 </subviews>

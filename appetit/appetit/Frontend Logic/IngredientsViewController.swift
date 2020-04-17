@@ -16,6 +16,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buttonView: UIView!
     var fridge = [Food]()
+    var selected = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         collectionView!.register(UINib.init(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-
+        collectionView.allowsMultipleSelection = true
         
         
         //code to add button to right
@@ -38,18 +39,19 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         let rightItem = UIBarButtonItem(customView: menu)
         
         setupLeftTitle(title: "Generate Recipes")
+        setupButtonUI()
         
         self.navigationItem.rightBarButtonItem  = rightItem
         buttonView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
           
     }
-    // MARK: - Navigation
-    //
-    //    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        // Get the new view controller using segue.destination.
-    //        // Pass the selected object to the new view controller.
-    //    }
+     //MARK: - Navigation
+    
+        // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // Get the new view controller using segue.destination.
+            // Pass the selected object to the new view controller.
+    }
     
     
     // MARK: View Layout Setup
@@ -66,12 +68,30 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FridgeCustomCell
         cell.configureData(with: fridge[indexPath.row])
+        cell.contentView.layer.backgroundColor =  UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1).cgColor
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("User tapped on item \(indexPath.row)")
+        if let cell = collectionView.cellForItem(at: indexPath) as? FridgeCustomCell {
+            cell.contentView.layer.backgroundColor =  UIColor(red: 0.788, green: 1, blue: 0.808, alpha: 1).cgColor
+            selected.append(cell.itemName.text!)
+            print(selected)
+        }
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? FridgeCustomCell {
+            cell.contentView.layer.backgroundColor =  UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1).cgColor
+            if let index = selected.index(of: cell.itemName.text!) {
+                selected.remove(at: index)
+            }
+            print(selected)
+
+        }
     }
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
@@ -93,10 +113,26 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         self.navigationItem.leftBarButtonItem = leftItem
     }
     
+    func setupButtonUI(){
+        generateButton.setTitle("Click To Generate Recipes", for: .normal)
+        generateButton.setTitleColor(.black, for: .normal)
+        generateButton.layer.cornerRadius = 20
+        generateButton.layer.backgroundColor = UIColor(red: 0.788, green: 1, blue: 0.808, alpha: 1).cgColor
+        generateButton.layer.borderWidth = 1.0
+        generateButton.layer.borderColor = UIColor.clear.cgColor
+        generateButton.layer.masksToBounds = true
+        generateButton.layer.shadowColor = UIColor.lightGray.cgColor
+        generateButton.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        generateButton.layer.shadowRadius = 2.0
+        generateButton.layer.shadowOpacity = 0.7
+        generateButton.layer.masksToBounds = false
+    }
+    
     @objc func menuButtonClicked(_ sender: UIButton) {
-        
+        //add stuff
     }
     @IBAction func generateRecipe(_ sender: Any) {
+        
     }
 }
 

@@ -51,14 +51,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             }
             super.viewDidLoad()
             
-//            AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
-//                if response {
-//                    //access granted
-//                } else {
-//
-//                }
-//            }
-            
             captureSession = AVCaptureSession()
             
 
@@ -121,7 +113,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 //        session = nil
 //    }
     
-        
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
@@ -177,8 +168,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 //            ))
 //            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
 //                    alert.addAction(cancelAction)
-
-    
     
         private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
           layer.videoOrientation = orientation

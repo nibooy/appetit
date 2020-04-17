@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j86-i5-gm6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="685"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="632"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="Gxw-1K-JPf" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
                                 <cells>
@@ -166,31 +166,37 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIu-QD-lIF">
-                                <rect key="frame" x="0.0" y="773" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="720" width="414" height="93"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTn-A6-lNG">
-                                        <rect key="frame" x="20" y="5" width="374" height="30"/>
+                                        <rect key="frame" x="20" y="5" width="374" height="83"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="generateRecipe:" destination="ssE-Zr-XDN" eventType="touchUpInside" id="x3r-1t-PKD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WTn-A6-lNG" secondAttribute="trailing" constant="20" id="1XY-WO-pUS"/>
-                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="top" secondItem="RIu-QD-lIF" secondAttribute="top" constant="5" id="ViY-f5-YHr"/>
-                                    <constraint firstAttribute="bottom" secondItem="WTn-A6-lNG" secondAttribute="bottom" constant="5" id="mF4-it-hAh"/>
-                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="leading" secondItem="RIu-QD-lIF" secondAttribute="leading" constant="20" id="uNl-9j-1mA"/>
+                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="centerX" secondItem="RIu-QD-lIF" secondAttribute="centerX" id="9rW-Lo-DWN"/>
+                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="top" secondItem="RIu-QD-lIF" secondAttribute="top" constant="5" id="KhR-0b-FOn"/>
+                                    <constraint firstAttribute="height" constant="93" id="U5P-cZ-qlZ"/>
+                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="leading" secondItem="RIu-QD-lIF" secondAttribute="leading" constant="20" id="XDC-ID-VH7"/>
+                                    <constraint firstAttribute="bottom" secondItem="WTn-A6-lNG" secondAttribute="bottom" constant="5" id="iPJ-e9-A5c"/>
+                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="centerY" secondItem="RIu-QD-lIF" secondAttribute="centerY" id="rM0-B2-Q27"/>
+                                    <constraint firstAttribute="trailing" secondItem="WTn-A6-lNG" secondAttribute="trailing" constant="20" id="tk6-kH-XWH"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="j86-i5-gm6" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="312-qW-wtg"/>
-                            <constraint firstItem="RIu-QD-lIF" firstAttribute="top" secondItem="j86-i5-gm6" secondAttribute="bottom" id="JrD-So-WIR"/>
-                            <constraint firstItem="RIu-QD-lIF" firstAttribute="bottom" secondItem="h9f-hj-75c" secondAttribute="bottom" id="SQL-fz-woH"/>
-                            <constraint firstItem="j86-i5-gm6" firstAttribute="top" secondItem="h9f-hj-75c" secondAttribute="top" id="VsF-oM-nXt"/>
-                            <constraint firstItem="j86-i5-gm6" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="eu0-Fq-CRT"/>
-                            <constraint firstItem="RIu-QD-lIF" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="nLf-Lt-jhw"/>
-                            <constraint firstItem="RIu-QD-lIF" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="pRH-iP-Ydb"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="5ig-9B-Tca"/>
+                            <constraint firstItem="j86-i5-gm6" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="6iw-PO-lWS"/>
+                            <constraint firstItem="j86-i5-gm6" firstAttribute="top" secondItem="h9f-hj-75c" secondAttribute="top" id="Euz-S0-5Z5"/>
+                            <constraint firstItem="j86-i5-gm6" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="Ml8-Ks-2N2"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="bottom" secondItem="h9f-hj-75c" secondAttribute="bottom" id="SwP-2J-yGu"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="fZp-vw-Ja7"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="top" secondItem="j86-i5-gm6" secondAttribute="bottom" id="i5w-xV-Vef"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h9f-hj-75c"/>
                     </view>
@@ -198,6 +204,7 @@
                     <connections>
                         <outlet property="buttonView" destination="RIu-QD-lIF" id="NK6-1O-aCV"/>
                         <outlet property="collectionView" destination="j86-i5-gm6" id="iH4-Se-EC5"/>
+                        <outlet property="generateButton" destination="WTn-A6-lNG" id="0u6-dg-A5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hq-gd-ygp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -585,7 +592,6 @@
         <!--Recipes-->
         <scene sceneID="Tmd-yZ-8Ld">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1rb-3L-RqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SbU-Ei-UJR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recipes" id="t1Z-8e-rcm"/>
                     <toolbarItems/>
@@ -598,6 +604,7 @@
                         <segue destination="ssE-Zr-XDN" kind="relationship" relationship="rootViewController" id="bmZ-gx-G1F"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rb-3L-RqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3130" y="234"/>
         </scene>

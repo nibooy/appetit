@@ -12,6 +12,7 @@ private let reuseIdentifier = "FridgeCustomCell"
 
 class IngredientsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buttonView: UIView!
     var fridge = [Food]()
@@ -39,7 +40,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         setupLeftTitle(title: "Generate Recipes")
         
         self.navigationItem.rightBarButtonItem  = rightItem
-        print(fridge)
+        buttonView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
           
     }
     // MARK: - Navigation
@@ -94,6 +95,8 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     
     @objc func menuButtonClicked(_ sender: UIButton) {
         
+    }
+    @IBAction func generateRecipe(_ sender: Any) {
     }
 }
 

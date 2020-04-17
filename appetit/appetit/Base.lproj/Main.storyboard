@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UTA-T3-ep2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -133,7 +133,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GHD-pW-dej" kind="relationship" relationship="viewControllers" id="3Ih-Il-PWt"/>
+                        <segue destination="zyB-1v-3px" kind="relationship" relationship="viewControllers" id="3Ih-Il-PWt"/>
                         <segue destination="AAw-iF-Op5" kind="relationship" relationship="viewControllers" id="3oS-wV-tXf"/>
                         <segue destination="ssE-Zr-XDN" kind="relationship" relationship="viewControllers" id="toz-ey-A4D"/>
                     </connections>
@@ -278,7 +278,7 @@
             </objects>
             <point key="canvasLocation" x="3071" y="987"/>
         </scene>
-        <!--Fridge-->
+        <!--Virtual Fridge View Controller-->
         <scene sceneID="5Oe-Gv-tcv">
             <objects>
                 <viewController id="GHD-pW-dej" customClass="VirtualFridgeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
@@ -287,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s3q-Y6-rdR">
-                                <rect key="frame" x="0.0" y="90" width="414" height="723"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="sUB-2h-KL9" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
                                 <cells>
@@ -301,58 +301,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8q-dm-Xgt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ij-Qy-tKY">
-                                        <rect key="frame" x="19" y="61" width="111" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpL-8T-sRY">
-                                        <rect key="frame" x="365" y="46" width="35" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="dwv-KS-dc5"/>
-                                            <constraint firstAttribute="width" constant="35" id="eEb-sB-d0D"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="3Ij-Qy-tKY" firstAttribute="leading" secondItem="r8q-dm-Xgt" secondAttribute="leading" constant="19" id="0Nb-Lx-cCN"/>
-                                    <constraint firstAttribute="height" constant="90" id="DYE-bT-hyI"/>
-                                    <constraint firstAttribute="bottom" secondItem="SpL-8T-sRY" secondAttribute="bottom" constant="8" id="YRb-f4-MJ7"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Ij-Qy-tKY" secondAttribute="bottom" constant="8" id="gAi-cJ-ILM"/>
-                                    <constraint firstAttribute="trailing" secondItem="SpL-8T-sRY" secondAttribute="trailing" constant="14" id="xDa-ea-viz"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="leading" secondItem="mDw-sB-uMl" secondAttribute="leading" id="DCy-qw-xXA"/>
-                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="top" secondItem="r8q-dm-Xgt" secondAttribute="bottom" id="KHG-T7-y7p"/>
-                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="leading" secondItem="s3q-Y6-rdR" secondAttribute="leading" id="WVN-TX-iVU"/>
-                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="Zeb-47-QHq"/>
-                            <constraint firstItem="r8q-dm-Xgt" firstAttribute="top" secondItem="3mL-6h-AA5" secondAttribute="top" id="gol-9r-b2a"/>
+                            <constraint firstItem="s3q-Y6-rdR" firstAttribute="top" secondItem="mDw-sB-uMl" secondAttribute="top" id="47W-H6-6ps"/>
                             <constraint firstItem="s3q-Y6-rdR" firstAttribute="trailing" secondItem="mDw-sB-uMl" secondAttribute="trailing" id="nUU-LY-Qx6"/>
                             <constraint firstItem="s3q-Y6-rdR" firstAttribute="bottom" secondItem="mDw-sB-uMl" secondAttribute="bottom" id="ozn-uC-aOX"/>
                             <constraint firstItem="s3q-Y6-rdR" firstAttribute="leading" secondItem="mDw-sB-uMl" secondAttribute="leading" id="r2B-Ob-Bsl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mDw-sB-uMl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Fridge" id="vAX-Sr-jVN"/>
+                    <navigationItem key="navigationItem" id="QZV-y3-Q43"/>
                     <connections>
                         <outlet property="collectionView" destination="s3q-Y6-rdR" id="wNE-nq-aTN"/>
-                        <outlet property="header" destination="r8q-dm-Xgt" id="Ely-Tj-Cij"/>
-                        <outlet property="menuButton" destination="SpL-8T-sRY" id="jQs-9W-8lY"/>
-                        <outlet property="titleLabel" destination="3Ij-Qy-tKY" id="LDZ-Jq-hy5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OuZ-QL-CeE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3158" y="-465"/>
+            <point key="canvasLocation" x="4068.115942028986" y="-465.40178571428567"/>
         </scene>
         <!--Fridge-->
         <scene sceneID="2q8-3c-mKJ">
@@ -520,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GJ-Gk-ZrE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4076.811594202899" y="-473.4375"/>
+            <point key="canvasLocation" x="4986.9565217391309" y="-473.4375"/>
         </scene>
         <!--Barcode Scanner View Controller-->
         <scene sceneID="iIh-ek-bbf">
@@ -573,7 +539,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rQ-7J-GXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5050.7246376811599" y="-473.4375"/>
+            <point key="canvasLocation" x="5960.8695652173919" y="-473.4375"/>
+        </scene>
+        <!--Fridge-->
+        <scene sceneID="OdK-8R-i4a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zyB-1v-3px" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Fridge" id="vAX-Sr-jVN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LZQ-aq-lbR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GHD-pW-dej" kind="relationship" relationship="rootViewController" id="MFB-ve-D8f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imT-Li-3sa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3157.971014492754" y="-465.40178571428567"/>
         </scene>
     </scenes>
     <resources>

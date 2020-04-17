@@ -92,4 +92,15 @@ class VirtualFridgeController{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
     }
+    
+    func updateIngredient(email: String, ingredient: String, servings: Int) throws{
+        do{
+           try userDataHandler.deleteIngredient(email: email, ingredient: ingredient)
+        }catch ErrorMessage.ErrorCodes.ingredientDoesNotExist{
+            throw ErrorMessage.ErrorCodes.ingredientDoesNotExist
+        }catch{
+            throw ErrorMessage.ErrorCodes.dataSearchFailed
+        }
+        try addIngredient(email: email, ingredient: ingredient, servings: servings)
+    }
 }

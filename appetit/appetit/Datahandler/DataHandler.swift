@@ -92,6 +92,9 @@ class DataHandler{
         do
         {
             let results = try context.fetch(fetchRequest)
+            guard results.count > 0 else{
+                throw ErrorMessage.ErrorCodes.ingredientDoesNotExist
+            }
             for managedObject in results
             {
                 let managedObjectData:NSManagedObject = managedObject as! NSManagedObject

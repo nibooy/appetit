@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A5BD450244579D700AAD4CC /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD44F244579D700AAD4CC /* LoadingButton.swift */; };
+		0A9FD0E7244824BF005B2E69 /* popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FD0E6244824BF005B2E69 /* popup.swift */; };
 		0AB4C012243EB6BB001994CE /* VirtualFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */; };
 		0AB4C015243EDEE6001994CE /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB4C013243EDEE6001994CE /* AddCell.swift */; };
 		0AB4C016243EDEE6001994CE /* AddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB4C014243EDEE6001994CE /* AddCell.xib */; };
@@ -41,6 +42,7 @@
 		9EE1EFF7242F389F0047352B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF5242F389F0047352B /* Main.storyboard */; };
 		9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF8242F38A20047352B /* Assets.xcassets */; };
 		9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFFA242F38A20047352B /* LaunchScreen.storyboard */; };
+		DFC670992446A25600F20B24 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC670982446A25600F20B24 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		0A5BD44F244579D700AAD4CC /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		0A9FD0E6244824BF005B2E69 /* popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popup.swift; sourceTree = "<group>"; };
 		0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeViewController.swift; sourceTree = "<group>"; };
 		0AB4C013243EDEE6001994CE /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
 		0AB4C014243EDEE6001994CE /* AddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCell.xib; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		9EE1EFF8242F38A20047352B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EE1EFFB242F38A20047352B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EE1EFFD242F38A20047352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFC670982446A25600F20B24 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 				0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */,
 				0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */,
 				0AC94D3C243BDCC6007CE4F8 /* BarcodeScannerViewController.swift */,
+				DFC670982446A25600F20B24 /* DataService.swift */,
 				0AC94D2E243BD5D8007CE4F8 /* FridgeCollectionViewController.swift */,
 				0AC94D40243C2682007CE4F8 /* FridgeLayout.swift */,
 				0AC94D50243E193D007CE4F8 /* FridgeCustomCell.swift */,
@@ -217,6 +222,7 @@
 				0AB4C013243EDEE6001994CE /* AddCell.swift */,
 				0AB4C014243EDEE6001994CE /* AddCell.xib */,
 				0A5BD44F244579D700AAD4CC /* LoadingButton.swift */,
+				0A9FD0E6244824BF005B2E69 /* popup.swift */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				9E6741D9243C0A2E007C17B5 /* UserController.swift in Sources */,
 				9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
+				DFC670992446A25600F20B24 /* DataService.swift in Sources */,
 				0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */,
 				0AB4C012243EB6BB001994CE /* VirtualFridgeViewController.swift in Sources */,
 				0AC94D35243BD698007CE4F8 /* RecipesViewController.swift in Sources */,
@@ -367,6 +374,7 @@
 				0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */,
 				9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */,
 				9E6741DF243C0A62007C17B5 /* Error.swift in Sources */,
+				0A9FD0E7244824BF005B2E69 /* popup.swift in Sources */,
 				0AB4C015243EDEE6001994CE /* AddCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,7 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3AKSSC6XQ8;
+				DEVELOPMENT_TEAM = 3723H337H2;
 				INFOPLIST_FILE = appetit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,7 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3AKSSC6XQ8;
+				DEVELOPMENT_TEAM = 3723H337H2;
 				INFOPLIST_FILE = appetit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

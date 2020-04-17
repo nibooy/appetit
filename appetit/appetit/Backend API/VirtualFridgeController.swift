@@ -39,7 +39,7 @@ class VirtualFridgeController{
     
     /*Add ingredients. If it already exists, it will add to the amount of servings already existed. If it is new, it will make a new entry */
     func addIngredient(email: String, ingredient: String, servings: Int) throws{
-        let virtualFridge = userDataHandler.getVirtualFridgeObject()
+        let virtualFridge = userDataHandler.getDatabaseObject(entity: "VirtualFridge")
         var newServings = servings
         var ingredientMatches:[IngredientEntity] = []
         ingredientMatches = try getIngredientMatches(email: email, ingredient: ingredient)

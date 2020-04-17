@@ -19,8 +19,8 @@ class DataHandler{
     }
     
     /*NS Managed user object needed for database saves*/
-    func getUserObject() -> NSManagedObject{
-        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: context)
+    func getDatabaseObject(entity: String) -> NSManagedObject{
+        let userEntity = NSEntityDescription.entity(forEntityName: entity, in: context)
         let user = NSManagedObject(entity: userEntity!, insertInto: context)
         return user
     }
@@ -53,13 +53,6 @@ class DataHandler{
         } catch let error as NSError {
             throw error
         }
-    }
-    
-    /*NS Managed user object needed for database saves*/
-    func getVirtualFridgeObject() -> NSManagedObject{
-        let userEntity = NSEntityDescription.entity(forEntityName: "VirtualFridge", in: context)
-        let virtualFridge = NSManagedObject(entity: userEntity!, insertInto: context)
-        return virtualFridge
     }
     
     func getVirtualFridgeIngredients(email: String) throws -> [NSManagedObject]{
@@ -101,6 +94,17 @@ class DataHandler{
                 context.delete(managedObjectData)
             }
         } catch let error as NSError {
+            throw error
+        }
+    }
+    
+    func getUserRecipes(email: String) throws -> [NSManagedObject]{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipes")
+        request.predicate = NSPredicate(format: "email  =  %@", email)
+        do{
+            let result = try fufillRequest(request: request)
+            return result
+        }catch{
             throw error
         }
     }

@@ -25,6 +25,8 @@
 		0AC94D53243E193E007CE4F8 /* FridgeCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AC94D51243E193E007CE4F8 /* FridgeCustomCell.xib */; };
 		0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F31E24302662006F14E1 /* LoginViewController.swift */; };
 		0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F320243026E6006F14E1 /* SigninViewController.swift */; };
+		9E64F5EC244A541D0004F660 /* RecipeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64F5EB244A541D0004F660 /* RecipeInfo.swift */; };
+		9E64F5EE244A5C560004F660 /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64F5ED244A5C560004F660 /* RecipeController.swift */; };
 		9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741CA243C0A1C007C17B5 /* appetit.xcdatamodeld */; };
 		9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741D0243C0A2E007C17B5 /* VirtualFridgeController.swift */; };
 		9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741D3243C0A2E007C17B5 /* UserEntity.swift */; };
@@ -74,6 +76,8 @@
 		0AC94D51243E193E007CE4F8 /* FridgeCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FridgeCustomCell.xib; sourceTree = "<group>"; };
 		0AE2F31E24302662006F14E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AE2F320243026E6006F14E1 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		9E64F5EB244A541D0004F660 /* RecipeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfo.swift; sourceTree = "<group>"; };
+		9E64F5ED244A5C560004F660 /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		9E6741CB243C0A1C007C17B5 /* appetit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = appetit.xcdatamodel; sourceTree = "<group>"; };
 		9E6741D0243C0A2E007C17B5 /* VirtualFridgeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualFridgeController.swift; sourceTree = "<group>"; };
 		9E6741D3243C0A2E007C17B5 /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				9E6741D1243C0A2E007C17B5 /* Entities */,
 				9E6741D0243C0A2E007C17B5 /* VirtualFridgeController.swift */,
 				9E6741D4243C0A2E007C17B5 /* UserController.swift */,
+				9E64F5ED244A5C560004F660 /* RecipeController.swift */,
 			);
 			name = "Backend API";
 			path = "appetit/Backend API";
@@ -132,6 +137,7 @@
 			children = (
 				9E6741D3243C0A2E007C17B5 /* UserEntity.swift */,
 				9E6741FE243C1350007C17B5 /* IngredientEntity.swift */,
+				9E64F5EB244A541D0004F660 /* RecipeInfo.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				9E6741DC243C0A43007C17B5 /* DataHandler.swift in Sources */,
 				0AC94D33243BD669007CE4F8 /* SavedCollectionViewController.swift in Sources */,
 				9E6741D9243C0A2E007C17B5 /* UserController.swift in Sources */,
+				9E64F5EC244A541D0004F660 /* RecipeInfo.swift in Sources */,
 				9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				DFC670992446A25600F20B24 /* DataService.swift in Sources */,
@@ -370,6 +377,7 @@
 				9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */,
 				0AC94D37243BD98F007CE4F8 /* IngredientsViewController.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
+				9E64F5EE244A5C560004F660 /* RecipeController.swift in Sources */,
 				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
 				0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */,
 				9E6741D6243C0A2E007C17B5 /* VirtualFridgeController.swift in Sources */,

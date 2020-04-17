@@ -94,5 +94,30 @@ class VirtualFridgeControllerTest: XCTestCase {
         XCTAssertEqual(true, caughtError)
         
     }
+    
+    
+    func testUpdateIngredient(){
+        let testUser = VirtualFridgeController()
+        var errorStatus = false
+        do{
+            try testUser.addIngredient(email: testEmail, ingredient: "tomatoes", servings: 10)
+            try testUser.addIngredient(email: testEmail, ingredient: "bananas", servings: 5)
+            try testUser.addIngredient(email: testEmail, ingredient: "lettuce", servings: 21)
+            try testUser.updateIngredient(email: testEmail, ingredient: "tomatoes", servings: 500)
+            try testUser.updateIngredient(email: testEmail, ingredient: "bananas", servings: 400)
+            try testUser.updateIngredient(email: testEmail, ingredient: "lettuce", servings: 300)
+            let testList = try testUser.getUserIngredients(email: testEmail)
+            let tomatoes = testList[0]
+            let bananas = testList[1]
+            let lettuce = testList[2]
+            XCTAssertEqual(tomatoes.servings, 500)
+            XCTAssertEqual(tomatoes.ingredient, "tomatoes")
+            XCTAssertEqual(bananas.servings, 400)
+            XCTAssertEqual(lettuce.servings, 300)
+        }catch{
+           errorStatus = true
+        }
+        XCTAssertEqual(false, errorStatus)
+    }
 
 }

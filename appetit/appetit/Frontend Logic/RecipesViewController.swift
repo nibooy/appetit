@@ -16,14 +16,6 @@ class RecipesViewController: UIViewController {
     struct Recipe: Decodable{
         let recipe: RecipeInfo
     }
-    struct RecipeInfo: Decodable{
-        let uri: String
-        let label: String
-        let image: String
-        let url: String
-        let healthLabels: [String]
-        let ingredientLines: [String]
-    }
     
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -47,7 +39,7 @@ class RecipesViewController: UIViewController {
         }catch ErrorMessage.ErrorCodes.dataSearchFailed{
             //error is that we could not read from database
         }catch{
-            // unknown error
+            //unknown error
         }
         let mySession = URLSession(configuration: URLSessionConfiguration.default)
         let urlWithQueryParameters = urlString + "app_key=" + apiKey + "&app_id" + appId + "&q=" + listOfIngredients
@@ -59,7 +51,7 @@ class RecipesViewController: UIViewController {
                 return
             }
             guard let jsonData = data else {
-                print("No data")
+                //error message here for no data
                 return
             }
             let decoder = JSONDecoder()
@@ -67,10 +59,10 @@ class RecipesViewController: UIViewController {
                 let result = try decoder.decode(Result.self, from: jsonData)
                 self.recipeList = result.hits
                 DispatchQueue.main.async {
-                    print(self.recipeList)
+                    /*TODO: Reload table data since data structure is relaoded*/
                 }
             } catch {
-                // error message here while loading data
+                //error message here while loading data
             }
         }
         task.resume()

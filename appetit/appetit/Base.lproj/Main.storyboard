@@ -134,15 +134,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="zyB-1v-3px" kind="relationship" relationship="viewControllers" id="3Ih-Il-PWt"/>
-                        <segue destination="AAw-iF-Op5" kind="relationship" relationship="viewControllers" id="3oS-wV-tXf"/>
-                        <segue destination="ssE-Zr-XDN" kind="relationship" relationship="viewControllers" id="toz-ey-A4D"/>
+                        <segue destination="SbU-Ei-UJR" kind="relationship" relationship="viewControllers" id="bO0-rh-ENy"/>
+                        <segue destination="AAw-iF-Op5" kind="relationship" relationship="viewControllers" id="8Dx-9E-WFU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7w-eF-peJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2082.608695652174" y="129.91071428571428"/>
         </scene>
-        <!--Recipes-->
+        <!--Ingredients View Controller-->
         <scene sceneID="VhM-8l-0KG">
             <objects>
                 <viewController id="ssE-Zr-XDN" customClass="IngredientsViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
@@ -150,44 +150,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTT-OR-EGP">
-                                <rect key="frame" x="146" y="763" width="122" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Generate Recipes"/>
-                                <connections>
-                                    <segue destination="Z59-id-beh" kind="show" id="rSV-vw-uGM"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Lp-ed-yIS">
-                                <rect key="frame" x="0.0" y="58" width="414" height="687"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j86-i5-gm6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="Gxw-1K-JPf" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="7BV-Yo-SkN">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="99N-4Q-pH7">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIu-QD-lIF">
+                                <rect key="frame" x="0.0" y="773" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTn-A6-lNG">
+                                        <rect key="frame" x="20" y="5" width="374" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WTn-A6-lNG" secondAttribute="trailing" constant="20" id="1XY-WO-pUS"/>
+                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="top" secondItem="RIu-QD-lIF" secondAttribute="top" constant="5" id="ViY-f5-YHr"/>
+                                    <constraint firstAttribute="bottom" secondItem="WTn-A6-lNG" secondAttribute="bottom" constant="5" id="mF4-it-hAh"/>
+                                    <constraint firstItem="WTn-A6-lNG" firstAttribute="leading" secondItem="RIu-QD-lIF" secondAttribute="leading" constant="20" id="uNl-9j-1mA"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="top" secondItem="h9f-hj-75c" secondAttribute="top" constant="14" id="DWw-Fc-AZ6"/>
-                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="Dg8-3z-Neh"/>
-                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="centerX" secondItem="h9f-hj-75c" secondAttribute="centerX" id="QdD-Fj-cdC"/>
-                            <constraint firstItem="8Lp-ed-yIS" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="o4E-lS-0nz"/>
+                            <constraint firstItem="j86-i5-gm6" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="312-qW-wtg"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="top" secondItem="j86-i5-gm6" secondAttribute="bottom" id="JrD-So-WIR"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="bottom" secondItem="h9f-hj-75c" secondAttribute="bottom" id="SQL-fz-woH"/>
+                            <constraint firstItem="j86-i5-gm6" firstAttribute="top" secondItem="h9f-hj-75c" secondAttribute="top" id="VsF-oM-nXt"/>
+                            <constraint firstItem="j86-i5-gm6" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="eu0-Fq-CRT"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="leading" secondItem="h9f-hj-75c" secondAttribute="leading" id="nLf-Lt-jhw"/>
+                            <constraint firstItem="RIu-QD-lIF" firstAttribute="trailing" secondItem="h9f-hj-75c" secondAttribute="trailing" id="pRH-iP-Ydb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h9f-hj-75c"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipes" id="t1Z-8e-rcm"/>
+                    <navigationItem key="navigationItem" id="lO9-Ru-bLD"/>
                     <connections>
-                        <outlet property="generateRecipe" destination="XTT-OR-EGP" id="TK4-Lj-Bdv"/>
-                        <outlet property="ingredientsView" destination="8Lp-ed-yIS" id="xZl-Pr-IzX"/>
+                        <outlet property="buttonView" destination="RIu-QD-lIF" id="NK6-1O-aCV"/>
+                        <outlet property="collectionView" destination="j86-i5-gm6" id="iH4-Se-EC5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hq-gd-ygp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3091.304347826087" y="214.95535714285714"/>
+            <point key="canvasLocation" x="4001.449275362319" y="214.95535714285714"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="3hX-7S-MEa">
             <objects>
                 <viewController id="Z59-id-beh" customClass="RecipesViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CCt-Yx-dPq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P80-j2-sji">
@@ -203,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOq-7i-3Me" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4076.811594202899" y="214.95535714285714"/>
+            <point key="canvasLocation" x="4986.9565217391309" y="214.95535714285714"/>
         </scene>
         <!--Focus Recipe View Controller-->
         <scene sceneID="gFR-NU-pvR">
@@ -241,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovV-1z-RzA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5052.1739130434789" y="215.625"/>
+            <point key="canvasLocation" x="5962.3188405797109" y="215.625"/>
         </scene>
         <!--Saved-->
         <scene sceneID="GNg-xW-rnp">
@@ -291,7 +313,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="sUB-2h-KL9" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Z2Y-Vk-K74">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="Z2Y-Vk-K74">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GtI-s1-CRr">
@@ -559,6 +581,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imT-Li-3sa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3157.971014492754" y="-465.40178571428567"/>
+        </scene>
+        <!--Recipes-->
+        <scene sceneID="Tmd-yZ-8Ld">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rb-3L-RqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SbU-Ei-UJR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recipes" id="t1Z-8e-rcm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8p5-be-TnA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ssE-Zr-XDN" kind="relationship" relationship="rootViewController" id="bmZ-gx-G1F"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="3130" y="234"/>
         </scene>
     </scenes>
     <resources>

@@ -1,12 +1,3 @@
-//
-//  UPCarouselFlowLayout.swift
-//  appetit
-//
-//  Created by Yoo Bin Shin on 4/18/20.
-//  Copyright © 2020 Mark Kang. All rights reserved.
-//
-
-import Foundation
 import UIKit
 
 public enum UPCarouselFlowLayoutSpacingMode {

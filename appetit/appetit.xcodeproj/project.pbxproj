@@ -44,6 +44,8 @@
 		9EE1EFF7242F389F0047352B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF5242F389F0047352B /* Main.storyboard */; };
 		9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF8242F38A20047352B /* Assets.xcassets */; };
 		9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFFA242F38A20047352B /* LaunchScreen.storyboard */; };
+		BE97690A244A7EB5005ED0BC /* RecipeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */; };
+		BE976912244AB6C1005ED0BC /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976911244AB6C1005ED0BC /* RecipeCell.swift */; };
 		DFC670992446A25600F20B24 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC670982446A25600F20B24 /* DataService.swift */; };
 		DFC7CCE9244A123F009ED897 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC7CCE8244A123F009ED897 /* UPCarouselFlowLayout.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +102,8 @@
 		9EE1EFF8242F38A20047352B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EE1EFFB242F38A20047352B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EE1EFFD242F38A20047352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellTableViewCell.swift; sourceTree = "<group>"; };
+		BE976911244AB6C1005ED0BC /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		DFC670982446A25600F20B24 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DFC7CCE8244A123F009ED897 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,12 +215,13 @@
 		9EE1F003242F391B0047352B /* Frontend Logic */ = {
 			isa = PBXGroup;
 			children = (
+				0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */,
+				BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */,
 				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
 				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
 				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
 				0AC94D3E243C136F007CE4F8 /* Food.swift */,
 				0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */,
-				0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */,
 				0AC94D36243BD98F007CE4F8 /* IngredientsViewController.swift */,
 				0AC94D38243BDA51007CE4F8 /* AddingViewController.swift */,
 				0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */,
@@ -232,6 +237,7 @@
 				0AB4C014243EDEE6001994CE /* AddCell.xib */,
 				0A5BD44F244579D700AAD4CC /* LoadingButton.swift */,
 				0A9FD0E6244824BF005B2E69 /* popup.swift */,
+				BE97690F244AB697005ED0BC /* Cells */,
 			);
 			path = "Frontend Logic";
 			sourceTree = "<group>";
@@ -242,6 +248,14 @@
 				9EE1203D242FC298005885C5 /* resource.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE97690F244AB697005ED0BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BE976911244AB6C1005ED0BC /* RecipeCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,8 +393,10 @@
 				9E6741FF243C1350007C17B5 /* IngredientEntity.swift in Sources */,
 				0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */,
 				9EE1EFF0242F389F0047352B /* AppDelegate.swift in Sources */,
+				BE976912244AB6C1005ED0BC /* RecipeCell.swift in Sources */,
 				0AC94D37243BD98F007CE4F8 /* IngredientsViewController.swift in Sources */,
 				9EE1EFF2242F389F0047352B /* SceneDelegate.swift in Sources */,
+				BE97690A244A7EB5005ED0BC /* RecipeCellTableViewCell.swift in Sources */,
 				9E64F5EE244A5C560004F660 /* RecipeController.swift in Sources */,
 				9EE12038242FC0E8005885C5 /* mainViewController.swift in Sources */,
 				0AC94D39243BDA51007CE4F8 /* AddingViewController.swift in Sources */,

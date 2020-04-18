@@ -14,10 +14,21 @@ import UIKit
 import AVFoundation
 
 class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-
-    let topBar = UIView()
+    //            let barImage = UIImage(named: "Avocado")
+    //            scanOver.image = barImage
+    //            let scanOver = UIView()
     let scanView = UIView()
     let bottomBar = UIView()
+
+    let descriptionTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Begin Scanning"
+        textView.backgroundColor = .green
+        textView.font = UIFont.boldSystemFont(ofSize: 18)
+        textView.textAlignment = .center
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    }()
         
         var captureSession = AVCaptureSession()
         
@@ -51,8 +62,8 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                    }
                })
             }
-            setupLayout()
             super.viewDidLoad()
+            setupLayout()
             
             captureSession = AVCaptureSession()
             
@@ -94,11 +105,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             captureSession.sessionPreset = .photo
             captureSession.startRunning()
             
-            // Move the message label and top bar to the front
-//            view.bringSubviewToFront(messageLabel)
-//            view.bringSubviewToFront(BottomBar)
-//            view.bringSubviewToFront(TopBar)
-            
             // Initialize Code Frame to highlight the code
             BarcodeFrameView = UIView()
             
@@ -109,6 +115,61 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 view.bringSubviewToFront(BarcodeFrameView)
             }
         }
+    
+            private func setupLayout() {
+                let topBar = UIView()
+                topBar.backgroundColor = .blue
+                view.addSubview(topBar)
+                topBar.translatesAutoresizingMaskIntoConstraints = false
+                topBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+                topBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+                topBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+                topBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13).isActive = true
+                
+                scanView.backgroundColor = .yellow
+                view.addSubview(scanView)
+                scanView.translatesAutoresizingMaskIntoConstraints = false
+                scanView.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+                scanView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+                scanView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+                scanView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+                
+                bottomBar.backgroundColor = .green
+                view.addSubview(bottomBar)
+                bottomBar.translatesAutoresizingMaskIntoConstraints = false
+                bottomBar.topAnchor.constraint(equalTo: scanView.bottomAnchor).isActive = true
+                bottomBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+                bottomBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+                bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+                view.addSubview(descriptionTextView)
+                descriptionTextView.topAnchor.constraint(equalTo: bottomBar.topAnchor, constant: 200).isActive = true
+                descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 40).isActive = true
+                descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+                descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+                
+                let image = UIImage(imageLiteralResourceName: "barView")
+                let imageView = UIImageView(image: image)
+                imageView.alpha = 0.5
+                view.addSubview(imageView)
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                imageView.contentMode = .scaleAspectFit
+                imageView.centerYAnchor.constraint(equalTo: scanView.centerYAnchor, constant: 10).isActive = true
+                imageView.centerXAnchor.constraint(equalTo: scanView.centerXAnchor).isActive = true
+                imageView.heightAnchor.constraint(equalTo: scanView.heightAnchor, multiplier: 0.9).isActive = true
+//                imageView.Anchor.constraint(equalTo: view.rightAnchor).isActive = true
+                
+    //            scanOver.image = barImage
+    //            let scanOver = UIView()
+    //            scanOver.backgroundColor = .red
+    //            bottomBar.addSubview(scanOver)
+    //            bottomBar.bringSubviewToFront(scanOver)
+    //            scanOver.translatesAutoresizingMaskIntoConstraints = false
+    //            scanOver.centerYAnchor.constraint(equalTo: bottomBar.centerYAnchor).isActive = true
+    //            scanOver.centerXAnchor.constraint(equalTo: bottomBar.centerXAnchor).isActive = true
+    //            scanOver.heightAnchor.constraint(equalTo: bottomBar.heightAnchor, multiplier: 0.4).isActive = true
+
+            }
     
 //    func scanningNotPossible(){
 //        let alert = UIAlertController(title: "Can't Scan", message: "Try a device with camera", preferredStyle: .alert)
@@ -126,7 +187,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             // Check if the metadataObjects array is not nil and it contains at least one object.
             if metadataObjects.count == 0 {
                 BarcodeFrameView?.frame = CGRect.zero
-//                messageLabel.text = "No Barcode is detected"
+                descriptionTextView.text = "No Barcode is detected"
                 return
             }
             
@@ -147,7 +208,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                     DataService.searchAPI(codeNumber: String(num)){
                         foodInfo in
                         DispatchQueue.main.async{
-//                            self.messageLabel.text = "Name: \(foodInfo.0) \nServing Size: \(foodInfo.1)"
+                            self.descriptionTextView.text = "Name: \(foodInfo.0) \nServing Size: \(foodInfo.1)"
                         }
                     }
 //                    print ("here + \(foodInfo)")
@@ -217,41 +278,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
               }
             }
           }
-        }
-        private func setupLayout() {
-            topBar.backgroundColor = .blue
-            view.addSubview(topBar)
-            topBar.translatesAutoresizingMaskIntoConstraints = false
-            topBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            topBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            topBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            topBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13).isActive = true
-            
-//            let scanView = UIView()
-            scanView.backgroundColor = .yellow
-            view.addSubview(scanView)
-            scanView.translatesAutoresizingMaskIntoConstraints = false
-            scanView.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
-            scanView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            scanView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            scanView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
-            
-//            let scanOver = UIImageView()
-//            let barImage = UIImage(named: "barView")
-//            scanOver.image = barImage
-//
-//            scanView.addSubview(scanOver)
-//            scanOver.centerYAnchor.constraint(equalTo: scanView.centerYAnchor).isActive = true
-//            scanOver.centerXAnchor.constraint(equalTo: scanView.centerXAnchor).isActive = true
-
-//            let bottomBar = UIView()
-            bottomBar.backgroundColor = .green
-            view.addSubview(bottomBar)
-            bottomBar.translatesAutoresizingMaskIntoConstraints = false
-            bottomBar.topAnchor.constraint(equalTo: scanView.bottomAnchor).isActive = true
-            bottomBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            bottomBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
         
     }

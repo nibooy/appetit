@@ -181,10 +181,14 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cell
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let name = alist[indexPath.row]
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white
+
+        
         
         let transition: CATransition = CATransition()
         transition.duration = 0.75
@@ -196,7 +200,6 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.navigationController?.present(viewController, animated: false, completion: nil)
 
     }
-    
     
 
         // MARK: - UIScrollViewDelegate
@@ -223,4 +226,3 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Pass the selected object to the new view controller.
     }
     */
-

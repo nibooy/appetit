@@ -27,6 +27,7 @@
 		0AE2F321243026E6006F14E1 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE2F320243026E6006F14E1 /* SigninViewController.swift */; };
 		0AE5E3D4244AC39800F5D3FD /* SavedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5E3D2244AC39800F5D3FD /* SavedCollectionViewCell.swift */; };
 		0AE5E3D5244AC39800F5D3FD /* SavedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE5E3D3244AC39800F5D3FD /* SavedCollectionViewCell.xib */; };
+		63CC4A819496A4AB2ED795F0 /* Pods_appetit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072365948FE3384660A50898 /* Pods_appetit.framework */; };
 		9E64F5EC244A541D0004F660 /* RecipeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64F5EB244A541D0004F660 /* RecipeInfo.swift */; };
 		9E64F5EE244A5C560004F660 /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64F5ED244A5C560004F660 /* RecipeController.swift */; };
 		9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E6741CA243C0A1C007C17B5 /* appetit.xcdatamodeld */; };
@@ -49,6 +50,7 @@
 		BE97690A244A7EB5005ED0BC /* RecipeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */; };
 		BE97690E244A8C69005ED0BC /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97690D244A8C69005ED0BC /* UPCarouselFlowLayout.swift */; };
 		BE976912244AB6C1005ED0BC /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976911244AB6C1005ED0BC /* RecipeCell.swift */; };
+		BE976914244BAA66005ED0BC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE976913244BAA65005ED0BC /* Podfile */; };
 		DFC670992446A25600F20B24 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC670982446A25600F20B24 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		072365948FE3384660A50898 /* Pods_appetit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appetit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5BD44F244579D700AAD4CC /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		0A9FD0E6244824BF005B2E69 /* popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popup.swift; sourceTree = "<group>"; };
 		0AB4C011243EB6BB001994CE /* VirtualFridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFridgeViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 		0AE2F320243026E6006F14E1 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		0AE5E3D2244AC39800F5D3FD /* SavedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AE5E3D3244AC39800F5D3FD /* SavedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedCollectionViewCell.xib; sourceTree = "<group>"; };
+		0EDACFAA75929EDACE3F48EE /* Pods-appetit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appetit.debug.xcconfig"; path = "Target Support Files/Pods-appetit/Pods-appetit.debug.xcconfig"; sourceTree = "<group>"; };
+		29465725DAD8FB67C7576D0F /* Pods-appetit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appetit.release.xcconfig"; path = "Target Support Files/Pods-appetit/Pods-appetit.release.xcconfig"; sourceTree = "<group>"; };
 		9E64F5EB244A541D0004F660 /* RecipeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfo.swift; sourceTree = "<group>"; };
 		9E64F5ED244A5C560004F660 /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		9E6741CB243C0A1C007C17B5 /* appetit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = appetit.xcdatamodel; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 		BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellTableViewCell.swift; sourceTree = "<group>"; };
 		BE97690D244A8C69005ED0BC /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		BE976911244AB6C1005ED0BC /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		BE976913244BAA65005ED0BC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		DFC670982446A25600F20B24 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63CC4A819496A4AB2ED795F0 /* Pods_appetit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,9 +188,12 @@
 		9EE1EFE3242F389F0047352B = {
 			isa = PBXGroup;
 			children = (
+				BE976913244BAA65005ED0BC /* Podfile */,
 				9EE1EFEE242F389F0047352B /* appetit */,
 				9E674221243C263D007C17B5 /* Backend Unit Tests */,
 				9EE1EFED242F389F0047352B /* Products */,
+				CC91A3D8B4A15487769A2EFF /* Pods */,
+				BD77C95AB18A9D253EF69CF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -256,12 +266,30 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BD77C95AB18A9D253EF69CF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				072365948FE3384660A50898 /* Pods_appetit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE97690F244AB697005ED0BC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				BE976911244AB6C1005ED0BC /* RecipeCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CC91A3D8B4A15487769A2EFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EDACFAA75929EDACE3F48EE /* Pods-appetit.debug.xcconfig */,
+				29465725DAD8FB67C7576D0F /* Pods-appetit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,9 +317,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EE1F000242F38A20047352B /* Build configuration list for PBXNativeTarget "appetit" */;
 			buildPhases = (
+				7CEB7E4CDEC6B3A91993E5F6 /* [CP] Check Pods Manifest.lock */,
 				9EE1EFE8242F389F0047352B /* Sources */,
 				9EE1EFE9242F389F0047352B /* Frameworks */,
 				9EE1EFEA242F389F0047352B /* Resources */,
+				96069ADE1668D40C26A3A6A0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +384,7 @@
 			files = (
 				9EE1203E242FC298005885C5 /* resource.strings in Resources */,
 				0AB4C016243EDEE6001994CE /* AddCell.xib in Resources */,
+				BE976914244BAA66005ED0BC /* Podfile in Resources */,
 				9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */,
 				0AE5E3D5244AC39800F5D3FD /* SavedCollectionViewCell.xib in Resources */,
 				9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */,
@@ -363,6 +394,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CEB7E4CDEC6B3A91993E5F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-appetit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96069ADE1668D40C26A3A6A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-appetit/Pods-appetit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-appetit/Pods-appetit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-appetit/Pods-appetit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9E67421C243C263D007C17B5 /* Sources */ = {
@@ -601,6 +674,7 @@
 		};
 		9EE1F001242F38A20047352B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EDACFAA75929EDACE3F48EE /* Pods-appetit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -619,6 +693,7 @@
 		};
 		9EE1F002242F38A20047352B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29465725DAD8FB67C7576D0F /* Pods-appetit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

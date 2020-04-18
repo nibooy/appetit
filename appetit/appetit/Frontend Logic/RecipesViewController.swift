@@ -22,7 +22,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         return pageSize
     }
     
-    var alist = ["Ulises", "Victor", "Johan", "Mom"]
+    var alist = ["Sugar Cookie Icing", "Funfetti Pound Cake", "Caterpillar Cake", "Your Mom"]
     fileprivate var colors: [UIColor] = [UIColor(displayP3Red: 252.0/255.0, green: 244.0/255.0, blue: 236.0/255.0, alpha: 1), UIColor.gray, UIColor(displayP3Red: 252.0/255.0, green: 244.0/255.0, blue: 236.0/255.0, alpha: 1), UIColor.gray]
         
     struct Result: Decodable{
@@ -78,7 +78,6 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             do {
                 let result = try decoder.decode(Result.self, from: jsonData)
                 self.recipeList = result.hits
-                print(self.recipeList)
                 DispatchQueue.main.async {
                     /*TODO: Reload table data since data structure is relaoded*/
                 }
@@ -94,6 +93,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         //dismisses screen when tabs to another screen
         self.dismiss(animated: true, completion: nil)
     }
+    
        
     func setupLayout(){
             // This is just an utility custom class to calculate screen points
@@ -103,11 +103,13 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         self.collectionView?.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
             
-        self.collectionView?.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-            
+        self.collectionView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        self.collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
         self.collectionView?.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
             
-        self.collectionView?.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        self.collectionView?.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        
             
     //        self.collectionView?.heightAnchor.constraint(equalToConstant: pointEstimator.relativeHeight(multiplier: 0.6887)).isActive = true
 
@@ -157,28 +159,41 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
+        //return recipeList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! RecipeCell
-
-        cell.customView.backgroundColor = colors[indexPath.row]
+        
+        if(indexPath.row % 2 == 0){
+            cell.customView.backgroundColor = UIColor(displayP3Red: 252.0/255.0, green: 244.0/255.0, blue: 236.0/255.0, alpha: 1)
+        }
+        else{
+            cell.customView.backgroundColor = UIColor(displayP3Red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1)
+            }
+        //let Recipe = recipeList[indexPath.row]
+        //cell.recipeLabel.text = Recipe.recipe.label
+        
+        cell.recipeLabel.text = alist[indexPath.row]
+        
+        //customView.backgroundColor = colors[indexPath.row]
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let name = alist[indexPath.row]
+        //let name = alist[indexPath.row]
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white
         
-//        let transition: CATransition = CATransition()
-//        transition.duration = 0.6
-//        transition.type = CATransitionType.moveIn
-//        transition.subtype = CATransitionSubtype.fromTop
+        let transition: CATransition = CATransition()
+        transition.duration = 0.75
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromTop
         
-        //self.view.window?.layer.add(transition, forKey: nil)
-        self.navigationController?.pushViewController(viewController, animated: true)
-        //self.navigationController?.present(viewController, animated: false, completion: nil)
+        self.view.window?.layer.add(transition, forKey: nil)
+        //self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.present(viewController, animated: false, completion: nil)
 
     }
     

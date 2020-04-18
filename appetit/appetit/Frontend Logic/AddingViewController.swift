@@ -37,10 +37,10 @@ class AddingViewController: UIViewController {
     }
     
     
-    override func viewDidDisappear(_ animated: Bool) {
-        //dismisses screen when tabs to another screen
-        self.dismiss(animated: true, completion: nil)
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        //dismisses screen when tabs to another screen
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         submitButton.showLoading()
@@ -50,7 +50,7 @@ class AddingViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "barcodeScannerVC")//need to add to storyboard this identifier
         self.definesPresentationContext = true
-//        controller.modalPresentationStyle = .fullScreen
+        controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
         
     }

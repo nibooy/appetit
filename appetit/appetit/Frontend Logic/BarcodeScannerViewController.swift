@@ -14,7 +14,16 @@ import UIKit
 import AVFoundation
 
 class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
+//
+//    @IBOutlet weak var closeButton: UIButton!
+//    @IBAction func closeButtonTapped(_ sender: Any) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "scanningVC")//need to add to storyboard this identifier
+//        self.definesPresentationContext = true
+//        controller.modalPresentationStyle = .fullScreen
+//        self.present(controller, animated: true, completion: nil)
+//
+//    }
     @IBOutlet weak var formView: UIView!
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var quantityLabel: UITextField!
@@ -30,6 +39,8 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
+    let closeButton = UIButton()
+    let rescanButton = UIButton()
     let imageView = UIImageView()
 
         
@@ -67,6 +78,8 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             }
             super.viewDidLoad()
             setupLayout()
+            closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
+            rescanButton.addTarget(self, action: #selector(rescanTapped), for: .touchUpInside)
             successView.isHidden = true
 
             captureSession = AVCaptureSession()
@@ -109,7 +122,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 
             
             // Start video capture.
-            captureSession.sessionPreset = .photo
             captureSession.startRunning()
             
 //             Initialize Code Frame to highlight the code
@@ -122,7 +134,20 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 //                view.bringSubviewToFront(BarcodeFrameView)
 //            }
         }
+
     
+    @objc func closeTapped(sender: UIButton) {
+        print("Scanner closed")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func rescanTapped(sender: UIButton) {
+         print("Rescan tapped")
+         successView.isHidden = true
+         captureSession.startRunning()
+        descriptionTextView.text = "No Barcode is detected"
+
+     }
             private func setupLayout() {
                 let topBar = UIView()
                 topBar.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9568627451, blue: 0.9294117647, alpha: 1)
@@ -132,6 +157,8 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 topBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
                 topBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
                 topBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13).isActive = true
+                
+                
                 
                 scanView.backgroundColor = .yellow
                 view.addSubview(scanView)
@@ -148,30 +175,92 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 bottomBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
                 bottomBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
                 bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
-                view.addSubview(descriptionTextView)
                 
-                descriptionTextView.topAnchor.constraint(equalTo: bottomBar.topAnchor).isActive = true
-                descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
-                descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
-                descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
-                descriptionTextView.layer.cornerRadius = 10.0
-                descriptionTextView.layer.borderWidth = 1.0
-                descriptionTextView.backgroundColor = .green
-                descriptionTextView.layer.borderColor = UIColor.clear.cgColor
-                descriptionTextView.layer.masksToBounds = true
-//
-                descriptionTextView.layer.shadowColor = UIColor.lightGray.cgColor
-                descriptionTextView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-                descriptionTextView.layer.shadowRadius = 2.0
-                descriptionTextView.layer.shadowOpacity = 0.7
-                descriptionTextView.layer.masksToBounds = false
+                
+                bottomBar.topAnchor.constraint(equalTo: scanView.bottomAnchor).isActive = true
+                bottomBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+                bottomBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+                bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-
-
+                
+                let textBar = UIView()
+                textBar.backgroundColor = .green
+                textBar.translatesAutoresizingMaskIntoConstraints = false
+                view.bringSubviewToFront(textBar)
+                view.addSubview(textBar)
+                
+                textBar.addSubview(descriptionTextView)
+//                descriptionTextView.backgroundColor = .red
+                descriptionTextView.topAnchor.constraint(equalTo: textBar.topAnchor).isActive = true
+                descriptionTextView.bottomAnchor.constraint(equalTo: textBar.bottomAnchor).isActive = true
+                descriptionTextView.leftAnchor.constraint(equalTo: textBar.leftAnchor).isActive = true
+                descriptionTextView.rightAnchor.constraint(equalTo: textBar.rightAnchor).isActive = true
+                
+                textBar.topAnchor.constraint(equalTo: bottomBar.topAnchor, constant: 20).isActive = true
+                textBar.bottomAnchor.constraint(equalTo: bottomBar.bottomAnchor, constant:-300).isActive = true
+                textBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+                textBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+                textBar.layer.borderWidth = 1.0
+                textBar.layer.cornerRadius = 10.0
+                textBar.clipsToBounds = true
+                textBar.layer.borderColor = UIColor.clear.cgColor
+                textBar.layer.shadowColor = UIColor.lightGray.cgColor
+                textBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+                textBar.layer.shadowRadius = 2.0
+                textBar.layer.shadowOpacity = 0.7
+                textBar.layer.masksToBounds = false
 
                 descriptionTextView.font = UIFont.boldSystemFont(ofSize: 18)
                 descriptionTextView.textAlignment = .center
+                
+                topBar.addSubview(closeButton)
+                let img = UIImage(named: "close")
+                closeButton.setImage(img, for: .normal)
+                closeButton.contentMode = .scaleAspectFit
+                closeButton.translatesAutoresizingMaskIntoConstraints = false
+                closeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+                closeButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+                closeButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor, constant: -20).isActive = true
+                closeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+                view.bringSubviewToFront(closeButton)
+                
+                rescanButton.setTitle("Rescan", for: .normal)
+                rescanButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+                rescanButton.setTitleColor(UIColor.black, for: .normal)
+                rescanButton.contentMode = .scaleAspectFit
+                rescanButton.translatesAutoresizingMaskIntoConstraints = false
+                view.bringSubviewToFront(rescanButton)
+                
+                let rescanBar = UIView()
+                rescanBar.backgroundColor = .red
+                rescanBar.translatesAutoresizingMaskIntoConstraints = false
+                rescanButton.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(rescanBar)
+                view.bringSubviewToFront(rescanBar)
+                view.addSubview(rescanButton)
+
+                rescanBar.addSubview(rescanButton)
+                
+                rescanButton.topAnchor.constraint(equalTo: rescanBar.topAnchor).isActive = true
+                rescanButton.bottomAnchor.constraint(equalTo: rescanBar.bottomAnchor).isActive = true
+                rescanButton.leftAnchor.constraint(equalTo: rescanBar.leftAnchor).isActive = true
+                rescanButton.rightAnchor.constraint(equalTo: rescanBar.rightAnchor).isActive = true
+                
+                rescanBar.topAnchor.constraint(equalTo: textBar.bottomAnchor, constant: 20).isActive = true
+                rescanBar.bottomAnchor.constraint(equalTo: bottomBar.bottomAnchor, constant:-200).isActive = true
+                rescanBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+                rescanBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+                rescanBar.layer.borderWidth = 1.0
+                rescanBar.layer.cornerRadius = 10.0
+                rescanBar.clipsToBounds = true
+                rescanBar.layer.borderColor = UIColor.clear.cgColor
+                rescanBar.layer.shadowColor = UIColor.lightGray.cgColor
+                rescanBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+                rescanBar.layer.shadowRadius = 2.0
+                rescanBar.layer.shadowOpacity = 0.7
+                rescanBar.layer.masksToBounds = false
+                
+                view.bringSubviewToFront(rescanBar)
                 
                 imageView.image = UIImage(named: "barView")
                 imageView.alpha = 0.5
@@ -193,7 +282,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 
             }
     
-
     
 //    func scanningNotPossible(){
 //        let alert = UIAlertController(title: "Can't Scan", message: "Try a device with camera", preferredStyle: .alert)
@@ -211,6 +299,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             // Check if the metadataObjects array is not nil and it contains at least one object.
             if metadataObjects.count == 0 {
                 descriptionTextView.text = "No Barcode is detected"
+                successView.isHidden = true
                 return
             }
             

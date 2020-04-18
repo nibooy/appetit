@@ -38,7 +38,7 @@ class UserController{
         guard try !isValidUser(email: email, password: password) else{
             throw ErrorMessage.ErrorCodes.userExists
         }
-        let user = userDataHandler.getUserObject()
+        let user = userDataHandler.getDatabaseObject(entity: "User")
         user.setValue(email, forKey: "email")
         user.setValue(password, forKey: "password")
         user.setValue(firstName, forKey: "firstName")

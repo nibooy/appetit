@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UTA-T3-ep2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -527,10 +527,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Barcode Detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyY-nz-Z20" customClass="messageLabel" customModule="appetit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="779" width="414" height="55"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="737" width="414" height="97"/>
+                                <color key="backgroundColor" red="0.70196078431372544" green="0.69019607843137254" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="fpz-Ux-leV"/>
+                                    <constraint firstAttribute="height" constant="97" id="fpz-Ux-leV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -542,7 +542,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVH-CN-lnZ">
                                         <rect key="frame" x="17" y="19" width="67" height="59"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.70196078431372544" green="0.69019607843137254" blue="0.67843137254901964" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                         <state key="normal" backgroundImage="xmark.square.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="gLQ-0o-Mku" eventType="touchDown" id="Njg-O5-ufV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -564,6 +568,7 @@
                     <navigationItem key="navigationItem" id="ynh-7s-lF9"/>
                     <connections>
                         <outlet property="TopBar" destination="Ilc-81-MTP" id="ed3-BN-bjC"/>
+                        <outlet property="closeButton" destination="vVH-CN-lnZ" id="1JS-6s-gvV"/>
                         <outlet property="messageLabel" destination="HyY-nz-Z20" id="kMX-Nj-mgG"/>
                     </connections>
                 </viewController>

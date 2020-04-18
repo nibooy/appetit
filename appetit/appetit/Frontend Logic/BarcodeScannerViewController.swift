@@ -18,6 +18,11 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 
         @IBOutlet var TopBar: UIView!
         @IBOutlet var messageLabel: UILabel!
+        @IBOutlet weak var closeButton: UIButton!
+        @IBAction func closeButtonTapped(_ sender: Any) {
+            self.dismiss(animated: true, completion: nil)
+
+        }
         
         var captureSession = AVCaptureSession()
         var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -46,6 +51,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                        // User granted
                    } else {
                        // User rejected
+//                        self.scanningNotPossible()
                    }
                })
             }
@@ -53,7 +59,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             
             captureSession = AVCaptureSession()
             
-
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
              
             guard let captureDevice = deviceDiscoverySession.devices.first else {
@@ -109,8 +114,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 //    func scanningNotPossible(){
 //        let alert = UIAlertController(title: "Can't Scan", message: "Try a device with camera", preferredStyle: .alert)
 //        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//        presentedViewController(alert, animated: true, completion: nil)
-//        session = nil
+//        present(alert, animated: true, completion: nil)
 //    }
     
         override func didReceiveMemoryWarning() {
@@ -142,23 +146,20 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                     //Remove leading zeros of scanned string value for correct UPC search
                     let num = numberString!.drop { !$0.isWholeNumber || $0 == "0" }
                     found(value: String(num))
-                    messageLabel.text = String(num)
                 }
             }
 
         }
         //Function when QR Code detected
         func found(value: String) {
-            DataService.searchAPI(codeNumber: value)
-            if presentedViewController != nil {
-                return
-            }
-            
-            let alert = UIAlertController(title: "Scanned", message: "\(value)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title:"Search", style: UIAlertAction.Style.destructive, handler: { action in
-                DataService.searchAPI(codeNumber: value)
-                self.present(alert, animated:true, completion: nil)
-            }))
+            let scanInfo = DataService.searchAPI(codeNumber: value)
+            print(scanInfo.0)
+            messageLabel.text = "\(scanInfo.0) hello"
+//            let alert = UIAlertController(title: "Scanned", message: "\(value)", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title:"Search", style: UIAlertAction.Style.destructive, handler: { action in
+//                DataService.searchAPI(codeNumber: value)
+//                self.present(alert, animated:true, completion: nil)
+//            }))
     }
             
 //            let alert = UIAlertController(title: "Scanned", message: value, preferredStyle: .alert)

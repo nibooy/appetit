@@ -21,6 +21,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
+        
         setup(n:10)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -43,6 +44,9 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         
         self.navigationItem.rightBarButtonItem  = rightItem
         buttonView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        
+        // uncomment if need to preserve selection
+        // self.clearsSelectionOnViewWillAppear = false
           
     }
      //MARK: - Navigation

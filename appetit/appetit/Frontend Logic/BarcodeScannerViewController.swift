@@ -145,16 +145,32 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                     let numberString = metadataObj.stringValue
                     //Remove leading zeros of scanned string value for correct UPC search
                     let num = numberString!.drop { !$0.isWholeNumber || $0 == "0" }
-                    found(value: String(num))
+                    DataService.searchAPI(codeNumber: String(num)){
+                        foodInfo in
+                        DispatchQueue.main.async{
+                            self.messageLabel.text = "Name: \(foodInfo.0) \nServing Size: \(foodInfo.1)"
+                        }
+                    }
+//                    print ("here + \(foodInfo)")
+//                    messageLabel.text = "\(foodInfo.name)"
                 }
             }
 
-        }
         //Function when QR Code detected
-        func found(value: String) {
-            let scanInfo = DataService.searchAPI(codeNumber: value)
-            print(scanInfo.0)
-            messageLabel.text = "\(scanInfo.0) hello"
+//    func found(value: String) -> (name:String, qty:Float, unit:String) {
+//        var name = ""
+//        var qty = Float(0)
+//        var unit = ""
+//        DataService.searchAPI(codeNumber: value){
+//            foodInfo in
+//            name = foodInfo.0
+//            qty = foodInfo.1
+//            unit = foodInfo.2
+//        }
+//        print(name, qty, unit)
+//        return (name, qty, unit)
+//            print(scanInfo.0)
+//            messageLabel.text = "\(scanInfo.0) hello"
 //            let alert = UIAlertController(title: "Scanned", message: "\(value)", preferredStyle: .alert)
 //            alert.addAction(UIAlertAction(title:"Search", style: UIAlertAction.Style.destructive, handler: { action in
 //                DataService.searchAPI(codeNumber: value)

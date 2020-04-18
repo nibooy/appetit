@@ -29,8 +29,8 @@ struct FoodJSON: Codable {
 
 final class DataService {
     static let dataService = DataService()
-    
-    static func searchAPI(codeNumber: String) -> (name: String, qty: Float, unit: String) {
+        
+    class func searchAPI(codeNumber: String, completionHandler: @escaping (_ scanInfo: (String, Float, String)) -> Void) {
         enum Error: Swift.Error {
             case requestFailed
         }
@@ -38,7 +38,9 @@ final class DataService {
         let urlWithParams = url + "?upc=" + codeNumber
         let myUrl = URL(string: urlWithParams)
         guard let requestUrl = myUrl else { fatalError() }
-
+        var name = ""
+        var qty = Float(0)
+        var unit = ""
         // Create URL Request
         var request = URLRequest(url: requestUrl)
 
@@ -47,10 +49,6 @@ final class DataService {
         //Headers
         request.setValue("2fad0373", forHTTPHeaderField: "x-app-id")
         request.setValue("d6ba77ec6ee3f506b47ecc748a85e4e3", forHTTPHeaderField: "x-app-key")
-        
-        var name = ""
-        var qty = Float(0)
-        var unit = ""
         
         // Send HTTP Request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -74,15 +72,16 @@ final class DataService {
 //                    let convertedString = String(data: data, encoding: String.Encoding.utf8) // the data will be converted to the string
 //                    print(convertedString ?? "defaultvalue")
 //                }
-            
             do {
                 let decoder = JSONDecoder()
                 let foodJSON = try decoder.decode(FoodJSON.self, from: data)
-                print(foodJSON.foods)
+//                print(foodJSON.foods)
                 for food in foodJSON.foods {
-                    name.append(food.food_name)
-                    qty+=food.serving_qty
+                        /*TODO: Reload table data since data structure is relaoded*/
+                    name = food.food_name
+                    qty = food.serving_qty
                     unit = food.serving_unit
+                    completionHandler((name, qty, unit))
                     print("Food name: \(name), serving quantity: \(qty), serving unit: \(unit)")
                 }
             } catch let error as NSError {
@@ -90,8 +89,6 @@ final class DataService {
             }
         }
         task.resume()
-        print("hey"+name)
-        return(name, qty, unit)
     }
     
 }

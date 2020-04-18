@@ -8,23 +8,30 @@
 
 //Sample barcodes for testing
 // https://docs.google.com/document/d/1hZ69q8BhEgEVHbFzQnPlGNPjyJycKWBDhY1jsT13np8/edit
-//TODO: Add edge case errors for barcode with no search result from API 
+//TODO: Add edge case errors for barcode with no search result from API
 
 import UIKit
 import AVFoundation
 
-
 class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-
-        @IBOutlet var TopBar: UIView!
-        @IBOutlet var messageLabel: UILabel!
-        @IBOutlet weak var closeButton: UIButton!
-        @IBAction func closeButtonTapped(_ sender: Any) {
-            self.dismiss(animated: true, completion: nil)
-
-        }
+//
+//    @IBOutlet weak var BottomBar: UIView!
+//    @IBOutlet weak var TopBar: UIView!
+//    @IBOutlet weak var overlayView: UIImageView!
+//    @IBOutlet weak var scanView: UIImageView!
+//    //    @IBOutlet var TopBar: UIView!
+//    @IBOutlet weak var messageLabel: UILabel!
+//    @IBOutlet weak var closeButton: UIButton!
+//    @IBAction func closeButtonTapped(_ sender: Any) {
+//        self.dismiss(animated: true, completion: nil)
+//
+//    }
+    let topBar = UIView()
+    let scanView = UIView()
+    let bottomBar = UIView()
         
         var captureSession = AVCaptureSession()
+        
         var videoPreviewLayer: AVCaptureVideoPreviewLayer?
         var BarcodeFrameView: UIView?
         
@@ -41,8 +48,9 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                                            AVMetadataObject.ObjectType.dataMatrix,
                                            AVMetadataObject.ObjectType.interleaved2of5,
                                            AVMetadataObject.ObjectType.qr]
-            
+        
         override func viewDidLoad() {
+            setupLayout()
             if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) ==  AVAuthorizationStatus.authorized {
                 // Already Authorized
             } else {
@@ -55,6 +63,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                    }
                })
             }
+            
             super.viewDidLoad()
             
             captureSession = AVCaptureSession()
@@ -90,15 +99,17 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
+            videoPreviewLayer?.frame = scanView.layer.frame
             view.layer.addSublayer(videoPreviewLayer!)
             
             // Start video capture.
+            captureSession.sessionPreset = .photo
             captureSession.startRunning()
             
             // Move the message label and top bar to the front
-            view.bringSubviewToFront(messageLabel)
-            view.bringSubviewToFront(TopBar)
+//            view.bringSubviewToFront(messageLabel)
+//            view.bringSubviewToFront(BottomBar)
+//            view.bringSubviewToFront(TopBar)
             
             // Initialize Code Frame to highlight the code
             BarcodeFrameView = UIView()
@@ -127,7 +138,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             // Check if the metadataObjects array is not nil and it contains at least one object.
             if metadataObjects.count == 0 {
                 BarcodeFrameView?.frame = CGRect.zero
-                messageLabel.text = "No Barcode is detected"
+//                messageLabel.text = "No Barcode is detected"
                 return
             }
             
@@ -148,7 +159,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                     DataService.searchAPI(codeNumber: String(num)){
                         foodInfo in
                         DispatchQueue.main.async{
-                            self.messageLabel.text = "Name: \(foodInfo.0) \nServing Size: \(foodInfo.1)"
+//                            self.messageLabel.text = "Name: \(foodInfo.0) \nServing Size: \(foodInfo.1)"
                         }
                     }
 //                    print ("here + \(foodInfo)")
@@ -185,10 +196,9 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 //            ))
 //            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
 //                    alert.addAction(cancelAction)
-    
         private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
           layer.videoOrientation = orientation
-          videoPreviewLayer?.frame = self.view.bounds
+            videoPreviewLayer?.frame = self.scanView.layer.frame
         }
         
         override func viewDidLayoutSubviews() {
@@ -220,4 +230,32 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             }
           }
         }
+        private func setupLayout() {
+            topBar.backgroundColor = .blue
+            view.addSubview(topBar)
+            topBar.translatesAutoresizingMaskIntoConstraints = false
+            topBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            topBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            topBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            topBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13).isActive = true
+            
+//            let scanView = UIView()
+            scanView.backgroundColor = .yellow
+            view.addSubview(scanView)
+            scanView.translatesAutoresizingMaskIntoConstraints = false
+            scanView.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+            scanView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            scanView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            scanView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+
+//            let bottomBar = UIView()
+            bottomBar.backgroundColor = .green
+            view.addSubview(bottomBar)
+            bottomBar.translatesAutoresizingMaskIntoConstraints = false
+            bottomBar.topAnchor.constraint(equalTo: scanView.bottomAnchor).isActive = true
+            bottomBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            bottomBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        }
+        
     }

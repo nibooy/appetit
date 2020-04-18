@@ -540,52 +540,10 @@
                     <view key="view" contentMode="scaleToFill" id="pk5-Xo-Mn4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Barcode Detected" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyY-nz-Z20" customClass="messageLabel" customModule="appetit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="737" width="414" height="97"/>
-                                <color key="backgroundColor" red="0.70196078431372544" green="0.69019607843137254" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="97" id="fpz-Ux-leV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-81-MTP" customClass="TopBar" customModule="appetit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="281"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVH-CN-lnZ">
-                                        <rect key="frame" x="17" y="19" width="67" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.70196078431372544" green="0.69019607843137254" blue="0.67843137254901964" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                                        <state key="normal" backgroundImage="xmark.square.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="closeButtonTapped:" destination="gLQ-0o-Mku" eventType="touchDown" id="Njg-O5-ufV"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Ilc-81-MTP" firstAttribute="centerX" secondItem="aZt-hz-sNi" secondAttribute="centerX" id="7xD-59-rk6"/>
-                            <constraint firstItem="aZt-hz-sNi" firstAttribute="bottom" secondItem="HyY-nz-Z20" secondAttribute="bottom" constant="28" id="E3m-k4-eRF"/>
-                            <constraint firstItem="Ilc-81-MTP" firstAttribute="top" secondItem="aZt-hz-sNi" secondAttribute="top" id="Fj5-vT-ANk"/>
-                            <constraint firstAttribute="bottom" secondItem="Ilc-81-MTP" secondAttribute="bottom" constant="571" id="PH8-H7-FMj"/>
-                            <constraint firstItem="Ilc-81-MTP" firstAttribute="leading" secondItem="aZt-hz-sNi" secondAttribute="leading" id="Smh-85-WZ3"/>
-                            <constraint firstItem="Ilc-81-MTP" firstAttribute="leading" secondItem="HyY-nz-Z20" secondAttribute="leading" id="dSq-D4-y3Z"/>
-                            <constraint firstItem="Ilc-81-MTP" firstAttribute="trailing" secondItem="HyY-nz-Z20" secondAttribute="trailing" id="vZH-T7-65M"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aZt-hz-sNi"/>
                     </view>
                     <navigationItem key="navigationItem" id="ynh-7s-lF9"/>
-                    <connections>
-                        <outlet property="TopBar" destination="Ilc-81-MTP" id="ed3-BN-bjC"/>
-                        <outlet property="closeButton" destination="vVH-CN-lnZ" id="1JS-6s-gvV"/>
-                        <outlet property="messageLabel" destination="HyY-nz-Z20" id="kMX-Nj-mgG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rQ-7J-GXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -630,7 +588,4 @@
             <point key="canvasLocation" x="3130" y="234"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="xmark.square.fill" catalog="system" width="128" height="114"/>
-    </resources>
 </document>

@@ -106,7 +106,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     
     func setupLeftTitle(title : String){
         let longTitleLabel = UILabel()
-        longTitleLabel.text = "Virtual Fridge"
+        longTitleLabel.text = "Recipes"
         longTitleLabel.font = .boldSystemFont(ofSize: 18)
         longTitleLabel.sizeToFit()
         let leftItem = UIBarButtonItem(customView: longTitleLabel)

@@ -13,7 +13,6 @@ private let reuseIdentifier = "FridgeCustomCell"
 class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    //@IBOutlet weak var menuButton: UIButton!
     
     // This is the list to hold our food objects. Backend - might need to add a field for an image to coredata.
     var fridge = [Food]()
@@ -44,7 +43,6 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         setupLeftTitle(title: "Virtual Fridge")
         
         self.navigationItem.rightBarButtonItem  = rightItem
-        
 
 
     }

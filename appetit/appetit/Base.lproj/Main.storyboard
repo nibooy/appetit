@@ -238,7 +238,7 @@
         <!--Focus Recipe View Controller-->
         <scene sceneID="gFR-NU-pvR">
             <objects>
-                <viewController id="BZk-rc-6da" customClass="FocusRecipeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="focusView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BZk-rc-6da" customClass="FocusRecipeViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qTS-DX-A7m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

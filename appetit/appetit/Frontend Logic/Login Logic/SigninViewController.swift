@@ -10,6 +10,22 @@ import UIKit
 
 class SigninViewController: UIViewController {
 
+    @IBAction func backSignIn(_ sender: Any) {
+    
+    }
+    
+    @IBOutlet weak var FirstTextField: UITextField!
+    @IBOutlet weak var LastTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmpasswordTextField: UITextField!
+    @IBOutlet weak var maxCalories: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    @IBAction func createButton(_ sender: Any) {
+    
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

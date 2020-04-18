@@ -98,18 +98,33 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="backSignIn:" destination="NYL-Wd-EI8" eventType="touchUpInside" id="7Rv-WQ-O33"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkB-bg-2mn">
                                 <rect key="frame" x="127" y="551" width="162" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="createButton:" destination="NYL-Wd-EI8" eventType="touchUpInside" id="9rI-iV-4Sj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="anf-aE-90D"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZMd-Nf-Vig"/>
+                    <connections>
+                        <outlet property="FirstTextField" destination="1zn-vR-cQw" id="qrw-lZ-sZ5"/>
+                        <outlet property="LastTextField" destination="qq7-WU-j8h" id="zvw-So-OG2"/>
+                        <outlet property="confirmpasswordTextField" destination="P3V-eP-Gch" id="sRi-mS-65r"/>
+                        <outlet property="emailTextField" destination="U3H-0Y-25d" id="5h6-yx-2cE"/>
+                        <outlet property="errorLabel" destination="LAt-FI-8y3" id="PWN-aA-biF"/>
+                        <outlet property="maxCalories" destination="XaB-9c-Sou" id="zW6-Ga-5rw"/>
+                        <outlet property="passwordTextField" destination="VdW-dE-E5u" id="o7j-WV-YvK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ja-Sy-xcS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

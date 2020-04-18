@@ -14,18 +14,7 @@ import UIKit
 import AVFoundation
 
 class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-//
-//    @IBOutlet weak var BottomBar: UIView!
-//    @IBOutlet weak var TopBar: UIView!
-//    @IBOutlet weak var overlayView: UIImageView!
-//    @IBOutlet weak var scanView: UIImageView!
-//    //    @IBOutlet var TopBar: UIView!
-//    @IBOutlet weak var messageLabel: UILabel!
-//    @IBOutlet weak var closeButton: UIButton!
-//    @IBAction func closeButtonTapped(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
-//
-//    }
+
     let topBar = UIView()
     let scanView = UIView()
     let bottomBar = UIView()
@@ -50,7 +39,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                                            AVMetadataObject.ObjectType.qr]
         
         override func viewDidLoad() {
-            setupLayout()
             if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) ==  AVAuthorizationStatus.authorized {
                 // Already Authorized
             } else {
@@ -63,7 +51,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                    }
                })
             }
-            
+            setupLayout()
             super.viewDidLoad()
             
             captureSession = AVCaptureSession()
@@ -247,6 +235,14 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             scanView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             scanView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             scanView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+            
+//            let scanOver = UIImageView()
+//            let barImage = UIImage(named: "barView")
+//            scanOver.image = barImage
+//
+//            scanView.addSubview(scanOver)
+//            scanOver.centerYAnchor.constraint(equalTo: scanView.centerYAnchor).isActive = true
+//            scanOver.centerXAnchor.constraint(equalTo: scanView.centerXAnchor).isActive = true
 
 //            let bottomBar = UIView()
             bottomBar.backgroundColor = .green

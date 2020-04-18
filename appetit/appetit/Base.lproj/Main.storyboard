@@ -543,7 +543,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aZt-hz-sNi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ynh-7s-lF9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rQ-7J-GXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -47,8 +47,8 @@ final class DataService {
         // Specify HTTP Method to use
         request.httpMethod = "GET"
         //Headers
-        request.setValue("2fad0373", forHTTPHeaderField: "x-app-id")
-        request.setValue("d6ba77ec6ee3f506b47ecc748a85e4e3", forHTTPHeaderField: "x-app-key")
+        request.setValue("e6f7f2ae", forHTTPHeaderField: "x-app-id")
+        request.setValue("0d6f81b2f952da8b1acbd5d3db372855", forHTTPHeaderField: "x-app-key")
         
         // Send HTTP Request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

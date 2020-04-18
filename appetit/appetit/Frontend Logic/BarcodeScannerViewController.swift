@@ -18,22 +18,27 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
     //            scanOver.image = barImage
     //            let scanOver = UIView()
     let scanView = UIView()
+    let successView = UIView()
     let bottomBar = UIView()
 
-    let descriptionTextView: UITextView = {
-        let textView = UITextView()
+    let descriptionTextView: UILabel = {
+        let textView = UILabel()
         textView.text = "Begin Scanning"
+        textView.numberOfLines = 2
         textView.backgroundColor = .green
+//        textView.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9568627451, blue: 0.9294117647, alpha: 1)
         textView.font = UIFont.boldSystemFont(ofSize: 18)
         textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
+    let imageView = UIImageView()
+
         
         var captureSession = AVCaptureSession()
         
         var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-        var BarcodeFrameView: UIView?
+//        var BarcodeFrameView: UIView?
         
         private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
                                            AVMetadataObject.ObjectType.code39,
@@ -64,7 +69,8 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             }
             super.viewDidLoad()
             setupLayout()
-            
+            successView.isHidden = true
+
             captureSession = AVCaptureSession()
             
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
@@ -88,37 +94,40 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 
                 // Set delegate and use the default dispatch queue to execute the call back
                 metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                metadataOutput.metadataObjectTypes = supportedCodeTypes
+                metadataOutput.metadataObjectTypes = self.supportedCodeTypes
     //            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
                 
             } catch {
                 print(error)
                 return
             }
-            
+        
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = scanView.layer.frame
             view.layer.addSublayer(videoPreviewLayer!)
+            view.bringSubviewToFront(imageView)
+            view.bringSubviewToFront(successView)
+
             
             // Start video capture.
             captureSession.sessionPreset = .photo
             captureSession.startRunning()
             
-            // Initialize Code Frame to highlight the code
-            BarcodeFrameView = UIView()
-            
-            if let BarcodeFrameView = BarcodeFrameView {
-                BarcodeFrameView.layer.borderColor = UIColor.blue.cgColor
-                BarcodeFrameView.layer.borderWidth = 2
-                view.addSubview(BarcodeFrameView)
-                view.bringSubviewToFront(BarcodeFrameView)
-            }
+//             Initialize Code Frame to highlight the code
+///           BarcodeFrameView = UIView()
+//
+//            if let BarcodeFrameView = BarcodeFrameView {
+//                BarcodeFrameView.layer.backgroundColor = UIColor.blue.cgColor
+//                BarcodeFrameView.layer.borderWidth = 2
+//                view.addSubview(BarcodeFrameView)
+//                view.bringSubviewToFront(BarcodeFrameView)
+//            }
         }
     
             private func setupLayout() {
                 let topBar = UIView()
-                topBar.backgroundColor = .blue
+                topBar.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9568627451, blue: 0.9294117647, alpha: 1)
                 view.addSubview(topBar)
                 topBar.translatesAutoresizingMaskIntoConstraints = false
                 topBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -134,7 +143,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 scanView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
                 scanView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
                 
-                bottomBar.backgroundColor = .green
+                bottomBar.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9568627451, blue: 0.9294117647, alpha: 1)
                 view.addSubview(bottomBar)
                 bottomBar.translatesAutoresizingMaskIntoConstraints = false
                 bottomBar.topAnchor.constraint(equalTo: scanView.bottomAnchor).isActive = true
@@ -143,21 +152,28 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
                 view.addSubview(descriptionTextView)
-                descriptionTextView.topAnchor.constraint(equalTo: bottomBar.topAnchor, constant: 200).isActive = true
+                descriptionTextView.topAnchor.constraint(equalTo: bottomBar.topAnchor, constant:100).isActive = true
                 descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 40).isActive = true
                 descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
                 descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
                 
-                let image = UIImage(imageLiteralResourceName: "barView")
-                let imageView = UIImageView(image: image)
+                imageView.image = UIImage(named: "barView")
                 imageView.alpha = 0.5
-                view.addSubview(imageView)
-                imageView.translatesAutoresizingMaskIntoConstraints = false
                 imageView.contentMode = .scaleAspectFit
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(imageView)
                 imageView.centerYAnchor.constraint(equalTo: scanView.centerYAnchor, constant: 10).isActive = true
                 imageView.centerXAnchor.constraint(equalTo: scanView.centerXAnchor).isActive = true
                 imageView.heightAnchor.constraint(equalTo: scanView.heightAnchor, multiplier: 0.9).isActive = true
 //                imageView.Anchor.constraint(equalTo: view.rightAnchor).isActive = true
+                
+                successView.backgroundColor = #colorLiteral(red: 0.3914206922, green: 0.9923465848, blue: 0.4027332067, alpha: 0.3415560788)
+                view.addSubview(successView)
+                successView.translatesAutoresizingMaskIntoConstraints = false
+                successView.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+                successView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+                successView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+                successView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
                 
     //            scanOver.image = barImage
     //            let scanOver = UIView()
@@ -186,7 +202,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
         func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
             // Check if the metadataObjects array is not nil and it contains at least one object.
             if metadataObjects.count == 0 {
-                BarcodeFrameView?.frame = CGRect.zero
                 descriptionTextView.text = "No Barcode is detected"
                 return
             }
@@ -195,9 +210,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             
             if supportedCodeTypes.contains(metadataObj.type) {
-                
-                let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-                BarcodeFrameView?.frame = barCodeObject!.bounds
+                successView.isHidden = false
                 
                 if metadataObj.stringValue != nil {
                     AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))

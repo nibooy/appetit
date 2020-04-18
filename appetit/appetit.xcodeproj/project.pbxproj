@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,6 +51,7 @@
 		BE97690E244A8C69005ED0BC /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97690D244A8C69005ED0BC /* UPCarouselFlowLayout.swift */; };
 		BE976912244AB6C1005ED0BC /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976911244AB6C1005ED0BC /* RecipeCell.swift */; };
 		BE976914244BAA66005ED0BC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE976913244BAA65005ED0BC /* Podfile */; };
+		BE976916244BAC54005ED0BC /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976915244BAC54005ED0BC /* MainTabBarViewController.swift */; };
 		DFC670992446A25600F20B24 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC670982446A25600F20B24 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		BE97690D244A8C69005ED0BC /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		BE976911244AB6C1005ED0BC /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		BE976913244BAA65005ED0BC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		BE976915244BAC54005ED0BC /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		DFC670982446A25600F20B24 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */,
+				BE976915244BAC54005ED0BC /* MainTabBarViewController.swift */,
 				BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */,
 				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
 				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
@@ -288,7 +291,6 @@
 				0EDACFAA75929EDACE3F48EE /* Pods-appetit.debug.xcconfig */,
 				29465725DAD8FB67C7576D0F /* Pods-appetit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -461,6 +463,7 @@
 				9E64F5EC244A541D0004F660 /* RecipeInfo.swift in Sources */,
 				9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
+				BE976916244BAC54005ED0BC /* MainTabBarViewController.swift in Sources */,
 				DFC670992446A25600F20B24 /* DataService.swift in Sources */,
 				0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */,
 				0AB4C012243EB6BB001994CE /* VirtualFridgeViewController.swift in Sources */,

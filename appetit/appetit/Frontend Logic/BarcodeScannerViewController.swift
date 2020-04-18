@@ -14,21 +14,19 @@ import UIKit
 import AVFoundation
 
 class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    //            let barImage = UIImage(named: "Avocado")
-    //            scanOver.image = barImage
-    //            let scanOver = UIView()
+    
+    @IBOutlet weak var formView: UIView!
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var quantityLabel: UITextField!
+    @IBOutlet weak var submitButton: LoadingButton!
+    
     let scanView = UIView()
     let successView = UIView()
     let bottomBar = UIView()
-
     let descriptionTextView: UILabel = {
         let textView = UILabel()
         textView.text = "Begin Scanning"
         textView.numberOfLines = 2
-        textView.backgroundColor = .green
-//        textView.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9568627451, blue: 0.9294117647, alpha: 1)
-        textView.font = UIFont.boldSystemFont(ofSize: 18)
-        textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -152,10 +150,28 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
                 view.addSubview(descriptionTextView)
-                descriptionTextView.topAnchor.constraint(equalTo: bottomBar.topAnchor, constant:100).isActive = true
-                descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 40).isActive = true
-                descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-                descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+                
+                descriptionTextView.topAnchor.constraint(equalTo: bottomBar.topAnchor).isActive = true
+                descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
+                descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
+                descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
+                descriptionTextView.layer.cornerRadius = 10.0
+                descriptionTextView.layer.borderWidth = 1.0
+                descriptionTextView.backgroundColor = .green
+                descriptionTextView.layer.borderColor = UIColor.clear.cgColor
+                descriptionTextView.layer.masksToBounds = true
+//
+                descriptionTextView.layer.shadowColor = UIColor.lightGray.cgColor
+                descriptionTextView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+                descriptionTextView.layer.shadowRadius = 2.0
+                descriptionTextView.layer.shadowOpacity = 0.7
+                descriptionTextView.layer.masksToBounds = false
+
+
+
+
+                descriptionTextView.font = UIFont.boldSystemFont(ofSize: 18)
+                descriptionTextView.textAlignment = .center
                 
                 imageView.image = UIImage(named: "barView")
                 imageView.alpha = 0.5
@@ -174,18 +190,10 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                 successView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
                 successView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
                 successView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
-                
-    //            scanOver.image = barImage
-    //            let scanOver = UIView()
-    //            scanOver.backgroundColor = .red
-    //            bottomBar.addSubview(scanOver)
-    //            bottomBar.bringSubviewToFront(scanOver)
-    //            scanOver.translatesAutoresizingMaskIntoConstraints = false
-    //            scanOver.centerYAnchor.constraint(equalTo: bottomBar.centerYAnchor).isActive = true
-    //            scanOver.centerXAnchor.constraint(equalTo: bottomBar.centerXAnchor).isActive = true
-    //            scanOver.heightAnchor.constraint(equalTo: bottomBar.heightAnchor, multiplier: 0.4).isActive = true
 
             }
+    
+
     
 //    func scanningNotPossible(){
 //        let alert = UIAlertController(title: "Can't Scan", message: "Try a device with camera", preferredStyle: .alert)

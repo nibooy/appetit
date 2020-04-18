@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UTA-T3-ep2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -536,26 +536,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DfZ-St-s5h">
-                                <rect key="frame" x="0.0" y="487" width="414" height="323"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zry-E5-2aO">
+                                <rect key="frame" x="20" y="503" width="374" height="359"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SP-N4-tVr">
+                                        <rect key="frame" x="0.0" y="29" width="219" height="134"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Ingredient Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrX-fR-UWj">
+                                                <rect key="frame" x="10" y="15" width="199" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Quantity" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-iW-VoM">
+                                                <rect key="frame" x="10" y="64" width="199" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V86-My-nvl" customClass="LoadingButton" customModule="appetit" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="123" width="189" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="YSv-kO-JB7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Tap To Add Item To Fridge">
+                                                    <color key="titleColor" red="0.149834035" green="0.149834035" blue="0.149834035" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="submitButtonTapped:" destination="Jnl-dp-w0X" eventType="touchUpInside" id="wNn-6q-STk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6SP-N4-tVr" secondAttribute="height" multiplier="374:229" id="2pt-Rl-7y6"/>
+                                            <constraint firstItem="lj7-iW-VoM" firstAttribute="top" secondItem="rrX-fR-UWj" secondAttribute="bottom" constant="15" id="415-1K-pbH"/>
+                                            <constraint firstItem="rrX-fR-UWj" firstAttribute="leading" secondItem="6SP-N4-tVr" secondAttribute="leading" constant="10" id="4ec-4P-ZlU"/>
+                                            <constraint firstItem="V86-My-nvl" firstAttribute="centerX" secondItem="6SP-N4-tVr" secondAttribute="centerX" id="936-Mj-fOl"/>
+                                            <constraint firstItem="lj7-iW-VoM" firstAttribute="leading" secondItem="6SP-N4-tVr" secondAttribute="leading" constant="10" id="EI6-TL-srW"/>
+                                            <constraint firstItem="rrX-fR-UWj" firstAttribute="top" secondItem="6SP-N4-tVr" secondAttribute="top" constant="15" id="KpO-yb-13f"/>
+                                            <constraint firstAttribute="trailing" secondItem="V86-My-nvl" secondAttribute="trailing" constant="15" id="LQP-kE-9cI"/>
+                                            <constraint firstItem="rrX-fR-UWj" firstAttribute="centerX" secondItem="6SP-N4-tVr" secondAttribute="centerX" id="aQe-Jw-C3c"/>
+                                            <constraint firstItem="V86-My-nvl" firstAttribute="top" secondItem="lj7-iW-VoM" secondAttribute="bottom" constant="25" id="g2N-TS-MZ8"/>
+                                            <constraint firstItem="V86-My-nvl" firstAttribute="leading" secondItem="6SP-N4-tVr" secondAttribute="leading" constant="15" id="hiZ-9n-Kdo"/>
+                                            <constraint firstAttribute="trailing" secondItem="lj7-iW-VoM" secondAttribute="trailing" constant="10" id="hzd-8R-hH1"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Ingredient Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N3-g1-DaG">
+                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewLayout key="collectionViewLayout" id="Jem-IL-hzV" customClass="HiveLayout" customModule="appetit" customModuleProvider="target"/>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="nVH-SG-u8D">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CGz-yJ-eDN">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                <constraints>
+                                    <constraint firstItem="3N3-g1-DaG" firstAttribute="top" secondItem="zry-E5-2aO" secondAttribute="top" id="MNy-vP-pd2"/>
+                                    <constraint firstItem="6SP-N4-tVr" firstAttribute="leading" secondItem="zry-E5-2aO" secondAttribute="leading" id="PFm-n7-lfe"/>
+                                    <constraint firstItem="6SP-N4-tVr" firstAttribute="top" secondItem="3N3-g1-DaG" secondAttribute="bottom" constant="8.5" id="Vp6-s6-Q3p"/>
+                                    <constraint firstAttribute="trailing" secondItem="6SP-N4-tVr" secondAttribute="trailing" id="nJp-v6-WFn"/>
+                                    <constraint firstItem="3N3-g1-DaG" firstAttribute="leading" secondItem="zry-E5-2aO" secondAttribute="leading" id="xuH-em-Y4M"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aZt-hz-sNi"/>
                     </view>
+                    <connections>
+                        <outlet property="formView" destination="6SP-N4-tVr" id="IxW-rc-tqg"/>
+                        <outlet property="nameLabel" destination="rrX-fR-UWj" id="z5O-HZ-XF1"/>
+                        <outlet property="quantityLabel" destination="lj7-iW-VoM" id="NE4-z0-fLm"/>
+                        <outlet property="submitButton" destination="V86-My-nvl" id="nWJ-gI-su0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rQ-7J-GXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationItem title="Title" id="qi7-tI-SGL"/>

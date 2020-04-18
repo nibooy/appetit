@@ -24,7 +24,12 @@ class SavedCollectionViewController: UICollectionViewController {
         // Register cell classes
         collectionView!.register(UINib.init(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         // Do any additional setup after loading the view.
+        
+        DispatchQueue.main.async {
+            self.collectionView!.reloadData()
+        }
     }
+    
 
     /*
     // MARK: - Navigation
@@ -46,7 +51,8 @@ class SavedCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return data.count
+//        return data.count
+        return 8
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

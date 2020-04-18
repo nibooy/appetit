@@ -50,7 +50,7 @@ class AddingViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "barcodeScannerVC")//need to add to storyboard this identifier
         self.definesPresentationContext = true
-//        controller.modalPresentationStyle = .fullScreen
+        controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
         
     }

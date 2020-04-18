@@ -89,6 +89,7 @@ final class DataService {
             }
         }
         task.resume()
+        
     }
     
 }

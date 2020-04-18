@@ -247,7 +247,6 @@
 				BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */,
 				9EE12037242FC0E8005885C5 /* mainViewController.swift */,
 				0AE2F31E24302662006F14E1 /* LoginViewController.swift */,
-				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
 				0AC94D3E243C136F007CE4F8 /* Food.swift */,
 				0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */,
 				0AC94D36243BD98F007CE4F8 /* IngredientsViewController.swift */,
@@ -313,6 +312,7 @@
 			children = (
 				BE976923244BB37B005ED0BC /* MainNavigationController.swift */,
 				BE97691F244BB275005ED0BC /* SwipingViewController.swift */,
+				0AE2F320243026E6006F14E1 /* SigninViewController.swift */,
 				BE976915244BAC54005ED0BC /* MainTabBarViewController.swift */,
 				BE97691C244BB1B3005ED0BC /* UserDefaults+helpers.swift */,
 			);

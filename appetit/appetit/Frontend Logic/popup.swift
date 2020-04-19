@@ -11,6 +11,11 @@ import UIKit
 
 class Popup: UIView, UIGestureRecognizerDelegate {
     
+    public func configureData(with model: Food){
+        self.nametextfield.text = model.name
+        self.servingtextfield.text = model.measurement
+    }
+    
     fileprivate let updateButton: LoadingButton = {
         let button = LoadingButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -100,7 +105,7 @@ class Popup: UIView, UIGestureRecognizerDelegate {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-
+        
         //code below to make modal not disappear on touch of container
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateOut))
         tapGestureRecognizer.delegate = self

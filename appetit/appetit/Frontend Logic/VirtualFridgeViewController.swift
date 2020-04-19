@@ -15,12 +15,15 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     @IBOutlet weak var collectionView: UICollectionView!
     
     // This is the list to hold our food objects. Backend - might need to add a field for an image to coredata.
+    var ingredients = [IngredientEntity]()
     var fridge = [Food]()
+    
+    var email = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
-        setup(n:10)
+        setup()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
@@ -43,6 +46,9 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         setupLeftTitle(title: "Virtual Fridge")
         
         self.navigationItem.rightBarButtonItem  = rightItem
+        email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
+        print(email)
+
 
 
     }
@@ -87,13 +93,20 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
-    func setup(n: Int){
-        
-        for _ in 0...n-1{
-            let ingredient = Food(name: "Avocado", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
-            self.fridge.append(ingredient)
+    func setup(){
+        let fridgeController = VirtualFridgeController()
+        do {
+            ingredients = try fridgeController.getUserIngredients(email: email)
         }
-        let add = Food(name: "AddButton", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
+        catch {
+            print("couldn't get ingredients with email")
+        }
+        for i in ingredients{
+            let foodItem = Food(name: i.ingredient, measurement: String(i.servings), image:#imageLiteral(resourceName: "Avocado") )
+            fridge.append(foodItem)
+        }
+        
+        let add = Food(name: "AddButton", measurement: "2", image: #imageLiteral(resourceName: "Avocado"))
         self.fridge.append(add)
         
         

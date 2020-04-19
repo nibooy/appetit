@@ -55,6 +55,7 @@ class SigninViewController: UIViewController, UITextFieldDelegate {
             
             //mainNavigationController.pushViewController(HomeController(), animated: true)
             UserDefaults.standard.setIsLoggedIn(value: true)
+            UserDefaults.standard.setEmail(value: emailTextField.text ?? "No Email")
 
             dismiss(animated: true, completion: nil)
         }

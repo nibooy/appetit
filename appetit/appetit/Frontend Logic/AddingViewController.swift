@@ -12,7 +12,8 @@
 
 import UIKit
 
-class AddingViewController: UIViewController {
+class AddingViewController: UIViewController, UITextFieldDelegate, DataSentDelegate {
+    var dataReceived = [String]()
 
     @IBOutlet weak var formView: UIView!
     
@@ -29,6 +30,7 @@ class AddingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
 
         // Do any additional setup after loading the view.
         scannerButton.setImage(UIImage(imageLiteralResourceName: "barcode"), for: .normal)
@@ -38,8 +40,10 @@ class AddingViewController: UIViewController {
     
     
     override func viewDidDisappear(_ animated: Bool) {
-        //dismisses screen when tabs to another screen
-        self.dismiss(animated: true, completion: nil)
+        super.viewDidDisappear(animated)
+        let scanner = BarcodeScannerViewController()
+        scanner.delegate = self
+        self.sendDataToParent(myData: dataReceived)
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
@@ -47,12 +51,21 @@ class AddingViewController: UIViewController {
     }
     
     @IBAction func scanButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "barcodeScannerVC")//need to add to storyboard this identifier
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "barcodeScannerVC")//need to add to storyboard this identifier
+        let scanner = BarcodeScannerViewController()
+        scanner.delegate = self
         self.definesPresentationContext = true
-//        controller.modalPresentationStyle = .fullScreen
-        self.present(controller, animated: true, completion: nil)
-        
+        scanner.modalPresentationStyle = .fullScreen
+        self.present(scanner, animated: true, completion: nil)
+    }
+    
+    func sendDataToParent(myData: [String]) {
+        if (!(myData.isEmpty)){
+            self.nameLabel.text = myData[0]
+            print(myData)
+            self.quantityLabel.text = myData[1]
+        }
     }
     
     func setupUI(){

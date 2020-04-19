@@ -87,6 +87,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         if let cell = collectionView.cellForItem(at: indexPath) as? FridgeCustomCell {
             cell.contentView.layer.backgroundColor =  UIColor(red: 0.788, green: 1, blue: 0.808, alpha: 1).cgColor
             selected.append(cell.itemName.text!)
+        
             print(selected)
         }
 
@@ -153,6 +154,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         generateButton.layer.shadowOpacity = 0.7
         generateButton.layer.masksToBounds = false
     }
+    
     
     @objc func menuButtonClicked(_ sender: UIButton) {
         //Sign out for now

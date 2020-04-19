@@ -98,6 +98,10 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
     func setup(){
+        if fridge.count != 0{
+            fridge = [Food]()
+        }
+        
         let fridgeController = VirtualFridgeController()
         do {
             ingredients = try fridgeController.getUserIngredients(email: email)

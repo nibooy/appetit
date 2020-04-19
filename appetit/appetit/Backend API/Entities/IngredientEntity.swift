@@ -7,15 +7,13 @@
 //
 
 import Foundation
-import UIKit
 
 public struct IngredientEntity{
     let ingredient: String
     let servings: Int
-    let image: UIImage
-    init(ingredientName: String, servingsAmount: Int, uiImage: UIImage) {
+    
+    init(ingredientName: String, servingsAmount: Int) {
         ingredient = ingredientName
         servings = servingsAmount
-        image = uiImage
     }
 }

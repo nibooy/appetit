@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 class VirtualFridgeController{
     let userDataHandler: DataHandler
@@ -29,8 +28,7 @@ class VirtualFridgeController{
             for ingredientObject in listOfIngredientObjects{
                 let ingredient = ingredientObject.value(forKey: "ingredient") as! String
                 let servings = ingredientObject.value(forKey: "servings") as! Int
-                let image = ingredientObject.value(forKey: "image") as! UIImage
-                let ingredientEntity = IngredientEntity(ingredientName: ingredient, servingsAmount: servings, uiImage: image)
+                let ingredientEntity = IngredientEntity(ingredientName: ingredient, servingsAmount: servings)
                 listOfIngredients.append(ingredientEntity)
             }
         }catch{
@@ -40,8 +38,7 @@ class VirtualFridgeController{
     }
     
     /*Add ingredients. If it already exists, it will add to the amount of servings already existed. If it is new, it will make a new entry */
-    func addIngredient(email: String, ingredient: String, servings: Int, uiImage: UIImage) throws{
-        let image = uiImage.pngData()
+    func addIngredient(email: String, ingredient: String, servings: Int) throws{
         let virtualFridge = userDataHandler.getDatabaseObject(entity: "VirtualFridge")
         var newServings = servings
         var ingredientMatches:[IngredientEntity] = []
@@ -54,7 +51,6 @@ class VirtualFridgeController{
             virtualFridge.setValue(email, forKey: "email")
             virtualFridge.setValue(ingredient, forKey: "ingredient")
             virtualFridge.setValue(newServings, forKey: "servings")
-            virtualFridge.setValue(image, forKey: "image")
         do{
             try userDataHandler.save()
         } catch {
@@ -69,8 +65,7 @@ class VirtualFridgeController{
             for ingredient in ingredientMatches{
                 let ingredientName = ingredient.value(forKey: "ingredient") as! String
                 let ingredientServings = ingredient.value(forKey: "servings") as! Int
-                let image = ingredient.value(forKey: "image") as! UIImage
-                let ingredientEntity = IngredientEntity(ingredientName: ingredientName, servingsAmount: ingredientServings, uiImage: image)
+                let ingredientEntity = IngredientEntity(ingredientName: ingredientName, servingsAmount: ingredientServings)
                 ingredientMatchList.append(ingredientEntity)
             }
         }catch{
@@ -88,11 +83,10 @@ class VirtualFridgeController{
             guard ingredientMatches.count > 0 else{
                 throw ErrorMessage.ErrorCodes.ingredientDoesNotExist
             }
-            let uiImage = try userDataHandler.getIngredient(email: email, ingredient: ingredient)[0].value(forKey: "image") as! UIImage
             try userDataHandler.deleteIngredient(email: email, ingredient: ingredient)
             if servings < ingredientMatches[0].servings {
                 let subtractedServings = ingredientMatches[0].servings - servings
-                try addIngredient(email: email, ingredient: ingredient, servings: subtractedServings, uiImage: uiImage)
+                try addIngredient(email: email, ingredient: ingredient, servings: subtractedServings)
             }
         }catch {
             throw ErrorMessage.ErrorCodes.dataSearchFailed
@@ -100,7 +94,6 @@ class VirtualFridgeController{
     }
     
     func updateIngredient(email: String, ingredient: String, servings: Int) throws{
-        let uiImage = try userDataHandler.getIngredient(email: email, ingredient: ingredient)[0].value(forKey: "image") as! UIImage
         do{
            try userDataHandler.deleteIngredient(email: email, ingredient: ingredient)
         }catch ErrorMessage.ErrorCodes.ingredientDoesNotExist{
@@ -108,6 +101,6 @@ class VirtualFridgeController{
         }catch{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
-        try addIngredient(email: email, ingredient: ingredient, servings: servings, uiImage: uiImage)
+        try addIngredient(email: email, ingredient: ingredient, servings: servings)
     }
 }

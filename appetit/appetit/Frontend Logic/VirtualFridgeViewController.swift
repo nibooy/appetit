@@ -52,7 +52,6 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.setup()
         // THIS might cause errors sorry
         self.viewDidLoad()
     }
@@ -91,9 +90,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
-        let pop = Popup()
-        self.view.addSubview(pop)
+        if let cell = collectionView.cellForItem(at: indexPath) as? FridgeCustomCell {
+            print("User tapped on item \(indexPath.row)")
+            let pop = Popup()
+            pop.configureData(with: Food(name: cell.itemName.text!, measurement: cell.servingName.text!, image: cell.itemImage.image!))
+            self.view.addSubview(pop)
+        }
     }
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button

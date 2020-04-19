@@ -23,7 +23,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
-        setup()
+
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
@@ -32,7 +32,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(listnerFunction), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
         
         //code to add button to right
         let menu = UIButton()
@@ -48,9 +48,19 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         self.navigationItem.rightBarButtonItem  = rightItem
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         print(email)
-
-
-
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setup()
+//        self.collectionView.reloadData()
+//                // THIS might cause errors sorrys
+//        self.viewDidLoad()
+        print(fridge)
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     // MARK: - Navigation
 //
@@ -60,6 +70,15 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
 //        // Pass the selected object to the new view controller.
 //    }
 
+    
+    //Listener that once alert is closed will reload data has a bug of breaking constraint on reloads
+    @objc func listnerFunction() {
+        print("yes")
+        //self.collectionView.collectionViewLayout.invalidateLayout()
+        self.collectionView.reloadData()
+        self.viewWillAppear(true)
+        
+    }
     
     // MARK: View Layout Setup
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
@@ -87,14 +106,22 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
-        let pop = Popup()
-        self.view.addSubview(pop)
+        if let cell = collectionView.cellForItem(at: indexPath) as? FridgeCustomCell {
+            print("User tapped on item \(indexPath.row)")
+            let pop = Popup()
+            pop.configureData(with: Food(name: cell.itemName.text!, measurement: cell.servingName.text!, image: cell.itemImage.image!))
+            self.view.addSubview(pop)
+        }
     }
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
     func setup(){
+        if self.fridge.count != 0{
+            self.fridge = [Food]()
+        }
+        
         let fridgeController = VirtualFridgeController()
+        
         do {
             ingredients = try fridgeController.getUserIngredients(email: email)
         }
@@ -102,8 +129,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
             print("couldn't get ingredients with email")
         }
         for i in ingredients{
-            let foodItem = Food(name: i.ingredient, measurement: String(i.servings), image:#imageLiteral(resourceName: "Avocado") )
+            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image:#imageLiteral(resourceName: "Avocado") )
             fridge.append(foodItem)
+        }
+        
+        fridge.sort {
+            $0.name < $1.name
         }
         
         let add = Food(name: "AddButton", measurement: "2", image: #imageLiteral(resourceName: "Avocado"))
@@ -140,6 +171,10 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         let rootViewController = UIApplication.shared.keyWindow?.rootViewController
         guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
         mainNavigationController.popToRootViewController(animated: true)
+    }
+    
+    func deleteDataIndex(index: Int) {
+        self.collectionView.reloadData()
     }
 }
 

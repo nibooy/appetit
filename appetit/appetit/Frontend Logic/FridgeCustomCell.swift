@@ -23,7 +23,9 @@ class FridgeCustomCell: UICollectionViewCell {
     
     public func configureData(with model: Food){
         itemName.text = model.name
+        itemName.font = UIFont.boldSystemFont(ofSize: 16.0)
         servingName.text = model.measurement
+        servingName.font = UIFont.systemFont(ofSize: 14.0)
         itemImage.image = model.image
     }
     

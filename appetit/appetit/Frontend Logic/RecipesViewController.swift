@@ -48,6 +48,8 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.addCollectionView()
         self.setupLayout()
         let virtualFridgeController = VirtualFridgeController()
+        userEmail =  UserDefaults.standard.string(forKey: "email") ?? "no email"
+        print(userEmail)
         do{
             
             let listOfUserIngredients:[IngredientEntity] = try virtualFridgeController.getUserIngredients(email: userEmail)

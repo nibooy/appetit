@@ -146,7 +146,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     func setupLeftTitle(title : String){
         let longTitleLabel = UILabel()
         longTitleLabel.text = "Virtual Fridge"
-        longTitleLabel.font = .boldSystemFont(ofSize: 18)
+        longTitleLabel.font = UIFont(name: "Didot-Bold", size: 25)
         longTitleLabel.sizeToFit()
         let leftItem = UIBarButtonItem(customView: longTitleLabel)
         self.navigationItem.leftBarButtonItem = leftItem
@@ -165,13 +165,30 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
                self.view.frame.origin.y = 0
            }
        }
+    
+    //Handles Side menu
+    //########################################################
+    lazy var settingsLauncher: SettingLauncher = {
+        let launcher = SettingLauncher()
+        launcher.VFController = self
+        return launcher
+    }()
+    
     @objc func menuButtonClicked(_ sender: UIButton) {
-        UserDefaults.standard.setIsLoggedIn(value: false)
-        self.view.endEditing(true)
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
-        mainNavigationController.popToRootViewController(animated: true)
+        settingsLauncher.showsSettings()
     }
+    
+    func showControllerForSetting(setting: Setting) {
+        let SettingViewController = UIViewController()
+        SettingViewController.view.backgroundColor = .white
+        SettingViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.pushViewController(SettingViewController, animated: true)
+    }
+    
+    //########################################################
+    
+    
     
     func deleteDataIndex(index: Int) {
         self.collectionView.reloadData()

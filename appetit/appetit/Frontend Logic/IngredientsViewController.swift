@@ -151,7 +151,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     func setupLeftTitle(title : String){
         let longTitleLabel = UILabel()
         longTitleLabel.text = "Recipes"
-        longTitleLabel.font = .boldSystemFont(ofSize: 18)
+        longTitleLabel.font = UIFont(name: "Didot-Bold", size: 25)
         longTitleLabel.sizeToFit()
         let leftItem = UIBarButtonItem(customView: longTitleLabel)
         self.navigationItem.leftBarButtonItem = leftItem
@@ -173,16 +173,29 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
+    //Handles Side menu
+    //########################################################
+    lazy var settingsLauncher: SettingLauncher = {
+        let launcher = SettingLauncher()
+        launcher.IVController = self
+        return launcher
+    }()
+    
     @objc func menuButtonClicked(_ sender: UIButton) {
-        //Sign out for now
-        
-        UserDefaults.standard.setIsLoggedIn(value: false)
-        self.view.endEditing(true)
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
-        mainNavigationController.popToRootViewController(animated: true)
-
+        settingsLauncher.showsSettings()
     }
+    
+    func showControllerForSetting(setting: Setting) {
+        let SettingViewController = UIViewController()
+        SettingViewController.view.backgroundColor = .white
+        SettingViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.pushViewController(SettingViewController, animated: true)
+    }
+    
+    //########################################################
+    
+    
     @IBAction func generateRecipe(_ sender: Any) {
         
     }

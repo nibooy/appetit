@@ -71,7 +71,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
 //    }
 
     
-
+    //Listener that once alert is closed will reload data has a bug of breaking constraint on reloads
     @objc func listnerFunction() {
         print("yes")
         //self.collectionView.collectionViewLayout.invalidateLayout()

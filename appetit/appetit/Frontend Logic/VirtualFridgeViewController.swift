@@ -47,7 +47,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         
         self.navigationItem.rightBarButtonItem  = rightItem
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
-        print(email)
+        //print(email)
         
     }
     
@@ -57,7 +57,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         self.collectionView.reloadData()
 //                // THIS might cause errors sorrys
 //        self.viewDidLoad()
-        print(fridge)
+        //print(fridge)
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }

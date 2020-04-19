@@ -21,10 +21,20 @@ class RecipeCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = UIColor(displayP3Red: 5/255.0, green: 50/255.0, blue: 103/255.0, alpha: 1)
-        label.font =  UIFont(name: "Didot-Italic", size: 40)
+        label.font =  UIFont(name: "Didot-Italic", size: 35)
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 3
         return label
+    }()
+    
+    lazy var recipeImage: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .black
+        image.layer.cornerRadius = 10.0
+        image.layer.masksToBounds = true
+        return image
     }()
     
     lazy var saveLikes: UIButton = {
@@ -44,6 +54,7 @@ class RecipeCell: UICollectionViewCell {
 
         self.addSubview(self.customView)
         self.addSubview(recipeLabel)
+        self.addSubview(recipeImage)
         self.addSubview(saveLikes)
 
         self.customView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -54,10 +65,13 @@ class RecipeCell: UICollectionViewCell {
         
         self.recipeLabel.centerXAnchor.constraint(equalTo: self.customView.centerXAnchor).isActive = true
         self.recipeLabel.topAnchor.constraint(equalTo: self.customView.topAnchor, constant: 20).isActive = true
-        self.recipeLabel.widthAnchor.constraint(equalTo: customView.widthAnchor).isActive = true
-
+        self.recipeLabel.widthAnchor.constraint(equalTo: customView.widthAnchor, constant: -20).isActive = true
         
         
+        self.recipeImage.centerXAnchor.constraint(equalTo: self.customView.centerXAnchor).isActive = true
+        self.recipeImage.centerYAnchor.constraint(equalTo: self.customView.centerYAnchor, constant: 20).isActive = true
+        self.recipeImage.widthAnchor.constraint(equalTo: customView.widthAnchor, constant: -80).isActive = true
+        self.recipeImage.heightAnchor.constraint(equalTo: customView.heightAnchor, constant: -300).isActive = true
         
         
         self.saveLikes.centerXAnchor.constraint(equalTo: self.customView.centerXAnchor).isActive = true

@@ -122,7 +122,11 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
            }
        }
     @objc func menuButtonClicked(_ sender: UIButton) {
-        
+        UserDefaults.standard.setIsLoggedIn(value: false)
+        self.view.endEditing(true)
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
+        mainNavigationController.popToRootViewController(animated: true)
     }
 }
 

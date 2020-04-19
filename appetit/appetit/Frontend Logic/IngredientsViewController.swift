@@ -133,7 +133,14 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     @objc func menuButtonClicked(_ sender: UIButton) {
-        //add stuff
+        //Sign out for now
+        
+        UserDefaults.standard.setIsLoggedIn(value: false)
+        self.view.endEditing(true)
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
+        mainNavigationController.popToRootViewController(animated: true)
+
     }
     @IBAction func generateRecipe(_ sender: Any) {
         

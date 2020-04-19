@@ -53,8 +53,8 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.setup()
-        self.collectionView.reloadData()
-
+        // THIS might cause errors sorry
+        self.viewDidLoad()
     }
     // MARK: - Navigation
 //
@@ -98,11 +98,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
     func setup(){
-        if fridge.count != 0{
-            fridge = [Food]()
+        if self.fridge.count != 0{
+            self.fridge = [Food]()
         }
         
         let fridgeController = VirtualFridgeController()
+        
         do {
             ingredients = try fridgeController.getUserIngredients(email: email)
         }

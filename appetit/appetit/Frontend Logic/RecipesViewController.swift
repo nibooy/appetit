@@ -64,7 +64,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             //unknown error
         }
         let mySession = URLSession(configuration: URLSessionConfiguration.default)
-        let urlWithQueryParameters = urlString + "q=" + listOfIngredients + "&app_id" + appId + "&app_key=" + apiKey
+        let urlWithQueryParameters = urlString + "q=" + listOfIngredients + "&app_id=" + appId + "&app_key=" + apiKey
         let url = URL(string: urlWithQueryParameters.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
 
         let task = mySession.dataTask(with: url) { data, response, error in

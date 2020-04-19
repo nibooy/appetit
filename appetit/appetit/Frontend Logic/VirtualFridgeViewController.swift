@@ -23,7 +23,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
-        setup(n:10)
+        setup()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
@@ -46,7 +46,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         setupLeftTitle(title: "Virtual Fridge")
         
         self.navigationItem.rightBarButtonItem  = rightItem
-        email =  UserDefaults.standard.string(forKey: "email") ?? "1234@1234.com"
+        email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         print(email)
 
 
@@ -93,12 +93,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
-    func setup(n: Int){
-        
-//        for _ in 0...n-1{
-//            let ingredient = Food(name: "Avocado", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
-//            self.fridge.append(ingredient)
-//        }
+    func setup(){
         let fridgeController = VirtualFridgeController()
         do {
             ingredients = try fridgeController.getUserIngredients(email: email)

@@ -12,7 +12,8 @@
 
 import UIKit
 
-class AddingViewController: UIViewController {
+class AddingViewController: UIViewController, BarcodeScannerVCDelegate {
+    
 
     @IBOutlet weak var formView: UIView!
     
@@ -43,7 +44,8 @@ class AddingViewController: UIViewController {
 //    }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        submitButton.showLoading()
+        print("wow"+testValue)
+//        submitButton.showLoading()
     }
     
     @IBAction func scanButtonTapped(_ sender: Any) {
@@ -52,7 +54,6 @@ class AddingViewController: UIViewController {
         self.definesPresentationContext = true
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
-        
     }
     
     func setupUI(){

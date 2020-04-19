@@ -245,6 +245,7 @@ class SwipingController: UIViewController, UICollectionViewDataSource, UICollect
       
         UserDefaults.standard.setIsLoggedIn(value: true)
         
+        
         dismiss(animated: true, completion: nil)
     }
 

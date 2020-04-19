@@ -27,6 +27,11 @@ class FridgeCustomCell: UICollectionViewCell {
         itemImage.image = model.image
     }
     
+    public func configureData(with model: IngredientEntity){
+        itemName.text = model.ingredient
+        servingName.text = String(model.servings)
+    }
+    
     private func configureCell() {
         self.contentView.layer.backgroundColor =  UIColor(red: 252/255, green: 244/255, blue: 236/255, alpha: 1).cgColor
         self.contentView.layer.cornerRadius = 10.0

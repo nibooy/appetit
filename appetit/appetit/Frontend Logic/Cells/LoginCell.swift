@@ -76,6 +76,7 @@ class LoginCell: UICollectionViewCell {
             errorLabel.alpha = 1
         }
         else{
+            UserDefaults.standard.setEmail(value: emailTextField.text ?? "No Email")
             errorLabel.alpha = 0
             emailTextField.text = ""
             passwordTextField.text = ""

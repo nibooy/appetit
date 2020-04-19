@@ -21,10 +21,13 @@ class AddingViewController: UIViewController {
     @IBOutlet weak var nameLabel: UITextField!
     
     @IBOutlet weak var quantityLabel: UITextField!
-    
-    @IBOutlet weak var measurementLabel: UITextField!
-    
+        
     @IBOutlet weak var submitButton: LoadingButton!
+    
+    var email = String()
+    
+    var alert:UIAlertController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,8 @@ class AddingViewController: UIViewController {
         scannerButton.setImage(UIImage(imageLiteralResourceName: "barcode"), for: .normal)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
+        print(email)
     }
     
     
@@ -44,6 +49,33 @@ class AddingViewController: UIViewController {
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         submitButton.showLoading()
+        do {
+            sleep(1)
+        }
+        let valid = validateFields()
+        
+        if valid == nil{
+            let vfc = VirtualFridgeController()
+            do {
+                try vfc.addIngredient(email: email, ingredient: nameLabel.text!, servings: Int(quantityLabel.text!)!)
+            }
+            catch{
+                print(error)
+            }
+            do{
+                print(try vfc.getUserIngredients(email: email))
+            }
+            catch{
+                print(error)
+            }
+            showSuccessAlert()
+            nameLabel.text = ""
+            quantityLabel.text = ""
+        }
+        else{
+            showErrorAlert(error: valid!)
+        }
+        submitButton.hideLoading()
     }
     
     @IBAction func scanButtonTapped(_ sender: Any) {
@@ -91,7 +123,7 @@ class AddingViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height/1.5
+                self.view.frame.origin.y -= keyboardSize.height/1.3
             }
         }
     }
@@ -102,6 +134,33 @@ class AddingViewController: UIViewController {
         }
     }
     
+    
+    func validateFields()-> String?{
+        if Int(quantityLabel.text!) == nil{
+            return "Please enter a valid serving amount"
+        }
+        if nameLabel.text! == ""{
+            return "Please enter an ingredient."
+        }
+        return nil
+        
+    }
+    func showSuccessAlert() {
+        self.alert = UIAlertController(title: "Success", message: "Ingredient Added Successfully", preferredStyle: UIAlertController.Style.alert)
+        self.present(self.alert, animated: true, completion: nil)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+    }
+    
+    func showErrorAlert(error: String) {
+        self.alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertController.Style.alert)
+        self.present(self.alert, animated: true, completion: nil)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+    }
+
+    @objc func dismissAlert(){
+        // Dismiss the alert from here
+        self.alert.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

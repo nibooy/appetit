@@ -48,8 +48,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         self.navigationItem.rightBarButtonItem  = rightItem
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         print(email)
-
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.setup()
+        self.collectionView.reloadData()
 
     }
     // MARK: - Navigation
@@ -101,8 +105,10 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         catch {
             print("couldn't get ingredients with email")
         }
+        print(ingredients)
+        
         for i in ingredients{
-            let foodItem = Food(name: i.ingredient, measurement: String(i.servings), image:#imageLiteral(resourceName: "Avocado") )
+            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image:#imageLiteral(resourceName: "Avocado") )
             fridge.append(foodItem)
         }
         

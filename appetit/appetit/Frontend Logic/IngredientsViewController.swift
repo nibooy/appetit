@@ -134,6 +134,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     
     @objc func menuButtonClicked(_ sender: UIButton) {
         //Sign out for now
+        
         UserDefaults.standard.setIsLoggedIn(value: false)
         self.view.endEditing(true)
         let rootViewController = UIApplication.shared.keyWindow?.rootViewController

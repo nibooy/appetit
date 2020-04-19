@@ -95,15 +95,9 @@ class SigninViewController: UIViewController, UITextFieldDelegate {
     func DoesUserExist() -> String {
         do {
             let maxCal = maxCalories.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            var inputCalories: Int
-            
-            if maxCal == ""{
-                inputCalories = 0
-            }
-            else{
-                inputCalories = Int(maxCal)!
-            }
-            
+            let maxCal_2 = maxCal.replacingOccurrences(of: ",", with: "", options: NSString.CompareOptions.literal, range: nil)
+            let inputCalories = Int(maxCal_2) ?? 0
+
             try self.newUser.saveUser(email: self.emailTextField.text!, password: self.passwordTextField.text!, firstName: self.FirstTextField.text!, lastName: self.LastTextField.text!, maxCaloriesPerMeal: inputCalories)
             return ""
         } catch {

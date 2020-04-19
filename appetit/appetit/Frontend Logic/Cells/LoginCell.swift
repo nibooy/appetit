@@ -129,6 +129,7 @@ class LoginCell: UICollectionViewCell {
     }()
     
     @objc func signUpPage() {
+        self.endEditing(true)
         let rootViewController = UIApplication.shared.keyWindow?.rootViewController
         guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

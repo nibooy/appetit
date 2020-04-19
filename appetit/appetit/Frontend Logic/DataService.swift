@@ -14,7 +14,7 @@ struct FoodItem: Codable {
     var food_name: String
 
     /// Amount in a serving
-    var serving_qty: Float
+    var serving_qty: Double
 
     /// Unit of a serving
     var serving_unit: String
@@ -30,7 +30,7 @@ struct FoodJSON: Codable {
 final class DataService {
     static let dataService = DataService()
         
-    class func searchAPI(codeNumber: String, completionHandler: @escaping (_ scanInfo: (String, Float, String)) -> Void) {
+    class func searchAPI(codeNumber: String, completionHandler: @escaping (_ scanInfo: (String, Int, String)) -> Void) {
         enum Error: Swift.Error {
             case requestFailed
         }
@@ -39,7 +39,7 @@ final class DataService {
         let myUrl = URL(string: urlWithParams)
         guard let requestUrl = myUrl else { fatalError() }
         var name = ""
-        var qty = Float(0)
+        var qty = 0
         var unit = ""
         // Create URL Request
         var request = URLRequest(url: requestUrl)
@@ -79,7 +79,7 @@ final class DataService {
                 for food in foodJSON.foods {
                         /*TODO: Reload table data since data structure is relaoded*/
                     name = food.food_name
-                    qty = food.serving_qty
+                    qty = Int(ceil(food.serving_qty))
                     unit = food.serving_unit
                     completionHandler((name, qty, unit))
                     print("Food name: \(name), serving quantity: \(qty), serving unit: \(unit)")

@@ -25,6 +25,8 @@ class AddingViewController: UIViewController, UITextFieldDelegate, DataSentDeleg
         
     @IBOutlet weak var submitButton: LoadingButton!
     
+    var placeHolder = ""
+    
     var email = String()
     
     var alert:UIAlertController!
@@ -184,4 +186,6 @@ class AddingViewController: UIViewController, UITextFieldDelegate, DataSentDeleg
     }
     */
 
+    
+    
 }

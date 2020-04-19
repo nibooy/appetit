@@ -54,7 +54,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setup()
-//        self.collectionView.reloadData()
+        self.collectionView.reloadData()
 //                // THIS might cause errors sorrys
 //        self.viewDidLoad()
         print(fridge)

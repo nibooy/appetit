@@ -9,7 +9,7 @@
 import UIKit
 
 class RecipesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    var selectedIngredients:[String] = [String]()
     // CollectionView variable:
     var collectionView : UICollectionView?
 
@@ -45,6 +45,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     var listOfIngredients: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(selectedIngredients)
         self.addCollectionView()
         self.setupLayout()
         let virtualFridgeController = VirtualFridgeController()
@@ -56,7 +57,6 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             for ingredient in listOfUserIngredients{
                 listOfIngredients = listOfIngredients + " " + ingredient.ingredient
                 print(listOfIngredients)
-            
             }
         }catch ErrorMessage.ErrorCodes.dataSearchFailed{
             //error is that we could not read from database
@@ -64,7 +64,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             //unknown error
         }
         let mySession = URLSession(configuration: URLSessionConfiguration.default)
-        let urlWithQueryParameters = urlString + "app_key=" + apiKey + "&app_id" + appId + "&q=" + listOfIngredients
+        let urlWithQueryParameters = urlString + "q=" + listOfIngredients + "&app_id" + appId + "&app_key=" + apiKey
         let url = URL(string: urlWithQueryParameters.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
 
         let task = mySession.dataTask(with: url) { data, response, error in
@@ -174,21 +174,45 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         
         //cell.customView.backgroundColor = colors[indexPath.row]
-        //let Recipe = recipeList[indexPath.row]
-        //cell.recipeLabel.text = Recipe.recipe.label
+//        let Recipe = recipeList[indexPath.row]
+//        cell.recipeLabel.text = Recipe.recipe.label
+        //Cell image layout
+        let imgContainer = UIView()
+        imgContainer.translatesAutoresizingMaskIntoConstraints = false
+        cell.addSubview(imgContainer)
         
-        cell.recipeLabel.text = alist[indexPath.row]
-        
-        //customView.backgroundColor = colors[indexPath.row]
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "ombre")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imgContainer.addSubview(imageView)
+        imageView.topAnchor.constraint(equalTo: imgContainer.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: imgContainer.bottomAnchor).isActive = true
+        imageView.leftAnchor.constraint(equalTo: imgContainer.leftAnchor).isActive = true
+        imageView.rightAnchor.constraint(equalTo: imgContainer.rightAnchor).isActive = true
 
+        imgContainer.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
+        imgContainer.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+        imgContainer.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.5).isActive = true
+        imgContainer.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 20).isActive = true
+        imgContainer.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: -20).isActive = true
+        imgContainer.layer.cornerRadius = 10.0
+        imgContainer.layer.borderWidth = 1.0
+        imgContainer.layer.borderColor = UIColor.clear.cgColor
+        imgContainer.layer.masksToBounds = true
+
+        //customView.backgroundColor = colors[indexPath.row]
+        cell.recipeLabel.text = alist[indexPath.row]
         
         return cell
     }
     
+    func setUpCard(){
+        
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let name = alist[indexPath.row]
+//        let name = alist[indexPath.row]
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white
 
@@ -214,6 +238,58 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
             currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
     }
+    
+//    class RecipeCell: UICollectionViewCell {
+//        let customView: UIView = {
+//            let view = UIView()
+//            view.translatesAutoresizingMaskIntoConstraints = false
+//            view.layer.cornerRadius = 12
+//            return view
+//        }()
+//
+//
+//        override init(frame: CGRect) {
+//            super.init(frame: frame)
+//
+//            self.addSubview(self.customView)
+//
+//            self.customView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+//            self.customView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+//            self.customView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
+//            self.customView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1).isActive = true
+//
+//
+//        }
+//
+//        required init?(coder aDecoder: NSCoder) {
+//            fatalError("init(coder:) has not been implemented")
+//        }
+//
+//
+//    } // End of CardCell
+//    class RelativeLayoutUtilityClass {
+//
+//        var heightFrame: CGFloat?
+//        var widthFrame: CGFloat?
+//
+//        init(referenceFrameSize: CGSize){
+//            heightFrame = referenceFrameSize.height
+//            widthFrame = referenceFrameSize.width
+//        }
+//
+//        func relativeHeight(multiplier: CGFloat) -> CGFloat{
+//
+//            return multiplier * self.heightFrame!
+//        }
+//
+//        func relativeWidth(multiplier: CGFloat) -> CGFloat{
+//            return multiplier * self.widthFrame!
+//
+//        }
+//
+//
+//
+//    }
 
 }
 

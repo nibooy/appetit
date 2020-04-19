@@ -13,6 +13,7 @@ class Popup: UIView, UIGestureRecognizerDelegate {
     
     var email = String()
     
+    
     public func configureData(with model: Food){
         self.nametextfield.text = model.name
         self.servingtextfield.text = String(model.measurement.dropLast(9))
@@ -38,6 +39,7 @@ class Popup: UIView, UIGestureRecognizerDelegate {
             try fridgeController.updateIngredient(email: email, ingredient: self.nametextfield.text!, servings: Int(self.servingtextfield.text!)!)
             print(email, self.nametextfield.text!,Int(self.servingtextfield.text!)!)
             animateOut()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
         }
         catch{
             print(error)
@@ -60,10 +62,10 @@ class Popup: UIView, UIGestureRecognizerDelegate {
     @objc func deleteButtonClicked(sender: UIButton){
         let fridgeController = VirtualFridgeController()
         do {
-            try fridgeController.subtractIngredient(email: email, ingredient: self.nametextfield.text!, servings: Int(self.servingtextfield.text!)!)
-            print(email, self.nametextfield.text!,Int(self.servingtextfield.text!)!)
+            try fridgeController.subtractIngredient(email: email, ingredient: self.nametextfield.text!, servings: 10000)
+            print(email, self.nametextfield.text!,10000)
             animateOut()
-
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
         }
         catch{
             print(error)

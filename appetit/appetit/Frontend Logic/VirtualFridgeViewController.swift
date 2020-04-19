@@ -23,6 +23,8 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
+        
+
         setup()
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -32,7 +34,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(listnerFunction), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
         
         //code to add button to right
         let menu = UIButton()
@@ -48,11 +50,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         self.navigationItem.rightBarButtonItem  = rightItem
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         print(email)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        // THIS might cause errors sorry
+                // THIS might cause errors sorrys
         self.viewDidLoad()
     }
     // MARK: - Navigation
@@ -63,6 +66,14 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
 //        // Pass the selected object to the new view controller.
 //    }
 
+    
+
+    @objc func listnerFunction() {
+        print("yes")
+        self.collectionView.reloadData()
+        self.viewDidLoad()
+        
+    }
     
     // MARK: View Layout Setup
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
@@ -96,6 +107,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
             pop.configureData(with: Food(name: cell.itemName.text!, measurement: cell.servingName.text!, image: cell.itemImage.image!))
             self.view.addSubview(pop)
         }
+        print(fridge)
     }
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
@@ -112,11 +124,14 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         catch {
             print("couldn't get ingredients with email")
         }
-        print(ingredients)
         
         for i in ingredients{
             let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image:#imageLiteral(resourceName: "Avocado") )
             fridge.append(foodItem)
+        }
+        
+        fridge.sort {
+            $0.name < $1.name
         }
         
         let add = Food(name: "AddButton", measurement: "2", image: #imageLiteral(resourceName: "Avocado"))

@@ -22,7 +22,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         return pageSize
     }
     
-    var alist = ["Ulises", "Victor", "Johan", "Mom"]
+    var alist = ["Sugar Cookie Icing", "Funfetti Pound Cake", "Caterpillar Cake", "Your Mom"]
     fileprivate var colors: [UIColor] = [UIColor(displayP3Red: 252.0/255.0, green: 244.0/255.0, blue: 236.0/255.0, alpha: 1), UIColor.gray, UIColor(displayP3Red: 252.0/255.0, green: 244.0/255.0, blue: 236.0/255.0, alpha: 1), UIColor.gray]
         
     struct Result: Decodable{
@@ -78,7 +78,6 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             do {
                 let result = try decoder.decode(Result.self, from: jsonData)
                 self.recipeList = result.hits
-                print(self.recipeList)
                 DispatchQueue.main.async {
                     /*TODO: Reload table data since data structure is relaoded*/
                 }
@@ -94,6 +93,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         //dismisses screen when tabs to another screen
         self.dismiss(animated: true, completion: nil)
     }
+    
        
     func setupLayout(){
             // This is just an utility custom class to calculate screen points
@@ -109,7 +109,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.collectionView?.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
             
         self.collectionView?.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-            
+
     //        self.collectionView?.heightAnchor.constraint(equalToConstant: pointEstimator.relativeHeight(multiplier: 0.6887)).isActive = true
 
         self.currentPage = 0
@@ -172,14 +172,25 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         
         //cell.customView.backgroundColor = colors[indexPath.row]
+        //let Recipe = recipeList[indexPath.row]
+        //cell.recipeLabel.text = Recipe.recipe.label
+        
+        cell.recipeLabel.text = alist[indexPath.row]
+        
+        //customView.backgroundColor = colors[indexPath.row]
+
         
         return cell
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let name = alist[indexPath.row]
+        //let name = alist[indexPath.row]
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white
+
+        
         
         let transition: CATransition = CATransition()
         transition.duration = 0.75
@@ -191,7 +202,6 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.navigationController?.present(viewController, animated: false, completion: nil)
 
     }
-    
     
 
         // MARK: - UIScrollViewDelegate
@@ -218,4 +228,3 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Pass the selected object to the new view controller.
     }
     */
-

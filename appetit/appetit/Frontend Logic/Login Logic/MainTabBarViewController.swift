@@ -1,14 +1,14 @@
 //
-//  SigninViewController.swift
+//  MainTabBarViewController.swift
 //  appetit
 //
-//  Created by Frank Hu on 3/28/20.
+//  Created by codeplus on 4/11/20.
 //  Copyright © 2020 Mark Kang. All rights reserved.
 //
 
 import UIKit
 
-class SigninViewController: UIViewController {
+class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

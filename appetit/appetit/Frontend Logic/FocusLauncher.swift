@@ -112,6 +112,8 @@ class FocusLauncher: NSObject, UICollectionViewDelegate {
         menuView.addSubview(IngredientLabel)
         menuView.addSubview(healthLabel)
         menuView.addSubview(lineSeparatorView)
+        menuView.addSubview(healthListLabels)
+        menuView.addSubview(ingredientListLines)
         
         menuView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -138,6 +140,20 @@ class FocusLauncher: NSObject, UICollectionViewDelegate {
             make.width.equalTo(3)
         }
         
+        
+        ingredientListLines.snp.remakeConstraints { make in
+            make.top.equalTo(menuView.snp.top).offset(30)
+            make.bottom.equalToSuperview().offset(30)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalTo(lineSeparatorView.snp.left).offset(-10)
+        }
+        
+        healthListLabels.snp.remakeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.bottom.equalToSuperview().offset(30)
+            make.right.equalToSuperview().offset(-10)
+            make.left.equalTo(lineSeparatorView.snp.right).offset(10)
+        }
         
         
     }

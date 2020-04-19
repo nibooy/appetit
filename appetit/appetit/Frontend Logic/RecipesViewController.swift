@@ -210,10 +210,27 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let name = alist[indexPath.row]
         let RecipeItem = recipeList[indexPath.row]
-        //cell.recipeLabel.text = RecipeItem.recipe.label
-        focusLauncher.showsSettings()
-        //focusLauncher.recipeNameLabel.text = RecipeItem.recipe.label
+        let healthlist = RecipeItem.recipe.healthLabels
+        let ingredientList = RecipeItem.recipe.ingredientLines
+        
+        var finalhealthList: String = ""
+        var finalingredientList: String = ""
 
+        
+        for item in healthlist{
+            finalhealthList = finalhealthList + "• " + item + "\n"
+        }
+        
+        
+        for item in ingredientList{
+            let array = item.components(separatedBy: ", ")
+            finalingredientList = finalingredientList + "• " + array[0] + "\n"
+        }
+        
+        focusLauncher.showsSettings()
+        focusLauncher.healthListLabels.text = finalhealthList
+        focusLauncher.ingredientListLines.text = finalingredientList
+   
         
 //        let viewController = UIViewController()
 //        viewController.view.backgroundColor = .white

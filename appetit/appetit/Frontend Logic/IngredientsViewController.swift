@@ -15,14 +15,16 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buttonView: UIView!
+    var ingredients = [IngredientEntity]()
     var fridge = [Food]()
     var selected = [String]()
+    var email = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
         
-        setup(n:10)
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
@@ -44,7 +46,10 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         
         self.navigationItem.rightBarButtonItem  = rightItem
         buttonView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
-        
+        email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
+        setup()
+        print(fridge)
+
         // uncomment if need to preserve selection
         // self.clearsSelectionOnViewWillAppear = false
           
@@ -99,13 +104,30 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     //change function to however u like but make sure to keep last two lines- responsible for how we get add button
-    func setup(n: Int){
-        
-        for _ in 0...n-1{
-            let ingredient = Food(name: "Avocado", measurement: "2 Serving", image: #imageLiteral(resourceName: "Avocado"))
-            self.fridge.append(ingredient)
+    func setup(){
+        if self.fridge.count != 0{
+            self.fridge = [Food]()
         }
-   
+        
+        let fridgeController = VirtualFridgeController()
+        
+        do {
+            ingredients = try fridgeController.getUserIngredients(email: email)
+            print(ingredients)
+        }
+        catch {
+            print("couldn't get ingredients with email")
+        }
+        
+        for i in ingredients{
+            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image:#imageLiteral(resourceName: "Avocado") )
+            fridge.append(foodItem)
+        }
+        
+        fridge.sort {
+            $0.name < $1.name
+        }
+        
     }
     
     func setupLeftTitle(title : String){

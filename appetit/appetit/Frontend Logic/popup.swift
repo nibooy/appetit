@@ -62,8 +62,8 @@ class Popup: UIView, UIGestureRecognizerDelegate {
     @objc func deleteButtonClicked(sender: UIButton){
         let fridgeController = VirtualFridgeController()
         do {
-            try fridgeController.subtractIngredient(email: email, ingredient: self.nametextfield.text!, servings: 10000)
-            print(email, self.nametextfield.text!,10000)
+            try fridgeController.subtractIngredient(email: email, ingredient: self.nametextfield.text!, servings: 100000)
+            print(email, self.nametextfield.text!,100000)
             animateOut()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
         }

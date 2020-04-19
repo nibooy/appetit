@@ -54,12 +54,29 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         // self.clearsSelectionOnViewWillAppear = false
           
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setup()
+//        self.collectionView.reloadData()
+//                // THIS might cause errors sorrys
+//        self.viewDidLoad()
+        print(fridge)
+        DispatchQueue.main.async {
+            self.selected = [String]()
+            self.collectionView.reloadData()
+        }
+    }
      //MARK: - Navigation
     
         // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             // Get the new view controller using segue.destination.
             // Pass the selected object to the new view controller.
+        if segue.destination is RecipesViewController {
+            let vc = segue.destination as? RecipesViewController
+            vc?.selectedIngredients = selected
+        }
     }
     
     

@@ -63,10 +63,12 @@ class SavedCollectionViewController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("User tapped on item \(indexPath.row)")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "focusView")
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "focusView")
+        let vc = FocusRecipeViewController()
+        vc.modalPresentationStyle = .custom
         self.definesPresentationContext = true
-        self.present(controller, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
 
     }
      

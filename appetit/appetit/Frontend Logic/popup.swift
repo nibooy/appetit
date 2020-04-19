@@ -9,11 +9,20 @@
 
 import UIKit
 
+//protocol DataRemovalProtocol{
+//    func deleteDataIndex(index: Int)
+//}
+
 class Popup: UIView, UIGestureRecognizerDelegate {
+    
+    var email = String()
+//    var delegate: DataRemovalProtocol
+//    var index: IndexPath
     
     public func configureData(with model: Food){
         self.nametextfield.text = model.name
-        self.servingtextfield.text = model.measurement
+        self.servingtextfield.text = String(model.measurement.dropLast(9))
+        email = UserDefaults.standard.string(forKey: "email") ?? "no email"
     }
     
     fileprivate let updateButton: LoadingButton = {
@@ -24,9 +33,23 @@ class Popup: UIView, UIGestureRecognizerDelegate {
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 15
+        
         return button
 
     }()
+    
+    @objc func updateButtonClicked(sender: UIButton){
+        let fridgeController = VirtualFridgeController()
+        do {
+            try fridgeController.updateIngredient(email: email, ingredient: self.nametextfield.text!, servings: Int(self.servingtextfield.text!)!)
+            print(email, self.nametextfield.text!,Int(self.servingtextfield.text!)!)
+            animateOut()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
+        }
+        catch{
+            print(error)
+        }
+    }
     
     fileprivate let deleteButton: UIButton = {
         let button = UIButton()
@@ -36,9 +59,26 @@ class Popup: UIView, UIGestureRecognizerDelegate {
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 15
+        
         return button
 
     }()
+    
+    @objc func deleteButtonClicked(sender: UIButton){
+        let fridgeController = VirtualFridgeController()
+        do {
+            try fridgeController.subtractIngredient(email: email, ingredient: self.nametextfield.text!, servings: 100000)
+            print(email, self.nametextfield.text!,100000)
+//            delegate.deleteDataIndex(index: index.row)
+            animateOut()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
+        }
+        catch{
+            print(error)
+        }
+
+        
+    }
     
     fileprivate let nametextfield: UITextField = {
         let u = UITextField()
@@ -128,7 +168,8 @@ class Popup: UIView, UIGestureRecognizerDelegate {
         //stack.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.8).isActive = true
         stack.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
         stack.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.9).isActive = true
-        
+        updateButton.addTarget(self, action: #selector(self.updateButtonClicked(sender:)), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(self.deleteButtonClicked(sender:)), for: .touchUpInside)
 
         
         

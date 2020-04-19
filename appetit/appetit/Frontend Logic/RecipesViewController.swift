@@ -84,6 +84,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
                 DispatchQueue.main.async {
                     self.addCollectionView()
                     self.setupLayout()
+                    
                     //self.globalcount = self.recipeList.count
                     /*TODO: Reload table data since data structure is relaoded*/
                 }
@@ -204,26 +205,29 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cell
     }
     
-    func setUpCard(){
-        
-    }
-    
+    let focusLauncher = FocusLauncher()
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let name = alist[indexPath.row]
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
+        let RecipeItem = recipeList[indexPath.row]
+        //cell.recipeLabel.text = RecipeItem.recipe.label
+        focusLauncher.showsSettings()
+        //focusLauncher.recipeNameLabel.text = RecipeItem.recipe.label
 
         
-        
-        let transition: CATransition = CATransition()
-        transition.duration = 0.75
-        transition.type = CATransitionType.moveIn
-        transition.subtype = CATransitionSubtype.fromTop
-        
-        self.view.window?.layer.add(transition, forKey: nil)
-        //self.navigationController?.pushViewController(viewController, animated: true)
-        self.navigationController?.present(viewController, animated: false, completion: nil)
+//        let viewController = UIViewController()
+//        viewController.view.backgroundColor = .white
+//
+//
+//
+//        let transition: CATransition = CATransition()
+//        transition.duration = 0.75
+//        transition.type = CATransitionType.moveIn
+//        transition.subtype = CATransitionSubtype.fromTop
+//
+//        self.view.window?.layer.add(transition, forKey: nil)
+//        //self.navigationController?.pushViewController(viewController, animated: true)
+//        self.navigationController?.present(viewController, animated: false, completion: nil)
 
     }
     
@@ -304,3 +308,4 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Pass the selected object to the new view controller.
     }
     */
+

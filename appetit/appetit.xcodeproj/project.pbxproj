@@ -57,6 +57,7 @@
 		BE976920244BB275005ED0BC /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97691F244BB275005ED0BC /* SwipingViewController.swift */; };
 		BE976922244BB2E1005ED0BC /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976921244BB2E1005ED0BC /* LoginCell.swift */; };
 		BE976924244BB37B005ED0BC /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976923244BB37B005ED0BC /* MainNavigationController.swift */; };
+		BE97692D244CF1B7005ED0BC /* FocusLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97692C244CF1B7005ED0BC /* FocusLauncher.swift */; };
 		DFC670992446A25600F20B24 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC670982446A25600F20B24 /* DataService.swift */; };
 		DFC7CCE9244A123F009ED897 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC7CCE8244A123F009ED897 /* UPCarouselFlowLayout.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		BE97691F244BB275005ED0BC /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
 		BE976921244BB2E1005ED0BC /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		BE976923244BB37B005ED0BC /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		BE97692C244CF1B7005ED0BC /* FocusLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusLauncher.swift; sourceTree = "<group>"; };
 		DFC670982446A25600F20B24 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DFC7CCE8244A123F009ED897 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,8 +245,9 @@
 		9EE1F003242F391B0047352B /* Frontend Logic */ = {
 			isa = PBXGroup;
 			children = (
-				0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */,
 				0AC94D34243BD698007CE4F8 /* RecipesViewController.swift */,
+				BE97692C244CF1B7005ED0BC /* FocusLauncher.swift */,
+				0AC94D3A243BDA98007CE4F8 /* FocusRecipeViewController.swift */,
 				0AC94D32243BD669007CE4F8 /* SavedCollectionViewController.swift */,
 				BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */,
 				DFC7CCE8244A123F009ED897 /* UPCarouselFlowLayout.swift */,
@@ -493,6 +496,7 @@
 				9E6741CC243C0A1C007C17B5 /* appetit.xcdatamodeld in Sources */,
 				BE97691D244BB1B3005ED0BC /* UserDefaults+helpers.swift in Sources */,
 				BE976919244BB0F9005ED0BC /* PageModel.swift in Sources */,
+				BE97692D244CF1B7005ED0BC /* FocusLauncher.swift in Sources */,
 				9E6741DC243C0A43007C17B5 /* DataHandler.swift in Sources */,
 				0AC94D33243BD669007CE4F8 /* SavedCollectionViewController.swift in Sources */,
 				9E6741D9243C0A2E007C17B5 /* UserController.swift in Sources */,

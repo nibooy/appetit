@@ -14,7 +14,7 @@ struct FoodItem: Codable {
     var food_name: String
 
     /// Amount in a serving
-    var serving_qty: Int
+    var serving_qty: Float
 
     /// Unit of a serving
     var serving_unit: String
@@ -26,27 +26,30 @@ struct FoodJSON: Codable {
     var foods: [FoodItem]
 }
 
+
 final class DataService {
     static let dataService = DataService()
-    static func searchAPI(codeNumber: String){
+        
+    class func searchAPI(codeNumber: String, completionHandler: @escaping (_ scanInfo: (String, Float, String)) -> Void) {
         enum Error: Swift.Error {
             case requestFailed
         }
-
         let url = "https://trackapi.nutritionix.com/v2/search/item"
         let urlWithParams = url + "?upc=" + codeNumber
         let myUrl = URL(string: urlWithParams)
         guard let requestUrl = myUrl else { fatalError() }
-
+        var name = ""
+        var qty = Float(0)
+        var unit = ""
         // Create URL Request
         var request = URLRequest(url: requestUrl)
 
         // Specify HTTP Method to use
         request.httpMethod = "GET"
         //Headers
-        request.setValue("2fad0373", forHTTPHeaderField: "x-app-id")
-        request.setValue("d6ba77ec6ee3f506b47ecc748a85e4e3", forHTTPHeaderField: "x-app-key")
-
+        request.setValue("e6f7f2ae", forHTTPHeaderField: "x-app-id")
+        request.setValue("0d6f81b2f952da8b1acbd5d3db372855", forHTTPHeaderField: "x-app-key")
+        
         // Send HTTP Request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // Check if Error took place
@@ -64,19 +67,30 @@ final class DataService {
                 print("No data")
                 return
             }
-
+            
+//                do {
+//                    let convertedString = String(data: data, encoding: String.Encoding.utf8) // the data will be converted to the string
+//                    print(convertedString ?? "defaultvalue")
+//                }
             do {
                 let decoder = JSONDecoder()
                 let foodJSON = try decoder.decode(FoodJSON.self, from: data)
-                print(foodJSON.foods)
+//                print(foodJSON.foods)
                 for food in foodJSON.foods {
-                    print("Food name: \(food.food_name), serving quantity: \(food.serving_qty), serving unit: \(food.serving_unit)")
+                        /*TODO: Reload table data since data structure is relaoded*/
+                    name = food.food_name
+                    qty = food.serving_qty
+                    unit = food.serving_unit
+                    completionHandler((name, qty, unit))
+                    print("Food name: \(name), serving quantity: \(qty), serving unit: \(unit)")
                 }
             } catch let error as NSError {
                 print("Failed to load: \(error.localizedDescription)")
             }
         }
         task.resume()
+        
     }
+    
 }
 

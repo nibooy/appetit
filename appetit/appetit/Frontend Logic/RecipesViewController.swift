@@ -111,8 +111,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.collectionView?.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
             
         self.collectionView?.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        
-            
+
     //        self.collectionView?.heightAnchor.constraint(equalToConstant: pointEstimator.relativeHeight(multiplier: 0.6887)).isActive = true
 
         self.currentPage = 0
@@ -173,12 +172,15 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         else{
             cell.customView.backgroundColor = UIColor(displayP3Red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1)
             }
+        
+        //cell.customView.backgroundColor = colors[indexPath.row]
         //let Recipe = recipeList[indexPath.row]
         //cell.recipeLabel.text = Recipe.recipe.label
         
         cell.recipeLabel.text = alist[indexPath.row]
         
         //customView.backgroundColor = colors[indexPath.row]
+
         
         return cell
     }

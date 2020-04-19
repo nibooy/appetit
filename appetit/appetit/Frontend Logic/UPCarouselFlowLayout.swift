@@ -1,6 +1,5 @@
 import UIKit
 
-
 public enum UPCarouselFlowLayoutSpacingMode {
     case fixed(spacing: CGFloat)
     case overlap(visibleOffset: CGFloat)

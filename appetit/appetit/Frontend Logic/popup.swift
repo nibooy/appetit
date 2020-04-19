@@ -9,10 +9,15 @@
 
 import UIKit
 
+//protocol DataRemovalProtocol{
+//    func deleteDataIndex(index: Int)
+//}
+
 class Popup: UIView, UIGestureRecognizerDelegate {
     
     var email = String()
-    
+//    var delegate: DataRemovalProtocol
+//    var index: IndexPath
     
     public func configureData(with model: Food){
         self.nametextfield.text = model.name
@@ -64,6 +69,7 @@ class Popup: UIView, UIGestureRecognizerDelegate {
         do {
             try fridgeController.subtractIngredient(email: email, ingredient: self.nametextfield.text!, servings: 100000)
             print(email, self.nametextfield.text!,100000)
+//            delegate.deleteDataIndex(index: index.row)
             animateOut()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
         }

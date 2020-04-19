@@ -13,8 +13,14 @@
 import UIKit
 import AVFoundation
 
-class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+protocol DataSentDelegate{
+    func sendDataToParent(myData: [String])
+}
 
+class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
+    var delegate: DataSentDelegate?
+    
     let scanView = UIView()
     let successView = UIView()
     let bottomBar = UIView()
@@ -29,13 +35,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
     let rescanButton = UIButton(type: .system)
     let addButton = UIButton(type: .system)
     let imageView = UIImageView()
-
-//    @IBAction func dimissViewController(_ sender: UIBarButtonItem){
-//        self.dismiss(animated:true, completion: nil)
-//        if let presenter = presentingViewController as? AddingViewController {
-//            presenter.testValue = "Test"
-//        }
-//    }
         
         var captureSession = AVCaptureSession()
         
@@ -143,15 +142,22 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
      }
     
     @objc func addTapped(sender: UIButton) {
-        print("Scanner closed + Added")
-//        scannedInfo = descriptionTextView.text!
-//        self.dismiss(animated: true, completion: nil)//
-        if let presenter = presentingViewController as? AddingViewController {
-            presenter.testValue = "Test"
+        if delegate != nil{
+            if (self.descriptionTextView.text != "Begin Scanning") {
+                if(self.descriptionTextView.text != "No Barcode is detected"){
+                    let multiLineString = self.descriptionTextView.text
+                    var lineArray = [String]()
+                    multiLineString?.enumerateLines { (line, stop) -> () in
+                        lineArray.append(line)
+                    }
+                    let dataToBeSent = lineArray
+                    delegate?.sendDataToParent(myData: dataToBeSent)
+        //            print("Scanner closed + Added")
+                    self.dismiss(animated:true, completion: nil)
         }
-        self.dismiss(animated:true, completion: nil)
+        }
      }
-    
+    }
      
         private func setupLayout() {
             let topBar = UIView()
@@ -361,7 +367,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                     DataService.searchAPI(codeNumber: String(num)){
                         foodInfo in
                         DispatchQueue.main.async{
-                            self.descriptionTextView.text = "Name: \(foodInfo.0) \nServing Size: \(foodInfo.1)"
+                            self.descriptionTextView.text = "\(foodInfo.0)\n\(foodInfo.1)"
                         }
                     }
 //                    print ("here + \(foodInfo)")

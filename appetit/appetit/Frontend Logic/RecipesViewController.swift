@@ -54,8 +54,17 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         do{
             
             let listOfUserIngredients:[IngredientEntity] = try virtualFridgeController.getUserIngredients(email: userEmail)
-            for ingredient in listOfUserIngredients{
-                listOfIngredients = listOfIngredients + " " + ingredient.ingredient
+            if selectedIngredients.count == 0{
+                for ingredient in listOfUserIngredients{
+                    listOfIngredients = listOfIngredients + " " + ingredient.ingredient
+                }
+                print("Existing Ingredients")
+                print(listOfIngredients)
+            }else{
+                for ingredient in selectedIngredients{
+                    listOfIngredients = listOfIngredients + " " + ingredient
+                }
+                print("Selected Ingredients")
                 print(listOfIngredients)
             }
         }catch ErrorMessage.ErrorCodes.dataSearchFailed{

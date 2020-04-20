@@ -206,10 +206,70 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     //########################################################
+
+    func createAlert(title:String, message:String) -> Bool{
+        var result: Bool?
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            result = true
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            result = true
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        if !(self.navigationController?.visibleViewController?.isKind(of: UIAlertController.self))! {
+               self.present(alert, animated: true, completion: nil)
+        }
+        return result ?? false
+    }
     
+//    func showConfirmationAlert(title: String!, message: String!,success: (() -> Void)? , cancel: (() -> Void)?) {
+//      dispatch_async(dispatch_get_main_queue(), {
+//      let alertController = UIAlertController(title:title,
+//        message: message,
+//        preferredStyle: UIAlertControllerStyle.Alert)
+//
+//      let cancelLocalized = NSLocalizedString("cancelButton", tableName: "activity", comment:"")
+//      let okLocalized = NSLocalizedString("viewDetails.button", tableName: "Localizable", comment:"")
+//
+//      let cancelAction: UIAlertAction = UIAlertAction(title: cancelLocalized,
+//        style: .Cancel) {
+//          action -> Void in cancel?()
+//      }
+//      let successAction: UIAlertAction = UIAlertAction(title: okLocalized,
+//        style: .Default) {
+//          action -> Void in success?()
+//      }
+//        alertController.addAction(cancelAction)
+//        alertController.addAction(successAction)
+//
+//        self.presentViewController(alertController, animated: true, completion: nil)
+//      })
+//    }
+    
+        
+//    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+//            if selected.count == 0 {
+//                let result = createAlert(title: "Searching All", message: "No items selected. Will search recipes with all the items in your fridge.")
+//                print("__________")
+//                print(result)
+//                print("__________")
+//                if result == true{
+//                    return true
+//                }else{
+//                    return false
+//                }
+//            }
+//            return true
+//        }
     
     @IBAction func generateRecipe(_ sender: Any) {
-        
+        //shouldPerformSegue(withIdentifier: "Listgenerated", sender: nil)
+
     }
 }
 

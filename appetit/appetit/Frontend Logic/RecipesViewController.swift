@@ -192,6 +192,27 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         let RecipeItem = recipeList[indexPath.row]
         cell.recipeLabel.text = RecipeItem.recipe.label
         
+        let healthlist = RecipeItem.recipe.healthLabels
+        let ingredientList = RecipeItem.recipe.ingredientLines
+        
+        var finalhealthList: String = ""
+        var finalingredientList: String = ""
+
+        
+        for item in healthlist{
+            finalhealthList = finalhealthList + "• " + item + "\n"
+        }
+        
+        
+        for item in ingredientList{
+            let array = item.components(separatedBy: ", ")
+            finalingredientList = finalingredientList + "• " + array[0] + "\n"
+        }
+        
+        cell.ingredientsList = finalingredientList
+        cell.healthList = finalhealthList
+        
+        
         let url = URL(string: RecipeItem.recipe.image)!
         
         do{
@@ -230,7 +251,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         focusLauncher.showsSettings()
         focusLauncher.healthListLabels.text = finalhealthList
         focusLauncher.ingredientListLines.text = finalingredientList
-   
+        
         
 //        let viewController = UIViewController()
 //        viewController.view.backgroundColor = .white

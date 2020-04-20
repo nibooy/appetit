@@ -13,6 +13,7 @@ extension UserDefaults {
     enum UserDefaultsKeys: String {
         case isLoggedIn
         case email
+        case wordp
     }
     
     func setIsLoggedIn(value: Bool) {
@@ -22,6 +23,11 @@ extension UserDefaults {
     
     func setEmail(value: String) {
         set(value, forKey: UserDefaultsKeys.email.rawValue)
+        synchronize()
+    }
+    
+    func setPassword(value: String) {
+        set(value, forKey: UserDefaultsKeys.wordp.rawValue)
         synchronize()
     }
     

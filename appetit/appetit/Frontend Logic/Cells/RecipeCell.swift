@@ -32,7 +32,7 @@ class RecipeCell: UICollectionViewCell {
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .black
-        image.layer.cornerRadius = 10.0
+        image.layer.cornerRadius = 15.0
         image.layer.masksToBounds = true
         return image
     }()

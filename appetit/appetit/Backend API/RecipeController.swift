@@ -21,8 +21,10 @@ class RecipeController{
         recipesObject.setValue(recipeInfo.image, forKey: "image")
         recipesObject.setValue(recipeInfo.uri, forKey: "uri")
         recipesObject.setValue(recipeInfo.url, forKey: "url")
-        recipesObject.setValue(recipeInfo.healthLabels, forKey: "healthLabels")
-        recipesObject.setValue(recipeInfo.ingredientLines, forKey: "ingredientLines")
+        let joinedHealth = recipeInfo.healthLabels.joined(separator: ", ")
+        recipesObject.setValue(joinedHealth, forKey: "healthLabels")
+        let joinedIngredient = recipeInfo.ingredientLines.joined(separator: ", ")
+        recipesObject.setValue(joinedIngredient, forKey: "ingredientLines")
         do{
             try userDataHandler.save()
         } catch {
@@ -38,9 +40,9 @@ class RecipeController{
             let image = recipe.value(forKey: "image") as! String
             let uri = recipe.value(forKey: "uri") as! String
             let url = recipe.value(forKey: "url") as! String
-            let healthLabels = recipe.value(forKey: "healthLabels") as! [String]
-            let ingredientLines = recipe.value(forKey: "ingredientLines") as! [String]
-            let recipeEntity = RecipeInfo(label: label, image: image, uri: uri, url: url, healthLabels: healthLabels, ingredientLines:  ingredientLines)
+            let healthLabels = recipe.value(forKey: "healthLabels") as! String
+            let ingredientLines = recipe.value(forKey: "ingredientLines") as! String
+            let recipeEntity = RecipeInfo(label: label, image: image, uri: uri, url: url, healthLabels: healthLabels.components(separatedBy: ", "), ingredientLines:  ingredientLines.components(separatedBy: ", "))
             recipeList.append(recipeEntity)
         }
         return recipeList

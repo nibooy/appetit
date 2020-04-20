@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p79-lG-z27">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -161,7 +161,7 @@
                     <connections>
                         <segue destination="zyB-1v-3px" kind="relationship" relationship="viewControllers" id="3Ih-Il-PWt"/>
                         <segue destination="SbU-Ei-UJR" kind="relationship" relationship="viewControllers" id="bO0-rh-ENy"/>
-                        <segue destination="AAw-iF-Op5" kind="relationship" relationship="viewControllers" id="8Dx-9E-WFU"/>
+                        <segue destination="k6U-ry-LIK" kind="relationship" relationship="viewControllers" id="8Dx-9E-WFU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7w-eF-peJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -283,7 +283,7 @@
             </objects>
             <point key="canvasLocation" x="5962.3188405797109" y="215.625"/>
         </scene>
-        <!--Saved-->
+        <!--Saved Collection View Controller-->
         <scene sceneID="GNg-xW-rnp">
             <objects>
                 <collectionViewController id="AAw-iF-Op5" customClass="SavedCollectionViewController" customModule="appetit" customModuleProvider="target" sceneMemberID="viewController">
@@ -307,11 +307,11 @@
                             <outlet property="delegate" destination="AAw-iF-Op5" id="utS-0m-u39"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Saved" image="heart-1" id="c9u-FK-rFO"/>
+                    <navigationItem key="navigationItem" id="4mO-k7-aSp"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8P-Eb-fxE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3071" y="987"/>
+            <point key="canvasLocation" x="3979.7101449275365" y="986.38392857142856"/>
         </scene>
         <!--Virtual Fridge View Controller-->
         <scene sceneID="5Oe-Gv-tcv">
@@ -576,6 +576,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rb-3L-RqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3130" y="234"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="o9N-P5-0wr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k6U-ry-LIK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" image="heart-1" id="c9u-FK-rFO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gcx-c1-nLV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AAw-iF-Op5" kind="relationship" relationship="rootViewController" id="QRe-24-CUK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8U-kp-kko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3069.5652173913045" y="986.38392857142856"/>
         </scene>
     </scenes>
     <resources>

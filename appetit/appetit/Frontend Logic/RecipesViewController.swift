@@ -22,9 +22,6 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         return pageSize
     }
     
-    var alist = ["Sugar Cookie Icing", "Funfetti Pound Cake", "Caterpillar Cake", "Your Mom"]
-    fileprivate var colors: [UIColor] = [UIColor(displayP3Red: 252.0/255.0, green: 244.0/255.0, blue: 236.0/255.0, alpha: 1), UIColor.gray, UIColor(displayP3Red: 252.0/255.0, green: 244.0/255.0, blue: 236.0/255.0, alpha: 1), UIColor.gray]
-        
     struct Result: Decodable{
         let hits: [Recipe]
     }
@@ -43,14 +40,13 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     var userEmail: String = ""
     var recipeList: [Recipe] = []
     var listOfIngredients: String = ""
+    var globalcount: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(selectedIngredients)
-        self.addCollectionView()
-        self.setupLayout()
+        //print(selectedIngredients)
         let virtualFridgeController = VirtualFridgeController()
         userEmail =  UserDefaults.standard.string(forKey: "email") ?? "no email"
-        print(userEmail)
+        //print(userEmail)
         do{
             
             let listOfUserIngredients:[IngredientEntity] = try virtualFridgeController.getUserIngredients(email: userEmail)
@@ -58,14 +54,10 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
                 for ingredient in listOfUserIngredients{
                     listOfIngredients = listOfIngredients + " " + ingredient.ingredient
                 }
-                print("Existing Ingredients")
-                print(listOfIngredients)
             }else{
                 for ingredient in selectedIngredients{
                     listOfIngredients = listOfIngredients + " " + ingredient
                 }
-                print("Selected Ingredients")
-                print(listOfIngredients)
             }
         }catch ErrorMessage.ErrorCodes.dataSearchFailed{
             //error is that we could not read from database
@@ -90,6 +82,10 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let result = try decoder.decode(Result.self, from: jsonData)
                 self.recipeList = result.hits
                 DispatchQueue.main.async {
+                    self.addCollectionView()
+                    self.setupLayout()
+                    
+                    //self.globalcount = self.recipeList.count
                     /*TODO: Reload table data since data structure is relaoded*/
                 }
             } catch {
@@ -97,7 +93,12 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         }
         task.resume()
+        
+//        self.addCollectionView()
+//        self.setupLayout()
     }
+   
+    
     
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -168,8 +169,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colors.count
-        //return recipeList.count
+        return recipeList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -186,55 +186,65 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
 //        let Recipe = recipeList[indexPath.row]
 //        cell.recipeLabel.text = Recipe.recipe.label
         //Cell image layout
-        let imgContainer = UIView()
-        imgContainer.translatesAutoresizingMaskIntoConstraints = false
-        cell.addSubview(imgContainer)
-        
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "ombre")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imgContainer.addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: imgContainer.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: imgContainer.bottomAnchor).isActive = true
-        imageView.leftAnchor.constraint(equalTo: imgContainer.leftAnchor).isActive = true
-        imageView.rightAnchor.constraint(equalTo: imgContainer.rightAnchor).isActive = true
-
-        imgContainer.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
-        imgContainer.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
-        imgContainer.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.5).isActive = true
-        imgContainer.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 20).isActive = true
-        imgContainer.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: -20).isActive = true
-        imgContainer.layer.cornerRadius = 10.0
-        imgContainer.layer.borderWidth = 1.0
-        imgContainer.layer.borderColor = UIColor.clear.cgColor
-        imgContainer.layer.masksToBounds = true
 
         //customView.backgroundColor = colors[indexPath.row]
-        cell.recipeLabel.text = alist[indexPath.row]
         
+        let RecipeItem = recipeList[indexPath.row]
+        cell.recipeLabel.text = RecipeItem.recipe.label
+        
+        let url = URL(string: RecipeItem.recipe.image)!
+        
+        do{
+            let imageData = try Data(contentsOf: url)
+            let image = UIImage(data: imageData)
+            cell.recipeImage.image = image
+        }catch{
+            //Set a defualt image icon later
+            print("NOOOOO")
+        }
         return cell
     }
     
-    func setUpCard(){
-        
-    }
-    
+    let focusLauncher = FocusLauncher()
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let name = alist[indexPath.row]
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
+        let RecipeItem = recipeList[indexPath.row]
+        let healthlist = RecipeItem.recipe.healthLabels
+        let ingredientList = RecipeItem.recipe.ingredientLines
+        
+        var finalhealthList: String = ""
+        var finalingredientList: String = ""
 
         
+        for item in healthlist{
+            finalhealthList = finalhealthList + "• " + item + "\n"
+        }
         
-        let transition: CATransition = CATransition()
-        transition.duration = 0.75
-        transition.type = CATransitionType.moveIn
-        transition.subtype = CATransitionSubtype.fromTop
         
-        self.view.window?.layer.add(transition, forKey: nil)
-        //self.navigationController?.pushViewController(viewController, animated: true)
-        self.navigationController?.present(viewController, animated: false, completion: nil)
+        for item in ingredientList{
+            let array = item.components(separatedBy: ", ")
+            finalingredientList = finalingredientList + "• " + array[0] + "\n"
+        }
+        
+        focusLauncher.showsSettings()
+        focusLauncher.healthListLabels.text = finalhealthList
+        focusLauncher.ingredientListLines.text = finalingredientList
+   
+        
+//        let viewController = UIViewController()
+//        viewController.view.backgroundColor = .white
+//
+//
+//
+//        let transition: CATransition = CATransition()
+//        transition.duration = 0.75
+//        transition.type = CATransitionType.moveIn
+//        transition.subtype = CATransitionSubtype.fromTop
+//
+//        self.view.window?.layer.add(transition, forKey: nil)
+//        //self.navigationController?.pushViewController(viewController, animated: true)
+//        self.navigationController?.present(viewController, animated: false, completion: nil)
 
     }
     
@@ -315,3 +325,4 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Pass the selected object to the new view controller.
     }
     */
+

@@ -307,7 +307,7 @@
                             <outlet property="delegate" destination="AAw-iF-Op5" id="utS-0m-u39"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Saved" id="c9u-FK-rFO"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="heart-1" id="c9u-FK-rFO"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8P-Eb-fxE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -543,7 +543,7 @@
         <scene sceneID="OdK-8R-i4a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zyB-1v-3px" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Fridge" id="vAX-Sr-jVN"/>
+                    <tabBarItem key="tabBarItem" title="Fridge" image="Fridge-1" id="vAX-Sr-jVN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LZQ-aq-lbR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -562,7 +562,7 @@
         <scene sceneID="Tmd-yZ-8Ld">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SbU-Ei-UJR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" id="t1Z-8e-rcm"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="recipe" id="t1Z-8e-rcm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8p5-be-TnA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -579,6 +579,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Fridge-1" width="28" height="28"/>
         <image name="appetit" width="487" height="173.5"/>
+        <image name="heart-1" width="28" height="28"/>
+        <image name="recipe" width="28" height="28"/>
     </resources>
 </document>

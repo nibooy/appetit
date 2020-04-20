@@ -24,6 +24,8 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         //Connect to backend change the setup function
         
+        navigationController?.navigationBar.clipsToBounds = false
+        navigationController?.navigationBar.tintColor = .black        
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -48,7 +50,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         buttonView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         setup()
-        print(fridge)
+        //print(fridge)
 
         // uncomment if need to preserve selection
         // self.clearsSelectionOnViewWillAppear = false
@@ -61,7 +63,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
 //        self.collectionView.reloadData()
 //                // THIS might cause errors sorrys
 //        self.viewDidLoad()
-        print(fridge)
+        //print(fridge)
         DispatchQueue.main.async {
             self.selected = [String]()
             self.collectionView.reloadData()
@@ -100,12 +102,12 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
+        //print("User tapped on item \(indexPath.row)")
         if let cell = collectionView.cellForItem(at: indexPath) as? FridgeCustomCell {
             cell.contentView.layer.backgroundColor =  UIColor(red: 0.788, green: 1, blue: 0.808, alpha: 1).cgColor
             selected.append(cell.itemName.text!)
         
-            print(selected)
+            //print(selected)
         }
 
     }
@@ -116,7 +118,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
             if let index = selected.firstIndex(of: cell.itemName.text!) {
                 selected.remove(at: index)
             }
-            print(selected)
+            //print(selected)
 
         }
     }
@@ -131,7 +133,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         
         do {
             ingredients = try fridgeController.getUserIngredients(email: email)
-            print(ingredients)
+            //print(ingredients)
         }
         catch {
             print("couldn't get ingredients with email")
@@ -151,7 +153,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     func setupLeftTitle(title : String){
         let longTitleLabel = UILabel()
         longTitleLabel.text = "Recipes"
-        longTitleLabel.font = .boldSystemFont(ofSize: 18)
+        longTitleLabel.font = UIFont(name: "Didot-Bold", size: 25)
         longTitleLabel.sizeToFit()
         let leftItem = UIBarButtonItem(customView: longTitleLabel)
         self.navigationItem.leftBarButtonItem = leftItem
@@ -173,16 +175,39 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
+    //Handles Side menu
+    //########################################################
+    lazy var settingsLauncher: SettingLauncher = {
+        let launcher = SettingLauncher()
+        launcher.IVController = self
+        return launcher
+    }()
+    
     @objc func menuButtonClicked(_ sender: UIButton) {
-        //Sign out for now
-        
-        UserDefaults.standard.setIsLoggedIn(value: false)
-        self.view.endEditing(true)
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
-        mainNavigationController.popToRootViewController(animated: true)
-
+        settingsLauncher.showsSettings()
     }
+    
+    func showControllerForSetting(setting: Setting) {
+
+        let SettingViewController = AccountViewController()
+        SettingViewController.view.backgroundColor = .white
+        SettingViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Didot-Bold", size: 25)!]
+        navigationController?.navigationBar.tintColor = .black
+        
+        let transition = CATransition()
+        transition.duration = 0.75
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.pushViewController(SettingViewController, animated: true)
+    }
+    
+    //########################################################
+    
+    
     @IBAction func generateRecipe(_ sender: Any) {
         
     }

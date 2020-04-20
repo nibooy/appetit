@@ -23,6 +23,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
+        navigationController?.navigationBar.tintColor = .black
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -47,7 +48,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         
         self.navigationItem.rightBarButtonItem  = rightItem
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
-        print(email)
+        //print(email)
         
     }
     
@@ -57,7 +58,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         self.collectionView.reloadData()
 //                // THIS might cause errors sorrys
 //        self.viewDidLoad()
-        print(fridge)
+        //print(fridge)
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -146,7 +147,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     func setupLeftTitle(title : String){
         let longTitleLabel = UILabel()
         longTitleLabel.text = "Virtual Fridge"
-        longTitleLabel.font = .boldSystemFont(ofSize: 18)
+        longTitleLabel.font = UIFont(name: "Didot-Bold", size: 25)
         longTitleLabel.sizeToFit()
         let leftItem = UIBarButtonItem(customView: longTitleLabel)
         self.navigationItem.leftBarButtonItem = leftItem
@@ -165,13 +166,39 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
                self.view.frame.origin.y = 0
            }
        }
+    
+    //Handles Side menu
+    //########################################################
+    lazy var settingsLauncher: SettingLauncher = {
+        let launcher = SettingLauncher()
+        launcher.VFController = self
+        return launcher
+    }()
+    
     @objc func menuButtonClicked(_ sender: UIButton) {
-        UserDefaults.standard.setIsLoggedIn(value: false)
-        self.view.endEditing(true)
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
-        mainNavigationController.popToRootViewController(animated: true)
+        settingsLauncher.showsSettings()
     }
+    
+    func showControllerForSetting(setting: Setting) {
+        let SettingViewController = AccountViewController()
+        SettingViewController.view.backgroundColor = .white
+        SettingViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Didot-Bold", size: 25)!]
+        navigationController?.navigationBar.tintColor = .black
+        
+        let transition = CATransition()
+        transition.duration = 0.75
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.pushViewController(SettingViewController, animated: true)
+    }
+    
+    //########################################################
+    
+    
     
     func deleteDataIndex(index: Int) {
         self.collectionView.reloadData()

@@ -123,16 +123,37 @@ class SavedCollectionViewController: UICollectionViewController, SFSafariViewCon
         dismiss(animated: true)
     }
     
-    lazy var settingsLauncher: SettingLauncher = {
-        //FILL IN
-//        let launcher = SettingLauncher()
-//        launcher.VFController = self
-//        return launcher
-    }()
-    
-    @objc func menuButtonClicked(_ sender: UIButton) {
-        settingsLauncher.showsSettings()
-    }
+    //Handles Side menu
+     //########################################################
+     lazy var settingsLauncher: SettingLauncher = {
+         let launcher = SettingLauncher()
+         launcher.SVController = self
+         return launcher
+     }()
+     
+     @objc func menuButtonClicked(_ sender: UIButton) {
+         settingsLauncher.showsSettings()
+     }
+     
+     func showControllerForSetting(setting: Setting) {
+
+         let SettingViewController = AccountViewController()
+         SettingViewController.view.backgroundColor = .white
+         SettingViewController.navigationItem.title = setting.name.rawValue
+         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Didot-Bold", size: 25)!]
+         navigationController?.navigationBar.tintColor = .black
+         
+         let transition = CATransition()
+         transition.duration = 0.75
+         transition.type = CATransitionType.push
+         transition.subtype = CATransitionSubtype.fromRight
+         transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+         
+         navigationController?.view.layer.add(transition, forKey: kCATransition)
+         navigationController?.pushViewController(SettingViewController, animated: true)
+     }
+     
+     //########################################################
     
     func setupLeftTitle(title : String){
         let longTitleLabel = UILabel()

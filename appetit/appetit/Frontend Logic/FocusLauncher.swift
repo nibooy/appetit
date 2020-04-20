@@ -125,11 +125,13 @@ class FocusLauncher: NSObject, UICollectionViewDelegate {
         IngredientLabel.snp.makeConstraints({ (make) in
             make.top.equalTo(menuView.snp.top).offset(30)
             make.centerX.equalTo(menuView.snp.centerX).offset(-100)
+            make.bottom.equalTo(menuView.snp.top).offset(60)
         })
         
         healthLabel.snp.makeConstraints({ (make) in
             make.top.equalTo(menuView.snp.top).offset(30)
             make.centerX.equalTo(menuView.snp.centerX).offset(100)
+            make.bottom.equalTo(menuView.snp.top).offset(60)
         })
         
         lineSeparatorView.snp.remakeConstraints { make in
@@ -142,15 +144,15 @@ class FocusLauncher: NSObject, UICollectionViewDelegate {
         
         
         ingredientListLines.snp.remakeConstraints { make in
-            make.top.equalTo(menuView.snp.top).offset(30)
-            make.bottom.equalToSuperview().offset(30)
+            make.top.equalTo(healthLabel.snp.bottom).offset(20)
+            //make.bottom.equalToSuperview().offset(30)
             make.left.equalToSuperview().offset(10)
             make.right.equalTo(lineSeparatorView.snp.left).offset(-10)
         }
         
         healthListLabels.snp.remakeConstraints { make in
-            make.top.equalToSuperview().offset(30)
-            make.bottom.equalToSuperview().offset(30)
+            make.top.equalTo(healthLabel.snp.bottom).offset(20)
+            //make.bottom.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-10)
             make.left.equalTo(lineSeparatorView.snp.right).offset(10)
         }

@@ -29,9 +29,9 @@ class SwipingController: UIViewController, UICollectionViewDataSource, UICollect
     let pages: [Page] = {
         let firstPage = Page(title: "Welcome to Appetit!", message: "Are you wanting to try out new recipies but don't know what to make based on what you have at home? With Appetit you can do just that!", imageName: "Fridge")
 
-        let secondPage = Page(title: "Add Items to Your Fridge!", message: "Based on the items you have at home, add each item onto under the Frdige tap. You can either scan the bar code or add them manually yourself.", imageName: "Fridge")
+        let secondPage = Page(title: "Add Items to Your Fridge!", message: "Based on the items you have at home, add each item onto under the Frdige tap. You can either scan the bar code or add them manually yourself.", imageName: "scanning")
 
-        let thirdPage = Page(title: "Start Cooking!", message: "Under the recipes tab, selected the items from your Fridge to generate a list of recipes. Choose and save your favorites and start cooking!", imageName: "Fridge")
+        let thirdPage = Page(title: "Start Cooking!", message: "Under the recipes tab, selected the items from your Fridge to generate a list of recipes. Choose and save your favorites and start cooking!", imageName: "Recipes")
 
         return [firstPage, secondPage, thirdPage]
     }()

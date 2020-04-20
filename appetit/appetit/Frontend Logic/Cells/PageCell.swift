@@ -74,8 +74,9 @@ final class PageCell: UICollectionViewCell {
         imageView.snp.remakeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-70)
-            make.width.equalToSuperview().inset(40)
-            make.height.greaterThanOrEqualTo(100)
+            //make.width.equalToSuperview().inset(40)
+            make.width.equalTo(300)
+            make.height.equalTo(450)
         }
 
         lineSeparatorView.snp.remakeConstraints { make in

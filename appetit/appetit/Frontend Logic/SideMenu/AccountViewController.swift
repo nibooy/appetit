@@ -66,7 +66,7 @@ class AccountViewController: UIViewController {
         return cal //red: 246/255, green: 246/255, blue: 246/255, alpha: 1
     }()
     
-        var changeName: UIButton = {
+    var changeName: UIButton = {
         let cn = UIButton()
         let Bcolor = UIColor.white
         cn.setTitle("Change Profile", for: .normal)
@@ -111,34 +111,37 @@ class AccountViewController: UIViewController {
                 let temp = inputTextField.text{
                 input = temp
             }
-            print(input)
             if labelName == "Enter New Max Calories"{
                 let maxCal = input.trimmingCharacters(in: .whitespacesAndNewlines)
                 let maxCal_2 = maxCal.replacingOccurrences(of: ",", with: "", options: NSString.CompareOptions.literal, range: nil)
                 let number = Int(maxCal_2)
                 
                 if number != nil {
-                    self.tryUpdating(email: self.currentemail, password: self.currentpassword, firstName: self.currentfirstname, lastName: self.currentlastname, maxCal: number!, labelAlert: labelName)
+                    self.tryUpdating(email_1: self.currentemail, password_1: self.currentpassword, firstName_1: self.currentfirstname, lastName_1: self.currentlastname, maxCal_1: number!, labelAlert: labelName)
+                    self.viewWillAppear(true)
                 }
                 else {
                     self.updateAlert(titleUpdate: "Failed Updated", message: "Not A Valid Integer", labelAlert: labelName)
                 }
             } else if labelName == "Enter New First Name"{
-                self.tryUpdating(email: self.currentemail, password: self.currentpassword, firstName: input, lastName: self.currentlastname, maxCal: Int(self.currentcal)!, labelAlert: labelName)
+                self.tryUpdating(email_1: self.currentemail, password_1: self.currentpassword, firstName_1: input, lastName_1: self.currentlastname, maxCal_1: Int(self.currentcal)!, labelAlert: labelName)
+                self.viewWillAppear(true)
+
             }
             else if labelName == "Enter New Last Name"{
-                self.tryUpdating(email: self.currentemail, password: self.currentpassword, firstName: self.currentfirstname, lastName: input, maxCal: Int(self.currentcal)!, labelAlert: labelName)
+                self.tryUpdating(email_1: self.currentemail, password_1: self.currentpassword, firstName_1: self.currentfirstname, lastName_1: input, maxCal_1: Int(self.currentcal)!, labelAlert: labelName)
+                self.viewWillAppear(true)
+
             }
-            
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
     
-    private func tryUpdating(email: String, password: String, firstName: String, lastName: String, maxCal: Int, labelAlert: String){
+    private func tryUpdating(email_1: String, password_1: String, firstName_1: String, lastName_1: String, maxCal_1: Int, labelAlert: String){
         do {
-            try self.updateUser.updateUser(email: email, password: password, firstName: firstName, lastName: lastName, maxCaloriesPerMeal: maxCal)
+            try self.updateUser.updateUser(email: email_1, password: password_1, firstName: firstName_1, lastName: lastName_1, maxCaloriesPerMeal: maxCal_1)
             self.updateAlert(titleUpdate: "Update Successful", message: "", labelAlert: "labelAlert")
         } catch {
             self.updateAlert(titleUpdate: "Failed Updated", message: "", labelAlert: "labelAlert")
@@ -157,13 +160,11 @@ class AccountViewController: UIViewController {
                 self.SelectedAlert(labelName: labelAlert)
             }
         }
-        
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
         
     }
     
-
     var changePass: UIButton = {
         let cp = UIButton()
         let Bcolor = UIColor.white
@@ -239,12 +240,11 @@ class AccountViewController: UIViewController {
         let cleanedPassword = newpassord.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if isPasswordValid(cleanedPassword) == false{
-                //Password isn't secure enough
+            //Password isn't secure enough
             return "Please make sure your password is at least 8 characters, contains special character and a number."
         }
         return nil
     }
-    
     
     func isPasswordValid(_ password:String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@",
@@ -266,27 +266,28 @@ class AccountViewController: UIViewController {
             self.navigationController?.view.layer.add(transition, forKey: nil)
         }
     }
-
-    override func viewDidLoad() {
+    
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
-        
+
         currentemail = UserDefaults.standard.string(forKey: "email") ?? "no email"
         currentpassword =  UserDefaults.standard.string(forKey: "wordp") ?? "no password"
-        currentfirstname =  UserDefaults.standard.string(forKey: "fname") ?? "no first name"
-        currentlastname =  UserDefaults.standard.string(forKey: "lname") ?? "no last name"
-        currentcal =  UserDefaults.standard.string(forKey: "maxcal") ?? "no max cal"
-        
-        nameLabel.text = currentfirstname + " " + currentlastname
-        calLabel.text = "Max Calories: " + String(currentcal)
-        print(currentcal)
-//
-//        print(currentpassword)
-//        print(currentemail)
-//
-//        print(currentfirstname)
-//        print(currentlastname)
-//        print(currentcal)
-        
+        do {
+            let currentUser = try updateUser.getUser(email: currentemail,
+                                                     password: currentpassword)
+            nameLabel.text = currentUser.firstName + " " + currentUser.lastName
+            calLabel.text = "Max Calories: " + String(currentUser.getMaxCaloriesPerMeal())
+                    
+            currentfirstname = currentUser.firstName
+            currentlastname = currentUser.lastName
+            currentcal = String(currentUser.maxCaloriesPerMeal)
+                    
+        } catch {
+                currentfirstname = "no first name"
+                currentlastname = "no last name"
+                currentcal = "0"
+        }
+                
         view.addSubview(backPanel)
         bpLayout()
         view.addSubview(logo)
@@ -301,8 +302,46 @@ class AccountViewController: UIViewController {
         cNameLayout()
         view.addSubview(changePass)
         cPassLayout()
+            
+    }
     
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+         currentemail = UserDefaults.standard.string(forKey: "email") ?? "no email"
+        currentpassword =  UserDefaults.standard.string(forKey: "wordp") ?? "no password"
+        do {
+            let currentUser = try updateUser.getUser(email: currentemail,
+                                                         password: currentpassword)
+            nameLabel.text = currentUser.firstName + " " + currentUser.lastName
+            calLabel.text = "Max Calories: " + String(currentUser.getMaxCaloriesPerMeal())
+                        
+            currentfirstname = currentUser.firstName
+            currentlastname = currentUser.lastName
+            currentcal = String(currentUser.maxCaloriesPerMeal)
+                        
+        } catch {
+                currentfirstname = "no first name"
+                currentlastname = "no last name"
+                currentcal = "0"
+        }
+                    
+        view.addSubview(backPanel)
+        bpLayout()
+        view.addSubview(logo)
+        logoLayout()
+        view.addSubview(profPic)
+        profLayout()
+        view.addSubview(nameLabel)
+        nameLayout()
+        view.addSubview(calLabel)
+        calLayout()
+        view.addSubview(changeName)
+        cNameLayout()
+        view.addSubview(changePass)
+        cPassLayout()
+                
     }
     
     private func bpLayout(){
@@ -322,7 +361,7 @@ class AccountViewController: UIViewController {
         profPic.centerYAnchor.constraint(equalTo: backPanel.bottomAnchor, constant: 0).isActive = true
     }
     private func nameLayout(){
-        nameLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        nameLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         nameLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1).isActive = true
         nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nameLabel.topAnchor.constraint(equalTo: profPic.bottomAnchor, constant: 15).isActive = true
@@ -346,17 +385,5 @@ class AccountViewController: UIViewController {
         changePass.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         changePass.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -135).isActive = true
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

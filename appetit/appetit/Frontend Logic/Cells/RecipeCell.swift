@@ -37,6 +37,9 @@ class RecipeCell: UICollectionViewCell {
         return image
     }()
     
+    var ingredientsList: String?
+    var healthList: String?
+    
     lazy var saveLikes: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +50,10 @@ class RecipeCell: UICollectionViewCell {
     
     @objc func moveToSaves() {
         print("Move to save")
+        print(recipeLabel.text ?? "N/A")
+        print(ingredientsList ?? "N/A")
+        print(healthList ?? "N/A")
+
     }
 
     override init(frame: CGRect) {

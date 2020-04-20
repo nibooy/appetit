@@ -55,10 +55,19 @@ class AccountViewController: UIViewController {
         name.translatesAutoresizingMaskIntoConstraints = false
         return name //red: 246/255, green: 246/255, blue: 246/255, alpha: 1
     }()
+    
+    var maxLabel: UILabel{
+        let maxLab = UILabel()
+        maxLab.text = "0"
+        maxLab.font = UIFont.systemFont(ofSize: 20)
+        maxLab.textAlignment = .left
+        maxLab.translatesAutoresizingMaskIntoConstraints = false
+        return maxLab
+    }
         var changeName: UIButton = {
         let cn = UIButton()
         let Bcolor = UIColor.white
-        cn.setTitle("Change Email", for: .normal)
+        cn.setTitle("Change Profile", for: .normal)
         cn.titleLabel?.font =  UIFont(name: "boldSystemFont", size:25)
         cn.setTitleColor (Bcolor, for: .normal)
         cn.translatesAutoresizingMaskIntoConstraints = false
@@ -299,6 +308,8 @@ class AccountViewController: UIViewController {
         cNameLayout()
         view.addSubview(changePass)
         cPassLayout()
+    
+    
     }
     
     private func bpLayout(){
@@ -323,6 +334,7 @@ class AccountViewController: UIViewController {
         nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nameLabel.topAnchor.constraint(equalTo: profPic.bottomAnchor, constant: 15).isActive = true
     }
+    
     private func cNameLayout(){
         changeName.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
         changeName.heightAnchor.constraint(equalToConstant: 50).isActive = true

@@ -22,6 +22,7 @@ extension UIImageView {
 
 class AccountViewController: UIViewController {
     
+    var updateUser = UserController()
     var currentemail = String()
     var currentpassword = String()
     var currentfirstname = String()
@@ -56,14 +57,15 @@ class AccountViewController: UIViewController {
         return name //red: 246/255, green: 246/255, blue: 246/255, alpha: 1
     }()
     
-    var maxLabel: UILabel{
-        let maxLab = UILabel()
-        maxLab.text = "0"
-        maxLab.font = UIFont.systemFont(ofSize: 20)
-        maxLab.textAlignment = .left
-        maxLab.translatesAutoresizingMaskIntoConstraints = false
-        return maxLab
-    }
+    var calLabel: UILabel = {
+        let cal = UILabel()
+        cal.text = "Max Calories: 0"
+        cal.font = .systemFont(ofSize: 18)
+        cal.textAlignment = .center
+        cal.translatesAutoresizingMaskIntoConstraints = false
+        return cal //red: 246/255, green: 246/255, blue: 246/255, alpha: 1
+    }()
+    
         var changeName: UIButton = {
         let cn = UIButton()
         let Bcolor = UIColor.white
@@ -73,34 +75,92 @@ class AccountViewController: UIViewController {
         cn.translatesAutoresizingMaskIntoConstraints = false
         cn.backgroundColor = UIColor(displayP3Red: 5/255.0, green: 50/255.0, blue: 103/255.0, alpha: 1)
         cn.layer.cornerRadius = 25.0;
-        cn.addTarget(self, action: #selector(handlechangeEmail), for: .touchUpInside)
+        cn.addTarget(self, action: #selector(handlechangeProfile), for: .touchUpInside)
         return cn
     }()
-    let blackView = UIView()
+
+//##########################################################
+//##########################################################
+
+    @objc func handlechangeProfile() {
+        let alertController = UIAlertController(title: "Update", message: "Select which item you would like to change", preferredStyle: .alert)
+        let changeFristName = UIAlertAction(title: "First Name", style: .default) { (_) in
+            self.SelectedAlert(labelName: "Enter New First Name")
+        }
+        let changeLastName = UIAlertAction(title: "Last Name", style: .default) { (_) in
+            self.SelectedAlert(labelName: "Enter New Last Name")
+        }
+        let changeMax = UIAlertAction(title: "Max Calories", style: .default) { (_) in
+            self.SelectedAlert(labelName: "Enter New Max Calories")
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(changeFristName)
+        alertController.addAction(changeLastName)
+        alertController.addAction(changeMax)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
-        cv.layer.cornerRadius = 20
-        cv.layer.masksToBounds = true
-        return cv
-    }()
+    private func SelectedAlert(labelName: String){
+        let alertController = UIAlertController(title: labelName, message: "" + labelName, preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            var input = String()
+            if let inputTextField = alertController.textFields?.first,
+                let temp = inputTextField.text{
+                input = temp
+            }
+            print(input)
+            if labelName == "Enter New Max Calories"{
+                let maxCal = input.trimmingCharacters(in: .whitespacesAndNewlines)
+                let maxCal_2 = maxCal.replacingOccurrences(of: ",", with: "", options: NSString.CompareOptions.literal, range: nil)
+                let number = Int(maxCal_2)
+                
+                if number != nil {
+                    self.tryUpdating(email: self.currentemail, password: self.currentpassword, firstName: self.currentfirstname, lastName: self.currentlastname, maxCal: number!, labelAlert: labelName)
+                }
+                else {
+                    self.updateAlert(titleUpdate: "Failed Updated", message: "Not A Valid Integer", labelAlert: labelName)
+                }
+            } else if labelName == "Enter New First Name"{
+                self.tryUpdating(email: self.currentemail, password: self.currentpassword, firstName: input, lastName: self.currentlastname, maxCal: Int(self.currentcal)!, labelAlert: labelName)
+            }
+            else if labelName == "Enter New Last Name"{
+                self.tryUpdating(email: self.currentemail, password: self.currentpassword, firstName: self.currentfirstname, lastName: input, maxCal: Int(self.currentcal)!, labelAlert: labelName)
+            }
+            
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
-    let changeTextField: LeftPaddedTextField = {
-        let textField = LeftPaddedTextField()
-        textField.placeholder = "Enter password"
-        textField.font = UIFont.systemFont(ofSize: 20)
-        textField.layer.borderColor = UIColor.systemGray4.cgColor
-        textField.layer.backgroundColor = UIColor.white.cgColor
-        textField.layer.borderWidth = 1
-        textField.layer.cornerRadius = 10
-        textField.isSecureTextEntry = true
-        return textField
-    }()
+    private func tryUpdating(email: String, password: String, firstName: String, lastName: String, maxCal: Int, labelAlert: String){
+        do {
+            try self.updateUser.updateUser(email: email, password: password, firstName: firstName, lastName: lastName, maxCaloriesPerMeal: maxCal)
+            self.updateAlert(titleUpdate: "Update Successful", message: "", labelAlert: "labelAlert")
+        } catch {
+            self.updateAlert(titleUpdate: "Failed Updated", message: "", labelAlert: "labelAlert")
+        }
+    }
     
-    @objc func handlechangeEmail() {
-        InputAlert(labelName: "New Email")
+    private func updateAlert(titleUpdate: String, message: String, labelAlert: String){
+        let alertController = UIAlertController(title: titleUpdate, message: message, preferredStyle: .alert)
+        
+        var okAction = UIAlertAction()
+        if titleUpdate == "Update Successful"{
+            okAction = UIAlertAction(title: "Ok", style: .default)
+        }
+        else{
+            okAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+                self.SelectedAlert(labelName: labelAlert)
+            }
+        }
+        
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        
     }
     
 
@@ -118,20 +178,15 @@ class AccountViewController: UIViewController {
     }()
     
     @objc func handlechangePassword() {
-        InputAlert(labelName: "New Password")
+        InputPasswordAlert()
     }
     
-    private func InputAlert(labelName: String){
-        let alertController = UIAlertController(title: "Update", message: "Please Enter Your " + labelName, preferredStyle: .alert)
+    
+    private func InputPasswordAlert(){
+        let alertController = UIAlertController(title: "Update", message: "Please Enter Your New Password", preferredStyle: .alert)
         
-        if labelName == "New Password"{
-            alertController.addTextField { (textField) in
-                          textField.isSecureTextEntry = true}
-        }
-        else{
-            alertController.addTextField(configurationHandler: nil)
-
-        }
+        alertController.addTextField { (textField) in textField.isSecureTextEntry = true}
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
             var input = String()
@@ -141,24 +196,18 @@ class AccountViewController: UIViewController {
             }
             
             //Check if input is valid
-            var result: String?
-            if labelName == "New Password"{
-                result = self.validateCreateFeilds(newpass: input)
-            }else{
-                result = self.isValidEmail(input)
-            }
-            
+            let  result = self.validatePasswordFeilds(newpassord: input)
             
             if (result != nil){
-                self.changedAlert(titleUpdate: "Failed Updated", message: result ?? "", alertCall: labelName)
+                self.changedAlert(titleUpdate: "Failed Updated", message: result ?? "")
             }else{
-                
-                ///Make the Call to the database to update!!!
-                
-                self.changedAlert(titleUpdate: "Update Successful", message: "", alertCall: labelName)
+                do {
+                    try self.updateUser.updateUser(email: self.currentemail, password: input, firstName: self.currentfirstname, lastName: self.currentlastname, maxCaloriesPerMeal: Int(self.currentcal)!)
+                    self.changedAlert(titleUpdate: "Update Successful", message: "")
+                } catch {
+                    self.updateAlert(titleUpdate: "Failed Updated", message: "", labelAlert: "labelAlert")
+                }
             }
-                        //print(input)
-            //print(self.currentemail)
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -166,7 +215,7 @@ class AccountViewController: UIViewController {
     }
     
     
-    private func changedAlert(titleUpdate: String, message: String, alertCall: String){
+    private func changedAlert(titleUpdate: String, message: String){
         let alertController = UIAlertController(title: titleUpdate, message: message, preferredStyle: .alert)
         
         var okAction = UIAlertAction()
@@ -176,7 +225,7 @@ class AccountViewController: UIViewController {
         }
         else{
             okAction = UIAlertAction(title: "Ok", style: .default) { (_) in
-                self.InputAlert(labelName: alertCall)
+                self.InputPasswordAlert()
             }
         }
         
@@ -185,85 +234,26 @@ class AccountViewController: UIViewController {
         
     }
     
-    func validateCreateFeilds(newpass: String) -> String?{
-        
-    //Check that all fields are filled in
-        
-        let cleanedPassword = newpass.trimmingCharacters(in: .whitespacesAndNewlines)
+    func validatePasswordFeilds(newpassord: String) -> String?{
+                
+        let cleanedPassword = newpassord.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if isPasswordValid(cleanedPassword) == false{
                 //Password isn't secure enough
             return "Please make sure your password is at least 8 characters, contains special character and a number."
         }
-    
-    //#####Insert code here to check if inputs are already used in the database######//
-  
-    //#####Insert code here to check if inputs are already used in the database######//
         return nil
     }
     
-    func isValidEmail(_ email: String) -> String? {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        if emailPred.evaluate(with: email) == false{
-            return "Invalid Email"
-        }
-        return nil
-    }
     
     func isPasswordValid(_ password:String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@",
                                        "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
-    
-    func popUp(labelName: String){
-        print(labelName)
-        changeTextField.text = labelName
-        collectionView.addSubview(changeTextField)
-        
-        
-        
-        
-        if let window = UIApplication.shared.keyWindow {
-                
-            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-                
-            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-                
-            window.addSubview(blackView)
-                
-            window.addSubview(collectionView)
-                
-        let height: CGFloat = CGFloat(settings.count) * (cellHeight*1.3)
-            let y = (window.frame.height)/2 - 100
-            let width = 250
-            
-            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: CGFloat(width), height: height)
-                
-            blackView.frame = window.frame
-            blackView.alpha = 0
-                
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                    
-                self.blackView.alpha = 1
-                    
-                self.collectionView.frame = CGRect(x: 80, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
-                    
-            }, completion: nil)
-        }
-    }
-    
-    @objc func handleDismiss(){
-        UIView.animate(withDuration: 0.5) {
-            self.blackView.alpha = 0
-            
-            if let window = UIApplication.shared.keyWindow {
-                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
-            }
-        }
-    }
+
+//##########################################################
+//##########################################################
     
     //Animation when back button is pressed
     override func willMove(toParent parent: UIViewController?) {
@@ -287,7 +277,8 @@ class AccountViewController: UIViewController {
         currentcal =  UserDefaults.standard.string(forKey: "maxcal") ?? "no max cal"
         
         nameLabel.text = currentfirstname + " " + currentlastname
-    
+        calLabel.text = "Max Calories: " + String(currentcal)
+        print(currentcal)
 //
 //        print(currentpassword)
 //        print(currentemail)
@@ -304,6 +295,8 @@ class AccountViewController: UIViewController {
         profLayout()
         view.addSubview(nameLabel)
         nameLayout()
+        view.addSubview(calLabel)
+        calLayout()
         view.addSubview(changeName)
         cNameLayout()
         view.addSubview(changePass)
@@ -333,6 +326,12 @@ class AccountViewController: UIViewController {
         nameLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1).isActive = true
         nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nameLabel.topAnchor.constraint(equalTo: profPic.bottomAnchor, constant: 15).isActive = true
+    }
+    private func calLayout(){
+        calLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        calLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
+        calLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        calLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
     }
     
     private func cNameLayout(){

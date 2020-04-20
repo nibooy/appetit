@@ -39,6 +39,8 @@ class RecipeCell: UICollectionViewCell {
     
     var ingredientsList: String?
     var healthList: String?
+    var recipe: RecipeInfo?
+    var email: String?
     
     lazy var saveLikes: UIButton = {
         let button = UIButton()
@@ -49,10 +51,18 @@ class RecipeCell: UICollectionViewCell {
     }()
     
     @objc func moveToSaves() {
-        print("Move to save")
-        print(recipeLabel.text ?? "N/A")
-        print(ingredientsList ?? "N/A")
-        print(healthList ?? "N/A")
+//        print("Move to save")
+//        print(recipeLabel.text ?? "N/A")
+//        print(ingredientsList ?? "N/A")
+//        print(healthList ?? "N/A")
+        let recipeController = RecipeController()
+        do {
+            try recipeController.saveUserRecipe(email: email!, recipeInfo: recipe!)
+            print("saved")
+        }
+        catch{
+            print("couldn't save")
+        }
 
     }
 

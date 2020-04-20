@@ -23,6 +23,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         //Connect to backend change the setup function
+        navigationController?.navigationBar.tintColor = .black
 
         collectionView.dataSource = self
         collectionView.delegate = self

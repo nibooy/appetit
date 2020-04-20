@@ -25,6 +25,8 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         //Connect to backend change the setup function
         
         
+        navigationController?.navigationBar.tintColor = .black
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true

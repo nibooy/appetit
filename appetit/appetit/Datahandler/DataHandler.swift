@@ -93,6 +93,7 @@ class DataHandler{
                 let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
                 context.delete(managedObjectData)
             }
+            try save()
         } catch let error as NSError {
             throw error
         }

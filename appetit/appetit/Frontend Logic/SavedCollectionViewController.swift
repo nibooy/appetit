@@ -12,6 +12,7 @@ private let reuseIdentifier = "SavedCollectionViewCell"
 
 class SavedCollectionViewController: UICollectionViewController {
     var data = [RecipeInfo]()
+    var email = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,10 @@ class SavedCollectionViewController: UICollectionViewController {
         // Register cell classes
         collectionView!.register(UINib.init(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         // Do any additional setup after loading the view.
-        
+        email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
+        print(email)
+        setupData(email: email)
+
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
         }
@@ -45,18 +49,30 @@ class SavedCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 4
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
 //        return data.count
-        return 8
+        print(data.count)
+        return data.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SavedCollectionViewCell
+        let url = URL(string: data[indexPath.row].image)!
+        let name = data[indexPath.row].label
+        do{
+            let imageData = try Data(contentsOf: url)
+            let image = UIImage(data: imageData)
+            cell.configureData(name: name, image: image ?? UIImage(imageLiteralResourceName: "Avocado"))
+        }catch{
+            //Set a defualt image icon later
+            print("NOOOOO")
+        }
+        
         
     
         return cell

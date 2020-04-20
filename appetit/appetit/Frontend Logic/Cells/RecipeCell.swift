@@ -50,6 +50,8 @@ class RecipeCell: UICollectionViewCell {
         return button
     }()
     
+    //var alert:UIAlertController!
+
     @objc func moveToSaves() {
 //        print("Move to save")
 //        print(recipeLabel.text ?? "N/A")
@@ -58,13 +60,23 @@ class RecipeCell: UICollectionViewCell {
         let recipeController = RecipeController()
         do {
             try recipeController.saveUserRecipe(email: email!, recipeInfo: recipe!)
-            print("saved")
+            print("saved", email)
+            print( try recipeController.getUserRecipe(email: email!))
+            
+//            self.alert = UIAlertController(title: "Success", message: "Recipe Saved Successfully", preferredStyle: UIAlertController.Style.alert)
+//            self.customView.present(self.alert, animated: true, completion: nil)
+//            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
         }
         catch{
             print("couldn't save")
         }
 
     }
+    
+//    @objc func dismissAlert(){
+//        // Dismiss the alert from here
+//        self.alert.dismiss(animated: true, completion: nil)
+//    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

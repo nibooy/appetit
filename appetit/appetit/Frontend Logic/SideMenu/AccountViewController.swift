@@ -141,12 +141,12 @@ class AccountViewController: UIViewController {
             
             
             if (result != nil){
-                self.changedAlert(titleUpdate: "Failed Updated", message: result ?? "")
+                self.changedAlert(titleUpdate: "Failed Updated", message: result ?? "", alertCall: labelName)
             }else{
                 
                 ///Make the Call to the database to update!!!
                 
-                self.changedAlert(titleUpdate: "Update Successful", message: "")
+                self.changedAlert(titleUpdate: "Update Successful", message: "", alertCall: labelName)
             }
                         //print(input)
             //print(self.currentemail)
@@ -157,9 +157,20 @@ class AccountViewController: UIViewController {
     }
     
     
-    private func changedAlert(titleUpdate: String, message: String){
+    private func changedAlert(titleUpdate: String, message: String, alertCall: String){
         let alertController = UIAlertController(title: titleUpdate, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
+        
+        var okAction = UIAlertAction()
+        
+        if titleUpdate == "Update Successful"{
+            okAction = UIAlertAction(title: "Ok", style: .default)
+        }
+        else{
+            okAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+                self.InputAlert(labelName: alertCall)
+            }
+        }
+        
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
         
@@ -268,7 +279,7 @@ class AccountViewController: UIViewController {
         
         nameLabel.text = currentfirstname + " " + currentlastname
     
-//        
+//
 //        print(currentpassword)
 //        print(currentemail)
 //

@@ -14,6 +14,10 @@ extension UserDefaults {
         case isLoggedIn
         case email
         case wordp
+        case fname
+        case lname
+        case maxcal
+        
     }
     
     func setIsLoggedIn(value: Bool) {
@@ -25,8 +29,20 @@ extension UserDefaults {
         set(value, forKey: UserDefaultsKeys.email.rawValue)
         synchronize()
     }
+    func setFirstName(value: String) {
+        set(value, forKey: UserDefaultsKeys.fname.rawValue)
+        synchronize()
+    }
+    func setLastName(value: String) {
+        set(value, forKey: UserDefaultsKeys.lname.rawValue)
+        synchronize()
+    }
+    func setMaxCal(value: String) {
+        set(value, forKey: UserDefaultsKeys.maxcal.rawValue)
+        synchronize()
+    }
     
-    func setPassword(value: String) {
+    func setWord(value: String) {
         set(value, forKey: UserDefaultsKeys.wordp.rawValue)
         synchronize()
     }

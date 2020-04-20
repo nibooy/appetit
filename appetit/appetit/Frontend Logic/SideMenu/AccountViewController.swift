@@ -24,8 +24,10 @@ class AccountViewController: UIViewController {
     
     var currentemail = String()
     var currentpassword = String()
-
-
+    var currentfirstname = String()
+    var currentlastname = String()
+    var currentcal = String()
+    
     var backPanel: UIView = {
         let bp = UIView()
         bp.translatesAutoresizingMaskIntoConstraints = false
@@ -138,15 +140,24 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentemail =  UserDefaults.standard.string(forKey: "email") ?? "no email"
+        currentemail = UserDefaults.standard.string(forKey: "email") ?? "no email"
+
         currentpassword =  UserDefaults.standard.string(forKey: "wordp") ?? "no password"
         
+        currentfirstname =  UserDefaults.standard.string(forKey: "fname") ?? "no first name"
         
+        currentlastname =  UserDefaults.standard.string(forKey: "lname") ?? "no last name"
+        
+        currentcal =  UserDefaults.standard.string(forKey: "maxcal") ?? "no max cal"
+        
+    
         
         print(currentpassword)
         print(currentemail)
 
-        
+        print(currentfirstname)
+        print(currentlastname)
+        print(currentcal)
         view.addSubview(backPanel)
         bpLayout()
         view.addSubview(logo)

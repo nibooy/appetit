@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SafariServices
+
 
 private let reuseIdentifier = "SavedCollectionViewCell"
 
-class SavedCollectionViewController: UICollectionViewController {
+class SavedCollectionViewController: UICollectionViewController, SFSafariViewControllerDelegate {
     var data = [RecipeInfo]()
     var email = String()
 
@@ -28,7 +30,6 @@ class SavedCollectionViewController: UICollectionViewController {
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         print(email)
         setupData(email: email)
-
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
         }
@@ -81,10 +82,18 @@ class SavedCollectionViewController: UICollectionViewController {
         print("User tapped on item \(indexPath.row)")
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let controller = storyboard.instantiateViewController(withIdentifier: "focusView")
-        let vc = FocusRecipeViewController()
-        vc.modalPresentationStyle = .custom
-        self.definesPresentationContext = true
-        self.present(vc, animated: true, completion: nil)
+//        let vc = FocusRecipeViewController()
+//        vc.modalPresentationStyle = .custom
+//        self.definesPresentationContext = true
+//        self.present(vc, animated: true, completion: nil)
+        let urlString = data[indexPath.row].url
+
+        if let url = URL(string: urlString) {
+            let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+            vc.delegate = self
+
+            present(vc, animated: true)
+        }
 
     }
      
@@ -97,5 +106,8 @@ class SavedCollectionViewController: UICollectionViewController {
             print("failed to get recipes saved with email")
         }
         
+    }
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        dismiss(animated: true)
     }
 }

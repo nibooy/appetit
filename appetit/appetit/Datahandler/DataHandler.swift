@@ -37,11 +37,11 @@ class DataHandler{
         }
     }
     
-    func deleteUser(email: String, password: String) throws{
+    func deleteUser(email: String) throws{
         let entity = "User"
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         fetchRequest.returnsObjectsAsFaults = false
-        fetchRequest.predicate = NSPredicate(format: "(email  =  %@) AND (password = %@)", email, password)
+        fetchRequest.predicate = NSPredicate(format: "email  =  %@", email)
         do
         {
             let results = try context.fetch(fetchRequest)

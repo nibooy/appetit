@@ -52,9 +52,9 @@ class UserController{
     }
     
     /*Delete the user from our User table*/
-    func deleteUser(email: String, password: String) throws{
+    func deleteUser(email: String) throws{
         do{
-            try userDataHandler.deleteUser(email: email, password: password)
+            try userDataHandler.deleteUser(email: email)
         }catch{
             throw ErrorMessage.ErrorCodes.dataSearchFailed
         }
@@ -62,7 +62,7 @@ class UserController{
     
     /*Update user information*/
     func updateUser(email: String, password: String, firstName: String, lastName: String, maxCaloriesPerMeal: Int) throws{
-        try deleteUser(email: email, password: password)
+        try deleteUser(email: email)
         try saveUser(email: email, password: password, firstName: firstName, lastName: lastName, maxCaloriesPerMeal: maxCaloriesPerMeal)
     }
     

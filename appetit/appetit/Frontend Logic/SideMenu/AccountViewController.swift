@@ -73,41 +73,28 @@ class AccountViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .white
+        cv.layer.cornerRadius = 20
+        cv.layer.masksToBounds = true
         return cv
     }()
     
+    let changeTextField: LeftPaddedTextField = {
+        let textField = LeftPaddedTextField()
+        textField.placeholder = "Enter password"
+        textField.font = UIFont.systemFont(ofSize: 20)
+        textField.layer.borderColor = UIColor.systemGray4.cgColor
+        textField.layer.backgroundColor = UIColor.white.cgColor
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 10
+        textField.isSecureTextEntry = true
+        return textField
+    }()
+    
     @objc func handlechangeEmail() {
-        print("email")
-        if let window = UIApplication.shared.keyWindow {
-                
-            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-                
-//            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-                
-            window.addSubview(blackView)
-                
-            window.addSubview(collectionView)
-                
-        let height: CGFloat = CGFloat(settings.count) * (cellHeight*1.3)
-            let y = window.frame.height - 300
-            let width = 250
-            
-            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: CGFloat(width), height: height)
-                
-            blackView.frame = window.frame
-            blackView.alpha = 0
-                
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                    
-                self.blackView.alpha = 1
-                    
-                self.collectionView.frame = CGRect(x: 0, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
-                    
-            }, completion: nil)
-        }
+        popUp(labelName: "New Email")
     }
     
-    
+
     var changePass: UIButton = {
         let cp = UIButton()
         let Bcolor = UIColor.white
@@ -122,7 +109,50 @@ class AccountViewController: UIViewController {
     }()
     
     @objc func handlechangePassword() {
-        print("password")
+        popUp(labelName: "New Password")
+    }
+    
+    func popUp(labelName: String){
+        print(labelName)
+        changeTextField.text = labelName
+        
+        if let window = UIApplication.shared.keyWindow {
+                
+            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+                
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+                
+            window.addSubview(blackView)
+                
+            window.addSubview(collectionView)
+                
+        let height: CGFloat = CGFloat(settings.count) * (cellHeight*1.3)
+            let y = (window.frame.height)/2 - 100
+            let width = 250
+            
+            collectionView.frame = CGRect(x: 0, y: window.frame.height, width: CGFloat(width), height: height)
+                
+            blackView.frame = window.frame
+            blackView.alpha = 0
+                
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    
+                self.blackView.alpha = 1
+                    
+                self.collectionView.frame = CGRect(x: 80, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+                    
+            }, completion: nil)
+        }
+    }
+    
+    @objc func handleDismiss(){
+        UIView.animate(withDuration: 0.5) {
+            self.blackView.alpha = 0
+            
+            if let window = UIApplication.shared.keyWindow {
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+            }
+        }
     }
     
     //Animation when back button is pressed

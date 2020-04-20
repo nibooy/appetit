@@ -56,6 +56,10 @@ class SigninViewController: UIViewController, UITextFieldDelegate {
             //mainNavigationController.pushViewController(HomeController(), animated: true)
             UserDefaults.standard.setIsLoggedIn(value: true)
             UserDefaults.standard.setEmail(value: emailTextField.text ?? "No Email")
+            UserDefaults.standard.setWord(value: passwordTextField.text ?? "No Password")
+            UserDefaults.standard.setFirstName(value: FirstTextField.text ?? "No First Name")
+            UserDefaults.standard.setLastName(value: LastTextField.text ?? "No Last Name")
+            UserDefaults.standard.setMaxCal(value: maxCalories.text ?? "No Max Cal")
 
             dismiss(animated: true, completion: nil)
         }

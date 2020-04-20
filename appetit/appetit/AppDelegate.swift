@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL)
-        
+        //UserDefaults.standard.setIsLoggedIn(value: false)
+
         return true
     }
 

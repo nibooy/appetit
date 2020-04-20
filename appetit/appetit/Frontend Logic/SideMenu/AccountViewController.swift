@@ -367,7 +367,7 @@ class AccountViewController: UIViewController {
         nameLabel.topAnchor.constraint(equalTo: profPic.bottomAnchor, constant: 15).isActive = true
     }
     private func calLayout(){
-        calLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        calLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         calLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
         calLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         calLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true

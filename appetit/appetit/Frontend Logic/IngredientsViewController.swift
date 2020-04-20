@@ -227,43 +227,43 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         return result ?? false
     }
     
-    func showConfirmationAlert(title: String!, message: String!,success: (() -> Void)? , cancel: (() -> Void)?) {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title:title, message: message, preferredStyle: .alert)
-            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel",
-                                                      style: .cancel) {
-                                                        action -> Void in cancel?()
-            }
-            let successAction: UIAlertAction = UIAlertAction(title: "OK",
-                                                       style: .default) {
-                                                        action -> Void in success?()
-            }
-            alertController.addAction(cancelAction)
-            alertController.addAction(successAction)
-
-            self.present(alertController, animated: true, completion: nil)
-        };
-}
+//    func showConfirmationAlert(title: String!, message: String!,success: (() -> Void)? , cancel: (() -> Void)?) {
+//        DispatchQueue.main.async {
+//            let alertController = UIAlertController(title:title, message: message, preferredStyle: .alert)
+//            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel",
+//                                                      style: .cancel) {
+//                                                        action -> Void in cancel?()
+//            }
+//            let successAction: UIAlertAction = UIAlertAction(title: "OK",
+//                                                       style: .default) {
+//                                                        action -> Void in success?()
+//            }
+//            alertController.addAction(cancelAction)
+//            alertController.addAction(successAction)
+//
+//            self.present(alertController, animated: true, completion: nil)
+//        };
+//}
     
         
-    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
-            if selected.count == 0 {
-                var val: Bool?
-                let _: () = showConfirmationAlert(title: "Searching All", message: "No items selected. Will search recipes with all the items in your fridge.", success: {
-                    val = true
-                    print(val!)
-                }) {
-                    val = false
-                    print(val!)
-                }
-                
-                print("__________")
-                print(val ?? nil)
-                print("__________")
-                return false
-                }
-            return true
-    }
+//    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+//            if selected.count == 0 {
+//                var val: Bool?
+//                let _: () = showConfirmationAlert(title: "Searching All", message: "No items selected. Will search recipes with all the items in your fridge.", success: {
+//                    val = true
+//                    print(val!)
+//                }) {
+//                    val = false
+//                    print(val!)
+//                }
+//
+//                print("__________")
+//                print(val ?? nil)
+//                print("__________")
+//                return false
+//                }
+//            return true
+//    }
             
     
     @IBAction func generateRecipe(_ sender: Any) {

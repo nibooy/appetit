@@ -30,6 +30,18 @@ class SavedCollectionViewController: UICollectionViewController, SFSafariViewCon
         email =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         print(email)
         setupData(email: email)
+        setupLeftTitle(title: "Generate Recipes")
+        
+        //code to add button to right
+        let menu = UIButton()
+        menu.imageView?.contentMode = .scaleAspectFit
+        menu.addTarget(self, action: #selector(menuButtonClicked), for: .touchUpInside)
+        menu.setImage(UIImage(imageLiteralResourceName: "menu"), for: .normal)
+        menu.widthAnchor.constraint(equalToConstant: 34.0).isActive = true
+        menu.heightAnchor.constraint(equalToConstant: 34.0).isActive = true
+        let rightItem = UIBarButtonItem(customView: menu)
+        self.navigationItem.rightBarButtonItem  = rightItem
+
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
         }
@@ -109,5 +121,25 @@ class SavedCollectionViewController: UICollectionViewController, SFSafariViewCon
     }
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         dismiss(animated: true)
+    }
+    
+    lazy var settingsLauncher: SettingLauncher = {
+        //FILL IN
+//        let launcher = SettingLauncher()
+//        launcher.VFController = self
+//        return launcher
+    }()
+    
+    @objc func menuButtonClicked(_ sender: UIButton) {
+        settingsLauncher.showsSettings()
+    }
+    
+    func setupLeftTitle(title : String){
+        let longTitleLabel = UILabel()
+        longTitleLabel.text = "Saved Recipes"
+        longTitleLabel.font = UIFont(name: "Didot-Bold", size: 25)
+        longTitleLabel.sizeToFit()
+        let leftItem = UIBarButtonItem(customView: longTitleLabel)
+        self.navigationItem.leftBarButtonItem = leftItem
     }
 }

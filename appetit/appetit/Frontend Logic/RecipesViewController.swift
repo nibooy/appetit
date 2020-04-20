@@ -211,6 +211,8 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         cell.ingredientsList = finalingredientList
         cell.healthList = finalhealthList
+        cell.recipe = RecipeItem.recipe
+        cell.email = userEmail
         
         
         let url = URL(string: RecipeItem.recipe.image)!
@@ -278,6 +280,18 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
             currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
     }
+    
+    
+//    @IBAction func saveButton(_ sender: Any) {
+//        let recipeController = RecipeController()
+//        do {
+//            try recipeController.saveUserRecipe(email: userEmail, recipeInfo: recipeList[currentPage].recipe)
+//            print("saved")
+//        }
+//        catch{
+//            print("couldn't save")
+//        }
+//    }
     
 //    class RecipeCell: UICollectionViewCell {
 //        let customView: UIView = {

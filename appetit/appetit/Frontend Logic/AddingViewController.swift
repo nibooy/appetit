@@ -152,7 +152,11 @@ class AddingViewController: UIViewController, UITextFieldDelegate, DataSentDeleg
     
     func validateFields()-> String?{
         if Int(quantityLabel.text!) == nil{
-            return "Please enter a valid serving amount"
+            return "Please enter a valid serving amount(Whole Numbers)"
+        }
+        let str = quantityLabel.text ?? "0.1"
+        if str.contains("."){
+            return "Please Round Whole Number Serving"
         }
         if nameLabel.text! == ""{
             return "Please enter an ingredient."

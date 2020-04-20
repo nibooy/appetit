@@ -113,7 +113,7 @@ class UserControllerTests: XCTestCase {
         do{
             try testUser.saveUser(email: testEmail, password: testPassword, firstName: testFirstName
             , lastName: testLastName, maxCaloriesPerMeal: testMaxCaloriesPerMeal)
-            try testUser.deleteUser(email: testEmail, password: testPassword)
+            try testUser.deleteUser(email: testEmail)
             let deleteStatus = try testUser.isValidUser(email: testEmail, password: testPassword)
             XCTAssertEqual(false, deleteStatus)
         }catch{

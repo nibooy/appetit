@@ -19,7 +19,7 @@ class Setting: NSObject {
 }
 
 enum SettingNmae: String {
-    case Account = "Account"
+    case Account = "Profile"
     case SignOut = "Sign Out"
     case Cancel = "Cancel"
 

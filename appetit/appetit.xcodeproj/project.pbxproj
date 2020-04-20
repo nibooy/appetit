@@ -47,6 +47,7 @@
 		9EE1EFF7242F389F0047352B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF5242F389F0047352B /* Main.storyboard */; };
 		9EE1EFF9242F38A20047352B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFF8242F38A20047352B /* Assets.xcassets */; };
 		9EE1EFFC242F38A20047352B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1EFFA242F38A20047352B /* LaunchScreen.storyboard */; };
+		BE8E7CF4244D60810099BCE3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E7CF3244D60810099BCE3 /* AccountViewController.swift */; };
 		BE97690A244A7EB5005ED0BC /* RecipeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */; };
 		BE976912244AB6C1005ED0BC /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE976911244AB6C1005ED0BC /* RecipeCell.swift */; };
 		BE976914244BAA66005ED0BC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE976913244BAA65005ED0BC /* Podfile */; };
@@ -122,6 +123,7 @@
 		9EE1EFF8242F38A20047352B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EE1EFFB242F38A20047352B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EE1EFFD242F38A20047352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE8E7CF3244D60810099BCE3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE976909244A7EB5005ED0BC /* RecipeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellTableViewCell.swift; sourceTree = "<group>"; };
 		BE976911244AB6C1005ED0BC /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		BE976913244BAA65005ED0BC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -333,6 +335,7 @@
 		BE97692E244D10D4005ED0BC /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				BE8E7CF3244D60810099BCE3 /* AccountViewController.swift */,
 				BE97692F244D10EF005ED0BC /* SettingsLauncher.swift */,
 				BE976931244D1104005ED0BC /* SettingCell.swift */,
 			);
@@ -531,6 +534,7 @@
 				9E6741D8243C0A2E007C17B5 /* UserEntity.swift in Sources */,
 				0AE2F31F24302662006F14E1 /* LoginViewController.swift in Sources */,
 				BE976916244BAC54005ED0BC /* MainTabBarViewController.swift in Sources */,
+				BE8E7CF4244D60810099BCE3 /* AccountViewController.swift in Sources */,
 				DFC670992446A25600F20B24 /* DataService.swift in Sources */,
 				DFC7CCE9244A123F009ED897 /* UPCarouselFlowLayout.swift in Sources */,
 				0AC94D2F243BD5D8007CE4F8 /* FridgeCollectionViewController.swift in Sources */,

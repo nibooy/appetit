@@ -24,8 +24,8 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         //Connect to backend change the setup function
         
-        
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.clipsToBounds = false
+        navigationController?.navigationBar.tintColor = .black        
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -188,10 +188,20 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func showControllerForSetting(setting: Setting) {
-        let SettingViewController = UIViewController()
+
+        let SettingViewController = AccountViewController()
         SettingViewController.view.backgroundColor = .white
         SettingViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Didot-Bold", size: 25)!]
         navigationController?.navigationBar.tintColor = .black
+        
+        let transition = CATransition()
+        transition.duration = 0.75
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
         navigationController?.pushViewController(SettingViewController, animated: true)
     }
     

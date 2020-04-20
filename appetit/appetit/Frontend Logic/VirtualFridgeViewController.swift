@@ -180,10 +180,19 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func showControllerForSetting(setting: Setting) {
-        let SettingViewController = UIViewController()
+        let SettingViewController = AccountViewController()
         SettingViewController.view.backgroundColor = .white
         SettingViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Didot-Bold", size: 25)!]
         navigationController?.navigationBar.tintColor = .black
+        
+        let transition = CATransition()
+        transition.duration = 0.75
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
         navigationController?.pushViewController(SettingViewController, animated: true)
     }
     

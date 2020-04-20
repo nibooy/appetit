@@ -17,6 +17,7 @@ class RecipeController{
     
     func saveUserRecipe(email: String, recipeInfo: RecipeInfo) throws{
         let recipesObject = userDataHandler.getDatabaseObject(entity: "Recipes")
+        recipesObject.setValue(email, forKey: "email")
         recipesObject.setValue(recipeInfo.label, forKey: "label")
         recipesObject.setValue(recipeInfo.image, forKey: "image")
         recipesObject.setValue(recipeInfo.uri, forKey: "uri")

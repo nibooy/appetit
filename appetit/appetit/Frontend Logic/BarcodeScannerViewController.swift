@@ -242,17 +242,16 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             textBar.bottomAnchor.constraint(equalTo: bottomBar.bottomAnchor, constant:-300).isActive = true
             textBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
             textBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-            textBar.layer.borderWidth = 1.0
-            textBar.layer.cornerRadius = 10.0
-            textBar.clipsToBounds = true
-            textBar.layer.borderColor = UIColor.clear.cgColor
-            textBar.layer.shadowColor = UIColor.lightGray.cgColor
-            textBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-            textBar.layer.shadowRadius = 2.0
-            textBar.layer.shadowOpacity = 0.7
-            textBar.layer.masksToBounds = false
-
-            descriptionTextView.font = UIFont.boldSystemFont(ofSize: 18)
+//            textBar.layer.borderWidth = 1.0
+//            textBar.layer.cornerRadius = 10.0
+//            textBar.clipsToBounds = true
+//            textBar.layer.borderColor = UIColor.clear.cgColor
+//            textBar.layer.shadowColor = UIColor.lightGray.cgColor
+//            textBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+//            textBar.layer.shadowRadius = 2.0
+//            textBar.layer.shadowOpacity = 0.7
+//            textBar.layer.masksToBounds = false
+            descriptionTextView.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
             descriptionTextView.textAlignment = .center
             
             topBar.addSubview(closeButton)

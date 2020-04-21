@@ -55,13 +55,14 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setup()
-        self.collectionView.reloadData()
+        //self.collectionView.reloadData()
 //                // THIS might cause errors sorrys
 //        self.viewDidLoad()
         //print(fridge)
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+//        DispatchQueue.main.async {
+//            self.collectionView.reloadData()
+//        }
+        self.refreshCollection()
     }
     // MARK: - Navigation
 //
@@ -71,7 +72,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
 //        // Pass the selected object to the new view controller.
 //    }
 
-    
+    private func refreshCollection() {
+        DispatchQueue.main.async { [weak self] in
+        self?.collectionView.collectionViewLayout.invalidateLayout()
+        self?.collectionView.reloadData()
+        }
+    }
     //Listener that once alert is closed will reload data has a bug of breaking constraint on reloads
     @objc func listnerFunction() {
         print("yes")
@@ -130,7 +136,8 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
             print("couldn't get ingredients with email")
         }
         for i in ingredients{
-            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image:#imageLiteral(resourceName: "Avocado") )
+            let image = picture(food: i.ingredient)
+            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image: image)
             fridge.append(foodItem)
         }
         
@@ -138,8 +145,9 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
             $0.name < $1.name
         }
         
-        let add = Food(name: "AddButton", measurement: "2", image: #imageLiteral(resourceName: "Avocado"))
+        let add = Food(name: "AddButton", measurement: "2", image: UIImage(imageLiteralResourceName: "avocado"))
         self.fridge.append(add)
+        self.refreshCollection()
         
         
     }
@@ -202,6 +210,14 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     func deleteDataIndex(index: Int) {
         self.collectionView.reloadData()
+    }
+    
+    func picture(food: String) -> UIImage{
+        if let myImage = UIImage(named: food.lowercased()) {
+            return myImage
+          // use your image (myImage), it exists!
+        }
+        return UIImage(imageLiteralResourceName: "filler")
     }
 }
 

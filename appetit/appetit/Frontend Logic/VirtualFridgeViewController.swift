@@ -130,7 +130,8 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
             print("couldn't get ingredients with email")
         }
         for i in ingredients{
-            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image:#imageLiteral(resourceName: "Avocado") )
+            let image = picture(food: i.ingredient)
+            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image: image)
             fridge.append(foodItem)
         }
         
@@ -138,7 +139,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
             $0.name < $1.name
         }
         
-        let add = Food(name: "AddButton", measurement: "2", image: #imageLiteral(resourceName: "Avocado"))
+        let add = Food(name: "AddButton", measurement: "2", image: UIImage(imageLiteralResourceName: "avocado"))
         self.fridge.append(add)
         
         
@@ -202,6 +203,14 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     
     func deleteDataIndex(index: Int) {
         self.collectionView.reloadData()
+    }
+    
+    func picture(food: String) -> UIImage{
+        if let myImage = UIImage(named: food.lowercased()) {
+            return myImage
+          // use your image (myImage), it exists!
+        }
+        return UIImage(imageLiteralResourceName: "filler")
     }
 }
 

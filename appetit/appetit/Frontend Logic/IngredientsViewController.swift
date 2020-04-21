@@ -140,7 +140,8 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         }
         
         for i in ingredients{
-            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image:#imageLiteral(resourceName: "Avocado") )
+            let image = picture(food: i.ingredient)
+            let foodItem = Food(name: i.ingredient, measurement: String(i.servings)+" Servings", image: image)
             fridge.append(foodItem)
         }
         
@@ -148,6 +149,13 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
             $0.name < $1.name
         }
         
+    }
+    func picture(food: String) -> UIImage{
+        if let myImage = UIImage(named: food.lowercased()) {
+            return myImage
+          // use your image (myImage), it exists!
+        }
+        return UIImage(imageLiteralResourceName: "filler")
     }
     
     func setupLeftTitle(title : String){

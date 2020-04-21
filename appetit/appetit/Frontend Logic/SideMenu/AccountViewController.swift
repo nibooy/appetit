@@ -36,7 +36,7 @@ class AccountViewController: UIViewController {
         return bp //red: 246/255, green: 246/255, blue: 246/255, alpha: 1
     }()
     var logo: UIImageView = {
-        let l = UIImageView(image: UIImage(named: "Appetit"))
+        let l = UIImageView(image: UIImage(named: "appetit"))
         l.translatesAutoresizingMaskIntoConstraints = false
         l.frame = CGRect(x: 0, y: 0, width: 10, height: 20)
         l.contentMode = .scaleAspectFit
@@ -309,7 +309,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         currentemail = UserDefaults.standard.string(forKey: "email") ?? "no email"
+        currentemail = UserDefaults.standard.string(forKey: "email") ?? "no email"
         currentpassword =  UserDefaults.standard.string(forKey: "wordp") ?? "no password"
         do {
             let currentUser = try updateUser.getUser(email: currentemail,
@@ -354,7 +354,7 @@ class AccountViewController: UIViewController {
         logo.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
         logo.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         logo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logo.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        logo.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
     }
     private func profLayout(){
         profPic.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

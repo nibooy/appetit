@@ -58,6 +58,7 @@ class Popup: UIView, UIGestureRecognizerDelegate {
     
     
     func validateFields()-> Bool?{
+        //func to check
         let str = self.servingtextfield.text!
         if str.contains("."){
             return true

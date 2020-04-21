@@ -85,6 +85,7 @@ final class DataService {
                     print("Food name: \(name), serving quantity: \(qty), serving unit: \(unit)")
                 }
             } catch let error as NSError {
+                completionHandler(("error",0,""))
                 print("Failed to load: \(error.localizedDescription)")
             }
         }

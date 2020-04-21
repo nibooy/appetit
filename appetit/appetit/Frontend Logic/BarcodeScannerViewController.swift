@@ -24,6 +24,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
     let scanView = UIView()
     let successView = UIView()
     let bottomBar = UIView()
+    let textBar = UIView()
     let descriptionTextView: UILabel = {
         let textView = UILabel()
         textView.text = "Begin Scanning"
@@ -77,35 +78,66 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
 
             captureSession = AVCaptureSession()
             
-            let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
+//            let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
              
-            guard let captureDevice = deviceDiscoverySession.devices.first else {
-                
-                print("Failed to get the camera device")
-                return
-            }
-             
+//            guard let captureDevice = deviceDiscoverySession.devices.first else {
+//                print("Failed to get the camera device")
+//                return
+//            }
+            guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
+            let input: AVCaptureDeviceInput
+            
             do {
                 // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-                let input = try AVCaptureDeviceInput(device: captureDevice)
-                
-                // Set the input device on the capture session.
-                captureSession.addInput(input)
-
-                // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-                let metadataOutput = AVCaptureMetadataOutput()
-                captureSession.addOutput(metadataOutput)
-                
-                // Set delegate and use the default dispatch queue to execute the call back
-                metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                metadataOutput.metadataObjectTypes = self.supportedCodeTypes
-    //            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-                
+                input = try AVCaptureDeviceInput(device: captureDevice)
             } catch {
-                print(error)
                 return
             }
-        
+            
+            if (captureSession.canAddInput(input)){
+                captureSession.addInput(input)
+            } else{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                let ac = UIAlertController(title: "Scanning not supported on device.", message: "Please use a device with a camera.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title:"OK", style: .default))
+                    self.present(ac, animated:true, completion: nil)
+                }
+                return
+            }
+            
+            let metadataOutput = AVCaptureMetadataOutput()
+            
+            if (captureSession.canAddOutput(metadataOutput)){
+                captureSession.addOutput(metadataOutput)
+                metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+                metadataOutput.metadataObjectTypes = self.supportedCodeTypes
+            } else {
+                 let ac = UIAlertController(title: "Scanning not supported on device.", message: "Please use a device with a camera.", preferredStyle: .alert)
+                 ac.addAction(UIAlertAction(title:"OK", style: .default))
+                 present(ac, animated:true)
+                return
+            }
+                
+//                // Set the input device on the capture session.
+//                captureSession.addInput(input)
+//
+//                // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
+//                let metadataOutput = AVCaptureMetadataOutput()
+//                captureSession.addOutput(metadataOutput)
+//
+//                // Set delegate and use the default dispatch queue to execute the call back
+//                metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+//                metadataOutput.metadataObjectTypes = self.supportedCodeTypes
+//    //            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+//
+//            } catch {
+//                print(error)
+////                let ac = UIAlertController(title: "Scanning not supported on device.", message: "Please use a device with a camera.", preferredStyle: .alert)
+////                ac.addAction(UIAlertAction(title:"OK", style: .default))
+////                present(ac, animated:true)
+//                return
+//            }
+//
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = scanView.layer.frame
@@ -137,6 +169,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
     @objc func rescanTapped(sender: UIButton) {
          print("Rescan tapped")
          successView.isHidden = true
+        textBar.backgroundColor = #colorLiteral(red: 0.7882760763, green: 1, blue: 0.8077354431, alpha: 1)
          captureSession.startRunning()
         descriptionTextView.text = "No Barcode is detected"
      }
@@ -193,8 +226,6 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             bottomBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-            
-            let textBar = UIView()
             textBar.backgroundColor = #colorLiteral(red: 0.7882760763, green: 1, blue: 0.8077354431, alpha: 1)
             textBar.translatesAutoresizingMaskIntoConstraints = false
             view.bringSubviewToFront(textBar)
@@ -367,7 +398,13 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
                     DataService.searchAPI(codeNumber: String(num)){
                         foodInfo in
                         DispatchQueue.main.async{
-                            self.descriptionTextView.text = "\(foodInfo.0)\n\(foodInfo.1)"
+                            if (foodInfo.0 != "error"){
+                                self.descriptionTextView.text = "\(foodInfo.0)\n\(foodInfo.1)"
+                            }
+                            else {
+                                self.textBar.backgroundColor = #colorLiteral(red: 1, green: 0.6393242478, blue: 0.6698779464, alpha: 1)
+                                self.descriptionTextView.text = "Product not available.\nScan again."
+                            }
                         }
                     }
 //                    print ("here + \(foodInfo)")

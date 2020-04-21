@@ -75,7 +75,14 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             rescanButton.addTarget(self, action: #selector(rescanTapped), for: .touchUpInside)
             addButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
             successView.isHidden = true
-
+            
+            if currentReachabilityStatus == .notReachable {
+                DispatchQueue.main.async{
+                let alert = UIAlertController(title: "Offline", message: "Check your connection.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (s) in}))
+                self.present(alert, animated: true, completion: nil)
+                }
+            }
             captureSession = AVCaptureSession()
             
 //            let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
@@ -97,7 +104,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             if (captureSession.canAddInput(input)){
                 captureSession.addInput(input)
             } else{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                DispatchQueue.main.async{
                 let ac = UIAlertController(title: "Scanning not supported on device.", message: "Please use a device with a camera.", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title:"OK", style: .default))
                     self.present(ac, animated:true, completion: nil)

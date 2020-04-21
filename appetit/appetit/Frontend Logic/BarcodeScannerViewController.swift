@@ -78,7 +78,7 @@ class BarcodeScannerViewController: UIViewController, AVCaptureMetadataOutputObj
             
             if currentReachabilityStatus == .notReachable {
                 DispatchQueue.main.async{
-                let alert = UIAlertController(title: "Offline", message: "Check your connection.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "No Internet Connection", message: "There is a problem connecting to appetit. Please try again later.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (s) in}))
                 self.present(alert, animated: true, completion: nil)
                 }

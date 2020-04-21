@@ -71,6 +71,11 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         let task = mySession.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 //error message here for internet problems
+                    DispatchQueue.main.async{
+                    let alert = UIAlertController(title: "No Internet Connection", message: "There is a problem connecting to appetit. Please try again later.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (s) in}))
+                    self.present(alert, animated: true, completion: nil)
+                    }
                 return
             }
             guard let jsonData = data else {

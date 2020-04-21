@@ -51,26 +51,47 @@ class RecipeCell: UICollectionViewCell {
     }()
     
     //var alert:UIAlertController!
-
-    @objc func moveToSaves() {
-//        print("Move to save")
-//        print(recipeLabel.text ?? "N/A")
-//        print(ingredientsList ?? "N/A")
-//        print(healthList ?? "N/A")
-        let recipeController = RecipeController()
+    func checkUnique(recipe: RecipeInfo) -> Bool{
+        let rc = RecipeController()
         do {
-            try recipeController.saveUserRecipe(email: email!, recipeInfo: recipe!)
-            print("saved", email)
-            print( try recipeController.getUserRecipe(email: email!))
+            let recipes = try rc.getUserRecipe(email: email!)
+            for rec in recipes{
+                if rec.label.lowercased() == recipe.label.lowercased(){
+                    return false
+            }
+        }
+        }
+        catch {
+            print("check unique failed")
+        }
+        
+        return true
+        }
+    
+    @objc func moveToSaves() {
+        //        print("Move to save")
+        //        print(recipeLabel.text ?? "N/A")
+        //        print(ingredientsList ?? "N/A")
+        //        print(healthList ?? "N/A")
+        let recipeController = RecipeController()
+        
+        if checkUnique(recipe: recipe!){
+            do {
+                try recipeController.saveUserRecipe(email: email!, recipeInfo: recipe!)
+                print("saved", email)
+                print( try recipeController.getUserRecipe(email: email!))
+                
+                //            self.alert = UIAlertController(title: "Success", message: "Recipe Saved Successfully", preferredStyle: UIAlertController.Style.alert)
+                //            self.customView.present(self.alert, animated: true, completion: nil)
+                //            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+            }
+            catch{
+                print("couldn't save")
+            }
             
-//            self.alert = UIAlertController(title: "Success", message: "Recipe Saved Successfully", preferredStyle: UIAlertController.Style.alert)
-//            self.customView.present(self.alert, animated: true, completion: nil)
-//            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
         }
-        catch{
-            print("couldn't save")
-        }
-
+        
+        
     }
     
 //    @objc func dismissAlert(){

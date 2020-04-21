@@ -88,7 +88,7 @@ class Popup: UIView, UIGestureRecognizerDelegate {
         
         // Set UITextField background colour
         u.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-        u.text = "Avocado"
+        u.text = "avocado"
         u.isUserInteractionEnabled = false
 
         return u

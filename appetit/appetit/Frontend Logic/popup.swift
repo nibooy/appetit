@@ -41,15 +41,34 @@ class Popup: UIView, UIGestureRecognizerDelegate {
     @objc func updateButtonClicked(sender: UIButton){
         let fridgeController = VirtualFridgeController()
         do {
-            try fridgeController.updateIngredient(email: email, ingredient: self.nametextfield.text!, servings: Int(self.servingtextfield.text!)!)
-            print(email, self.nametextfield.text!,Int(self.servingtextfield.text!)!)
-            animateOut()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
+            if validateFields()!{
+                servingtextfield.text = "Please enter whole serving quantity"
+            }
+            else{
+                try fridgeController.updateIngredient(email: email, ingredient: self.nametextfield.text!, servings: Int(self.servingtextfield.text!)!)
+                print(email, self.nametextfield.text!,Int(self.servingtextfield.text!)!)
+                animateOut()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
+            }
         }
         catch{
             print(error)
         }
     }
+    
+    
+    func validateFields()-> Bool?{
+        let str = self.servingtextfield.text!
+        if str.contains("."){
+            return true
+        }
+        if Int(str) == nil{
+            return true
+        }
+        return false
+        
+    }
+    
     
     fileprivate let deleteButton: UIButton = {
         let button = UIButton()

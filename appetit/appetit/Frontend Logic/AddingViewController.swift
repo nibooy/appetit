@@ -161,9 +161,30 @@ class AddingViewController: UIViewController, UITextFieldDelegate, DataSentDeleg
         if nameLabel.text! == ""{
             return "Please enter an ingredient."
         }
+        if checkUnique(name: nameLabel.text ?? ""){
+            return "Item already in fridge"
+        }
         return nil
         
     }
+    
+    func checkUnique(name: String) -> Bool{
+        let vfc = VirtualFridgeController()
+        do {
+            let ingredients = try vfc.getUserIngredients(email: email)
+            for ingr in ingredients{
+                if name.lowercased() == ingr.ingredient.lowercased(){
+                    return true
+                }
+            }
+            return false
+        }
+        catch{
+            print("couldn't get ingredients uniqueness")
+        }
+        return false
+    }
+    
     func showSuccessAlert() {
         self.alert = UIAlertController(title: "Success", message: "Ingredient Added Successfully", preferredStyle: UIAlertController.Style.alert)
         self.present(self.alert, animated: true, completion: nil)

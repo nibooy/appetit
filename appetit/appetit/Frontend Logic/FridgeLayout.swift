@@ -37,7 +37,7 @@ class HiveLayout: UICollectionViewLayout {
 
     override func prepare() {
         // If cache is empty and the collection view exists – calculate the layout attributes
-        guard cache.isEmpty == true, let collectionView = collectionView else {
+        guard let collectionView = collectionView else {
             return
         }
 

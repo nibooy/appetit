@@ -64,13 +64,17 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
 //                // THIS might cause errors sorrys
 //        self.viewDidLoad()
         //print(fridge)
-        DispatchQueue.main.async {
-            self.selected = [String]()
-            self.collectionView.reloadData()
-        }
+        self.selected = [String]()
+        
+        self.refreshCollection()
     }
      //MARK: - Navigation
-    
+    private func refreshCollection() {
+        DispatchQueue.main.async { [weak self] in
+        self?.collectionView.collectionViewLayout.invalidateLayout()
+        self?.collectionView.reloadData()
+        }
+    }
         // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             // Get the new view controller using segue.destination.
@@ -148,6 +152,7 @@ class IngredientsViewController: UIViewController, UICollectionViewDataSource, U
         fridge.sort {
             $0.name < $1.name
         }
+        self.refreshCollection()
         
     }
     func picture(food: String) -> UIImage{

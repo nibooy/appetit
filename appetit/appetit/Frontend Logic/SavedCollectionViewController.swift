@@ -46,6 +46,7 @@ class SavedCollectionViewController: UICollectionViewController, SFSafariViewCon
             self.collectionView!.reloadData()
         }
     }
+
     
 
     /*
@@ -59,7 +60,26 @@ class SavedCollectionViewController: UICollectionViewController, SFSafariViewCon
     */
 
     // MARK: UICollectionViewDataSource
-
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(true)
+            setupData(email: email)
+            //self.collectionView.reloadData()
+    //                // THIS might cause errors sorrys
+    //        self.viewDidLoad()
+            //print(fridge)
+    //        DispatchQueue.main.async {
+    //            self.collectionView.reloadData()
+    //        }
+            self.refreshCollection()
+    }
+    
+    private func refreshCollection() {
+        DispatchQueue.main.async { [weak self] in
+        self?.collectionView.collectionViewLayout.invalidateLayout()
+        self?.collectionView.reloadData()
+        }
+    }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

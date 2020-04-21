@@ -55,13 +55,14 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setup()
-        self.collectionView.reloadData()
+        //self.collectionView.reloadData()
 //                // THIS might cause errors sorrys
 //        self.viewDidLoad()
         //print(fridge)
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+//        DispatchQueue.main.async {
+//            self.collectionView.reloadData()
+//        }
+        self.refreshCollection()
     }
     // MARK: - Navigation
 //
@@ -71,7 +72,12 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
 //        // Pass the selected object to the new view controller.
 //    }
 
-    
+    private func refreshCollection() {
+        DispatchQueue.main.async { [weak self] in
+        self?.collectionView.collectionViewLayout.invalidateLayout()
+        self?.collectionView.reloadData()
+        }
+    }
     //Listener that once alert is closed will reload data has a bug of breaking constraint on reloads
     @objc func listnerFunction() {
         print("yes")
@@ -141,6 +147,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
         
         let add = Food(name: "AddButton", measurement: "2", image: UIImage(imageLiteralResourceName: "avocado"))
         self.fridge.append(add)
+        self.refreshCollection()
         
         
     }

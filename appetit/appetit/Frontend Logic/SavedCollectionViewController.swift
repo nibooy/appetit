@@ -102,8 +102,9 @@ class SavedCollectionViewController: UICollectionViewController, SFSafariViewCon
             let image = UIImage(data: imageData)
             cell.configureData(name: name, image: image ?? UIImage(imageLiteralResourceName: "Avocado"))
         }catch{
-            //Set a defualt image icon later
-            print("NOOOOO")
+            let alert = UIAlertController(title: "No Internet Connection", message: "There is a problem connecting to appetit. Please try again later.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (s) in}))
+            self.present(alert, animated: true, completion: nil)
         }
         
         

@@ -145,7 +145,7 @@ class VirtualFridgeViewController: UIViewController, UICollectionViewDelegate, U
             $0.name < $1.name
         }
         
-        let add = Food(name: "AddButton", measurement: "2", image: UIImage(imageLiteralResourceName: "avocado"))
+        let add = Food(name: "AddButton", measurement: "2", image: UIImage(imageLiteralResourceName: "filler"))
         self.fridge.append(add)
         self.refreshCollection()
         

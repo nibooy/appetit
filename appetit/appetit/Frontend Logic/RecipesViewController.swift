@@ -43,7 +43,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     var globalcount: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(selectedIngredients)
+        setupMenuButton()
         let virtualFridgeController = VirtualFridgeController()
         userEmail =  UserDefaults.standard.string(forKey: "email") ?? "no email"
         //print(userEmail)
@@ -103,12 +103,21 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
 //        self.setupLayout()
     }
    
-    
-    
-    
     override func viewDidDisappear(_ animated: Bool) {
         //dismisses screen when tabs to another screen
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setupMenuButton(){
+        //let leftItem = UIBarButtonItem(customView: longTitleLabel)
+        let menu = UIButton()
+        menu.imageView?.contentMode = .scaleAspectFit
+        menu.addTarget(self, action: #selector(menuButtonClicked), for: .touchUpInside)
+        menu.setImage(UIImage(imageLiteralResourceName: "menu"), for: .normal)
+        menu.widthAnchor.constraint(equalToConstant: 34.0).isActive = true
+        menu.heightAnchor.constraint(equalToConstant: 34.0).isActive = true
+        let rightItem = UIBarButtonItem(customView: menu)
+        self.navigationItem.rightBarButtonItem = rightItem
     }
     
        
@@ -349,6 +358,37 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
 //
 //
 //    }
+    //Handles Side menu
+    //########################################################
+    lazy var settingsLauncher: SettingLauncher = {
+        let launcher = SettingLauncher()
+        launcher.RPController = self
+        return launcher
+    }()
+    
+    @objc func menuButtonClicked(_ sender: UIButton) {
+        settingsLauncher.showsSettings()
+    }
+    
+    func showControllerForSetting(setting: Setting) {
+
+        let SettingViewController = AccountViewController()
+        SettingViewController.view.backgroundColor = .white
+        SettingViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Didot-Bold", size: 25)!]
+        navigationController?.navigationBar.tintColor = .black
+        
+        let transition = CATransition()
+        transition.duration = 0.75
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.pushViewController(SettingViewController, animated: true)
+    }
+    
+    //########################################################
 
 }
 

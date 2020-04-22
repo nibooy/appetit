@@ -42,6 +42,8 @@ class SettingLauncher: NSObject, UICollectionViewDelegate, UICollectionViewDeleg
     var IVController: IngredientsViewController?
     var VFController: VirtualFridgeViewController?
     var SVController: SavedCollectionViewController?
+    var RPController: RecipesViewController?
+
     
     let blackView = UIView()
     
@@ -155,6 +157,10 @@ class SettingLauncher: NSObject, UICollectionViewDelegate, UICollectionViewDeleg
                 }
                 else if ((self.SVController) != nil){
                     self.SVController?.showControllerForSetting(setting: setting)
+
+                }
+                else if ((self.RPController) != nil){
+                    self.RPController?.showControllerForSetting(setting: setting)
 
                 }
             }
